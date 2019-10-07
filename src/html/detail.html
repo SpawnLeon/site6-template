@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="ru">
 <head>
+    <link rel="stylesheet" type="text/css" href="../sass/styles.scss"/>
     <title>Муром мебель</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -643,24 +644,32 @@
                                         <div data-tab="card-tabs-4" class="card-tabs__tab">
 
                                             <div class="catalog-card__reviews reviews">
-                                                <div class="reviews__items">
-                                                    <div class="reviews__item review-item">
-                                                        <div class="review-item__header">
-                                                            <div class="review-item__author">Елена</div>
-                                                            <div class="review-item__date">22 июла 2019</div>
-                                                        </div>
-                                                        <div class="review-item__text">
-                                                            Не следует, однако забывать, что дальнейшее развитие
-                                                            различных форм деятельности влечет за собой процесс
-                                                            внедрения и модернизации дальнейших направлений развития.
-                                                            Таким образом постоянное информационно-пропагандистское
-                                                            обеспечение нашей деятельности обеспечивает широкому кругу
-                                                            (специалистов) участие в развитие различных форм
-                                                            деятельности влечет за собой процесс внедрения и
-                                                            модернизации дальнейших направлений развития.
+                                                <div class="reviews__inner">
+                                                    <div class="reviews__items">
+                                                        <div class="reviews__item review-item">
+                                                            <div class="review-item__header">
+                                                                <span class="review-item__author">Елена,</span>
+                                                                <span class="review-item__date">22 июла 2019</span>
+                                                            </div>
+                                                            <div class="review-item__text">
+                                                                Не следует, однако забывать, что дальнейшее развитие
+                                                                различных форм деятельности влечет за собой процесс
+                                                                внедрения и модернизации дальнейших направлений
+                                                                развития.
+                                                                Таким образом постоянное информационно-пропагандистское
+                                                                обеспечение нашей деятельности обеспечивает широкому
+                                                                кругу
+                                                                (специалистов) участие в развитие различных форм
+                                                                деятельности влечет за собой процесс внедрения и
+                                                                модернизации дальнейших направлений развития.
+                                                            </div>
                                                         </div>
                                                     </div>
+                                                    <button class="reviews__more-btn btn--clear btn">Показать ещё
+                                                    </button>
                                                 </div>
+
+                                                <button class="reviews__add-btn btn--clear btn">Оставить отзыв</button>
 
 
                                             </div>
@@ -686,6 +695,378 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="catalog-card__how-buy card-how-buy">
+                                <div class="card-how-buy__inner">
+                                    <div class="card-how-buy__item how-buy-item">
+                                        <div class="how-buy-item__image how-buy-item__image--1"></div>
+                                        <div class="how-buy-item__title">
+                                            Выберите понравившуюся мебель
+                                        </div>
+                                    </div>
+                                    <div class="card-how-buy__item how-buy-item">
+                                        <div class="how-buy-item__image how-buy-item__image--2"></div>
+                                        <div class="how-buy-item__title">
+                                            Укажите размер, цвет, дополнительные опции
+                                        </div>
+                                    </div>
+                                    <div class="card-how-buy__item how-buy-item">
+                                        <div class="how-buy-item__image how-buy-item__image--3"></div>
+                                        <div class="how-buy-item__title">
+                                            Воспользуйтесь корзиной или позвоните нам
+                                        </div>
+                                    </div>
+                                    <div class="card-how-buy__item how-buy-item">
+                                        <div class="how-buy-item__image how-buy-item__image--4"></div>
+                                        <div class="how-buy-item__title">
+                                            Менеджер подтвердит заказ
+                                        </div>
+                                    </div>
+                                    <div class="card-how-buy__item how-buy-item">
+                                        <div class="how-buy-item__image how-buy-item__image--5"></div>
+                                        <div class="how-buy-item__title">
+                                            Ожидайте мебель в назначенное время
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-how-buy__more">
+                                    Подробную инструкцию по оформлению заявки смотрите <a
+                                        class="card-how-buy__more-link">здесь</a>
+                                </div>
+                            </div>
+                            <div class="catalog-card__additional-products">
+                                <div class="card-additional-products__title">К этому товару подойдёт</div>
+
+
+                                <div class="swiper-container card-additional-products__container">
+                                    <ul class="card-additional-products__inner swiper-wrapper list--clear">
+                                        <li class="swiper-slide">
+                                            <div class="catalog-list__item catalog-list-item">
+                                                <a href="" class="catalog-list-item__image">
+                                                    <img src="../example_images/catalog-list/8.png" alt="">
+                                                </a>
+                                                <div class="catalog-list-item__vendor-code">
+                                                    Артикул: TOO1002
+                                                </div>
+                                                <a href="" class="catalog-list-item__title">
+                                                    Матрас Стандарт кокос-2
+                                                </a>
+                                                <div class="catalog-list-item__prices">
+                                                    <div class="catalog-list-item__price">
+                                                        9 600 ₽
+                                                    </div>
+                                                    <div class="catalog-list-item_price catalog-list-item__price--old">
+                                                        10 720 ₽
+                                                    </div>
+                                                </div>
+                                                <a href="" class="catalog-list-item__more">
+                                                    Подробнее
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="swiper-slide">
+                                            <div class="catalog-list__item catalog-list-item">
+                                                <a href="" class="catalog-list-item__image">
+                                                    <img src="../example_images/catalog-list/2.png" alt="">
+                                                </a>
+                                                <div class="catalog-list-item__vendor-code">
+                                                    Артикул: TOO1002
+                                                </div>
+                                                <a href="" class="catalog-list-item__title">
+                                                    Кровать Точенка Глория (резьба объемная №1)
+                                                </a>
+                                                <div class="catalog-list-item__prices">
+                                                    <div class="catalog-list-item__price">
+                                                        9 600 ₽
+                                                    </div>
+                                                    <div class="catalog-list-item_price catalog-list-item__price--old">
+                                                        10 720 ₽
+                                                    </div>
+                                                </div>
+                                                <a href="" class="catalog-list-item__more">
+                                                    Подробнее
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="swiper-slide">
+                                            <div class="catalog-list__item catalog-list-item">
+                                                <a href="" class="catalog-list-item__image">
+                                                    <img src="../example_images/catalog-list/8.png" alt="">
+                                                </a>
+                                                <div class="catalog-list-item__vendor-code">
+                                                    Артикул: TOO1002
+                                                </div>
+                                                <a href="" class="catalog-list-item__title">
+                                                    Матрас Стандарт кокос-2
+                                                </a>
+                                                <div class="catalog-list-item__prices">
+                                                    <div class="catalog-list-item__price">
+                                                        9 600 ₽
+                                                    </div>
+                                                    <div class="catalog-list-item_price catalog-list-item__price--old">
+                                                        10 720 ₽
+                                                    </div>
+                                                </div>
+                                                <a href="" class="catalog-list-item__more">
+                                                    Подробнее
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="swiper-slide">
+                                            <div class="catalog-list__item catalog-list-item">
+                                                <div class="catalog-list-item__stickers stickers">
+                                                    <div class="stickers__left">
+                                                        <div class="stickers__item sticker sticker--sale">-20%</div>
+                                                        <div class="stickers__item sticker sticker--new"></div>
+                                                    </div>
+                                                    <div class="stickers__right">
+                                                        <div class="stickers__item sticker sticker--hit"></div>
+                                                        <div class="stickers__item sticker sticker--color"></div>
+                                                    </div>
+                                                </div>
+                                                <a href="" class="catalog-list-item__image">
+                                                    <img src="../example_images/catalog-list/1.png" alt="">
+                                                </a>
+                                                <div class="catalog-list-item__vendor-code">
+                                                    Артикул: TOO1002
+                                                </div>
+                                                <a href="" class="catalog-list-item__title">
+                                                    Кровать Точенка Глория (резьба объемная №1)
+                                                    Кровать Точенка Глория (резьба объемная №1)
+                                                </a>
+                                                <div class="catalog-list-item__prices">
+                                                    <div class="catalog-list-item__price">
+                                                        1 999 600 ₽
+                                                    </div>
+                                                    <div class="catalog-list-item_price catalog-list-item__price--old">
+                                                        1 009 720 ₽
+                                                    </div>
+                                                </div>
+                                                <a href="" class="catalog-list-item__more">
+                                                    Подробнее
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="swiper-slide">
+                                            <div class="catalog-list__item catalog-list-item">
+                                                <a href="" class="catalog-list-item__image">
+                                                    <img src="../example_images/catalog-list/8.png" alt="">
+                                                </a>
+                                                <div class="catalog-list-item__vendor-code">
+                                                    Артикул: TOO1002
+                                                </div>
+                                                <a href="" class="catalog-list-item__title">
+                                                    Матрас Стандарт кокос-2
+                                                </a>
+                                                <div class="catalog-list-item__prices">
+                                                    <div class="catalog-list-item__price">
+                                                        9 600 ₽
+                                                    </div>
+                                                    <div class="catalog-list-item_price catalog-list-item__price--old">
+                                                        10 720 ₽
+                                                    </div>
+                                                </div>
+                                                <a href="" class="catalog-list-item__more">
+                                                    Подробнее
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="swiper-slide">
+                                            <div class="catalog-list__item catalog-list-item">
+                                                <a href="" class="catalog-list-item__image">
+                                                    <img src="../example_images/catalog-list/2.png" alt="">
+                                                </a>
+                                                <div class="catalog-list-item__vendor-code">
+                                                    Артикул: TOO1002
+                                                </div>
+                                                <a href="" class="catalog-list-item__title">
+                                                    Кровать Точенка Глория (резьба объемная №1)
+                                                </a>
+                                                <div class="catalog-list-item__prices">
+                                                    <div class="catalog-list-item__price">
+                                                        9 600 ₽
+                                                    </div>
+                                                    <div class="catalog-list-item_price catalog-list-item__price--old">
+                                                        10 720 ₽
+                                                    </div>
+                                                </div>
+                                                <a href="" class="catalog-list-item__more">
+                                                    Подробнее
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="swiper-slide">
+                                            <div class="catalog-list__item catalog-list-item">
+                                                <a href="" class="catalog-list-item__image">
+                                                    <img src="../example_images/catalog-list/8.png" alt="">
+                                                </a>
+                                                <div class="catalog-list-item__vendor-code">
+                                                    Артикул: TOO1002
+                                                </div>
+                                                <a href="" class="catalog-list-item__title">
+                                                    Матрас Стандарт кокос-2
+                                                </a>
+                                                <div class="catalog-list-item__prices">
+                                                    <div class="catalog-list-item__price">
+                                                        9 600 ₽
+                                                    </div>
+                                                    <div class="catalog-list-item_price catalog-list-item__price--old">
+                                                        10 720 ₽
+                                                    </div>
+                                                </div>
+                                                <a href="" class="catalog-list-item__more">
+                                                    Подробнее
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="swiper-slide">
+                                            <div class="catalog-list__item catalog-list-item">
+                                                <div class="catalog-list-item__stickers stickers">
+                                                    <div class="stickers__left">
+                                                        <div class="stickers__item sticker sticker--sale">-20%</div>
+                                                        <div class="stickers__item sticker sticker--new"></div>
+                                                    </div>
+                                                    <div class="stickers__right">
+                                                        <div class="stickers__item sticker sticker--hit"></div>
+                                                        <div class="stickers__item sticker sticker--color"></div>
+                                                    </div>
+                                                </div>
+                                                <a href="" class="catalog-list-item__image">
+                                                    <img src="../example_images/catalog-list/1.png" alt="">
+                                                </a>
+                                                <div class="catalog-list-item__vendor-code">
+                                                    Артикул: TOO1002
+                                                </div>
+                                                <a href="" class="catalog-list-item__title">
+                                                    Кровать Точенка Глория (резьба объемная №1)
+                                                    Кровать Точенка Глория (резьба объемная №1)
+                                                </a>
+                                                <div class="catalog-list-item__prices">
+                                                    <div class="catalog-list-item__price">
+                                                        1 999 600 ₽
+                                                    </div>
+                                                    <div class="catalog-list-item_price catalog-list-item__price--old">
+                                                        1 009 720 ₽
+                                                    </div>
+                                                </div>
+                                                <a href="" class="catalog-list-item__more">
+                                                    Подробнее
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="swiper-slide">
+                                            <div class="catalog-list__item catalog-list-item">
+                                                <a href="" class="catalog-list-item__image">
+                                                    <img src="../example_images/catalog-list/8.png" alt="">
+                                                </a>
+                                                <div class="catalog-list-item__vendor-code">
+                                                    Артикул: TOO1002
+                                                </div>
+                                                <a href="" class="catalog-list-item__title">
+                                                    Матрас Стандарт кокос-2
+                                                </a>
+                                                <div class="catalog-list-item__prices">
+                                                    <div class="catalog-list-item__price">
+                                                        9 600 ₽
+                                                    </div>
+                                                    <div class="catalog-list-item_price catalog-list-item__price--old">
+                                                        10 720 ₽
+                                                    </div>
+                                                </div>
+                                                <a href="" class="catalog-list-item__more">
+                                                    Подробнее
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="swiper-slide">
+                                            <div class="catalog-list__item catalog-list-item">
+                                                <a href="" class="catalog-list-item__image">
+                                                    <img src="../example_images/catalog-list/2.png" alt="">
+                                                </a>
+                                                <div class="catalog-list-item__vendor-code">
+                                                    Артикул: TOO1002
+                                                </div>
+                                                <a href="" class="catalog-list-item__title">
+                                                    Кровать Точенка Глория (резьба объемная №1)
+                                                </a>
+                                                <div class="catalog-list-item__prices">
+                                                    <div class="catalog-list-item__price">
+                                                        9 600 ₽
+                                                    </div>
+                                                    <div class="catalog-list-item_price catalog-list-item__price--old">
+                                                        10 720 ₽
+                                                    </div>
+                                                </div>
+                                                <a href="" class="catalog-list-item__more">
+                                                    Подробнее
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="swiper-slide">
+                                            <div class="catalog-list__item catalog-list-item">
+                                                <a href="" class="catalog-list-item__image">
+                                                    <img src="../example_images/catalog-list/8.png" alt="">
+                                                </a>
+                                                <div class="catalog-list-item__vendor-code">
+                                                    Артикул: TOO1002
+                                                </div>
+                                                <a href="" class="catalog-list-item__title">
+                                                    Матрас Стандарт кокос-2
+                                                </a>
+                                                <div class="catalog-list-item__prices">
+                                                    <div class="catalog-list-item__price">
+                                                        9 600 ₽
+                                                    </div>
+                                                    <div class="catalog-list-item_price catalog-list-item__price--old">
+                                                        10 720 ₽
+                                                    </div>
+                                                </div>
+                                                <a href="" class="catalog-list-item__more">
+                                                    Подробнее
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="swiper-slide">
+                                            <div class="catalog-list__item catalog-list-item">
+                                                <div class="catalog-list-item__stickers stickers">
+                                                    <div class="stickers__left">
+                                                        <div class="stickers__item sticker sticker--sale">-20%</div>
+                                                        <div class="stickers__item sticker sticker--new"></div>
+                                                    </div>
+                                                    <div class="stickers__right">
+                                                        <div class="stickers__item sticker sticker--hit"></div>
+                                                        <div class="stickers__item sticker sticker--color"></div>
+                                                    </div>
+                                                </div>
+                                                <a href="" class="catalog-list-item__image">
+                                                    <img src="../example_images/catalog-list/1.png" alt="">
+                                                </a>
+                                                <div class="catalog-list-item__vendor-code">
+                                                    Артикул: TOO1002
+                                                </div>
+                                                <a href="" class="catalog-list-item__title">
+                                                    Кровать Точенка Глория (резьба объемная №1)
+                                                    Кровать Точенка Глория (резьба объемная №1)
+                                                </a>
+                                                <div class="catalog-list-item__prices">
+                                                    <div class="catalog-list-item__price">
+                                                        1 999 600 ₽
+                                                    </div>
+                                                    <div class="catalog-list-item_price catalog-list-item__price--old">
+                                                        1 009 720 ₽
+                                                    </div>
+                                                </div>
+                                                <a href="" class="catalog-list-item__more">
+                                                    Подробнее
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="card-additional-products__pager"></div>
+                                </div>
+
+                            </div>
+
+
                         </div>
                     </div>
                 </div>

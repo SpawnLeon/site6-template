@@ -48,8 +48,6 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
   margin: 0;
   list-style: none;
-  display: list-item;
-
 }
 
 .list--clear li:before {
@@ -1539,6 +1537,7 @@ li:before {
 /*<<<catalog-list-item*/
 .catalog__content {
   flex: 1 1 100%;
+  max-width: calc(100vw - 582px);
 }
 
 
@@ -2006,6 +2005,175 @@ li:before {
 
 .catalog-card__tabs {
   width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.review-item__header {
+  font-family: 'Raleway', sans-serif;
+}
+
+.review-item__author {
+  font-weight: bold;
+  font-size: 16px;
+  color: #222222;
+}
+
+.review-item__date {
+  font-weight: normal;
+  font-size: 12px;
+}
+
+.review-item__text {
+  font-size: 15px;
+  margin-top: 15px;
+}
+
+.reviews__more-btn {
+  background: #fff;
+  border: 1px solid #222222;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+  padding: 7px 50px 10px;
+  margin-top: 30px;
+  min-width: 220px;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background: #222222;
+    color: #fff;
+  }
+
+  &:active {
+    box-shadow: inset 0 0 10px #000000;
+  }
+}
+
+
+.reviews__add-btn {
+
+  border: 1px solid #222222;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+  padding: 7px 50px 10px;
+  margin-top: 30px;
+  background: #222222;
+  color: #fff;
+  min-width: 220px;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background: #fff;
+    color: #222222;
+  }
+
+  &:active {
+    box-shadow: inset 0 0 10px #000000;
+  }
+}
+
+.reviews {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.reviews__inner {
+  flex: 0 1 950px;
+  margin-right: 15px;
+
+}
+
+.card-how-buy__inner {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.how-buy-item__title {
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+  color: #333333;
+}
+
+.how-buy-item__image {
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 71px;
+}
+
+.how-buy-item {
+  max-width: 200px;
+}
+
+.catalog-card__how-buy {
+  padding: 35px;
+  border-top: 1px solid #E2E2E2;
+}
+
+@for $i from 1 to 6 {
+  .how-buy-item__image--#{$i} {
+    background-image: url(../images/how-buy/#{$i}.svg);
+  }
+}
+
+.card-how-buy__more {
+  font-size: 12px;
+  text-align: center;
+  color: #656565;
+  margin-top: 25px;
+}
+
+.card-how-buy__more-link {
+  border-bottom: 1px solid #656565;
+
+  &:hover,
+  &:focus,
+  &:active {
+    border-bottom-color: transparent;
+  }
+}
+
+.card-additional-products__title {
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+}
+
+.catalog-card__additional-products {
+  padding: 35px 0;
+  border-top: 1px solid #E2E2E2;
+}
+
+.card-additional-products__container {
+  margin-top: 30px;
+}
+
+.card-additional-products__pager {
+  display: flex;
+}
+
+.card-additional-products__bullet {
+  background-color: #E2E2E2;
+  height: 4px;
+  width: 100%;
+  margin: 0 2px;
+  cursor: pointer;
+}
+
+.card-additional-products__bullet--active {
+  background-color: #FFA800;
 }
 
 /*<<<catalog card*/
