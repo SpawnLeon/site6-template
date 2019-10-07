@@ -1,15 +1,22 @@
+const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: './src/app.js',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+  entry: {
+    app: './src/app.js'
   },
-  mode: 'development',
-
+  output: {
+    filename: '[name].js',
+    path: path.resolve(__dirname, './dist')
+  },
+  devServer: {
+    overlay: true,
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 9000
+  },
   module: {
     rules: [
       {
@@ -32,7 +39,7 @@ module.exports = {
             loader: "css-loader",
           },
           {
-            loader: "postcss-loader"
+            loader: 'postcss-loader'
           },
           {
             loader: "sass-loader",
@@ -48,7 +55,8 @@ module.exports = {
           {
             loader: "file-loader",
             options: {
-              outputPath: 'images'
+              outputPath: 'images',
+              name: '[name].[ext]'
             }
           }
         ]
@@ -59,10 +67,23 @@ module.exports = {
           {
             loader: "file-loader",
             options: {
-              outputPath: 'fonts'
+              outputPath: 'fonts',
+              name: '[name].[ext]'
             }
           }
         ]
+      },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'html',
+              name: '[name].[ext]'
+            }
+          },
+        ],
       }
     ]
   },
@@ -72,10 +93,13 @@ module.exports = {
       filename: "bundle.css"
     }),
     new CopyPlugin([
-      {from: 'src/html', to: 'html'},
       {from: 'src/assets', to: 'assets'},
       {from: 'src/example_images', to: 'example_images'},
       {from: 'src/images', to: 'images'}
     ]),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
+    })
   ]
 };
