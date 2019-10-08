@@ -1915,11 +1915,15 @@ li:before {
   display: flex;
   align-items: center;
   flex: 0 1 50%;
+
+}
+
+.sizes-table__item--color {
+  background-color: #EEEEEE;
 }
 
 .sizes-table__item:nth-child(odd) {
   border-right: 1px solid #E2E2E2;
-  background-color: #EEEEEE;
 }
 
 .catalog-card__additional {
@@ -2136,6 +2140,7 @@ li:before {
 
 .card-how-buy__more-link {
   border-bottom: 1px solid #656565;
+  cursor: pointer;
 
   &:hover,
   &:focus,
@@ -2164,7 +2169,7 @@ li:before {
   display: flex;
 }
 
-.card-additional-products__bullet {
+.swiper-container-horizontal.card-additional-products__container > .swiper-pagination-bullets .swiper-pagination-bullet {
   background-color: #E2E2E2;
   height: 4px;
   width: 100%;
@@ -2172,8 +2177,68 @@ li:before {
   cursor: pointer;
 }
 
-.card-additional-products__bullet--active {
+.swiper-container-horizontal.card-additional-products__container > .swiper-pagination-bullets .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: #FFA800;
+}
+
+.mattress-composition-item__help {
+  min-width: 14px;
+  width: 14px;
+  height: 14px;
+  background-color: #FFA800;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+.mattress-composition-item__text {
+  font-size: 13px;
+  margin-left: 10px;
+}
+
+.mattress-composition-item {
+  display: flex;
+  align-items: center;
+  flex: 0 1 48%;
+  margin-bottom: 10px;
+}
+
+.mattress-composition {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.mattress-composition {
+  counter-reset: mattress-numbers;
+}
+
+.mattress-composition-item__count {
+  color: #50966B;
+  font-weight: 700;
+  width: 32px;
+  min-width: 32px;
+  height: 38px;
+  background-image: url(../images/green-numbers.png);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mattress-composition-item__count::before {
+  counter-increment: mattress-numbers;
+  content: counter(mattress-numbers);
+  position: relative;
+  top: -3px;
+  font-size: 12px;
+  line-height: 12px;
 }
 
 /*<<<catalog card*/
