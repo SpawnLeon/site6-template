@@ -83,6 +83,18 @@ module.exports = {
               name: '[name].[ext]'
             }
           },
+          // {
+          //   loader: 'extract-loader',
+          // },
+          // {
+          //   loader: 'html-loader',
+          //   options: {
+          //     interpolate: true,
+          //     minimize: true,
+          //     removeComments: true,
+          //     collapseWhitespace: false
+          //   }
+          // },
         ],
       }
     ]

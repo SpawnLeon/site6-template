@@ -1656,6 +1656,10 @@ li:before {
   display: inline-block;
 }
 
+.breadcrumbs a {
+  color: #A1A1A1;
+}
+
 /*<<<breadcrumbs*/
 .catalog-title-image {
   display: flex;
@@ -1665,7 +1669,6 @@ li:before {
   background-image: url(../example_images/catalog-list/catalog-title-image-1.jpg);
   background-position: center;
   min-height: 109px;
-  /* background-size: cover; */
   background-repeat: no-repeat;
 }
 
@@ -2242,3 +2245,114 @@ li:before {
 }
 
 /*<<<catalog card*/
+.content__title {
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+  font-size: 54px;
+  margin-top: 30px;
+}
+
+.certificates__title {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: #333333;
+}
+
+.content__inner {
+  margin-top: 30px;
+}
+
+.certificates__group {
+  margin-top: 40px;
+}
+
+.certificates__inner {
+  margin-top: 20px;
+}
+
+.certificates__item {
+  text-decoration: none;
+  border: 1px solid #EEEEEE;
+  margin: 0 15px 30px;
+
+  & img {
+    display: block;
+  }
+}
+
+.certificates__inner {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.certificates__inner {
+  margin: 15px -15px 0;
+}
+
+.content__title--partners {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 46px;
+  color: #222222;
+  margin-top: 75px;
+}
+
+.partners-promo {
+  padding: 30px 60px;
+  background: #F5F5F5;
+  border-radius: 0 70px 0 0;
+  margin-top: 25px;
+}
+
+.partners-promo__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.partners-item {
+  flex: 0 1 20%;
+  margin: 0 1%;
+}
+
+.partners-promo__title {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: #222222;
+}
+
+.partners-item__image {
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100px;
+}
+
+@for $i from 1 to 5 {
+  .partners-item__image--#{$i} {
+    background-image: url(../images/partners-items/#{$i}.svg);
+  }
+}
+
+.partners-item__title {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 35px;
+}
+
+.partners__text {
+  font-size: 18px;
+  margin-top: 30px;
+}
+
+.partners__line-1 {
+  font-family: 'Raleway', sans-serif;;
+  font-weight: 600;
+  font-size: 24px;
+  color: #222222;
+  margin-top: 15px;
+}

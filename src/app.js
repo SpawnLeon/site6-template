@@ -19,4 +19,6 @@ import './js/main.js';
 require('./html/index.html');
 require('./html/catalog.html');
 require('./html/detail.html');
+require('./html/certificates.html');
+require('./html/partners.html');
 
