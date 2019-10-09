@@ -1,14 +1,27 @@
 .content-image--left {
-    float: left;
-    margin: 20px 20px 20px 0
+  float: left;
+  margin: 20px 20px 20px 0
 }
 
 .content-image--right {
-    float: right;
-    margin: 5px 0 20px 20px;
+  float: right;
+  margin: 5px 0 20px 20px;
 }
-.content__subtitle{
-    margin: 30px 0 15px;
-    font-weight: bold;
-    font-size: 24px;
+
+.content__subtitle {
+  margin: 30px 0 15px;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+p:first-child {
+  margin-top: 0;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+:not(.list--clear) li {
+  margin-bottom: 15px;
 }

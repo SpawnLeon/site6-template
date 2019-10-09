@@ -21,4 +21,7 @@ require('./html/catalog.html');
 require('./html/detail.html');
 require('./html/certificates.html');
 require('./html/partners.html');
+require('./html/boss.html');
+require('./html/how-buy.html');
+require('./html/payment-delivery.html');
 
