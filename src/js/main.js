@@ -94,6 +94,18 @@ const domReady = () => {
     maxWidth: 320,
     delay: 100,
   });
+
+
+  document.querySelectorAll('.materials-item__more').forEach((el) => {
+    el.addEventListener('click', () => {
+      el.classList.toggle('materials-item__more--open')
+
+      el.closest('.phones')
+        .querySelector('.phones-list')
+        .classList.toggle('phones-list--open');
+    });
+  });
+
   // const app = new Vue({
   //   el: '#js__catalog-card-app',
   //   data: {

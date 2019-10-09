@@ -3,8 +3,7 @@ module.exports = (env, argv) => {
     return {
       plugins: [
         require('autoprefixer')({
-          browsers: ['ie >= 8', 'last 4 version'],
-          sourceMap: 'inline'
+          browsers: ['ie >= 8', 'last 4 version']
         }),
         require('cssnano')
       ]
