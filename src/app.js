@@ -25,4 +25,5 @@ require('./html/boss.html');
 require('./html/how-buy.html');
 require('./html/payment-delivery.html');
 require('./html/materials.html');
+require('./html/contacts.html');
 

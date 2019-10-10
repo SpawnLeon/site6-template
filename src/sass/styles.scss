@@ -12,7 +12,7 @@ html {
 body {
   color: #333;
   font-size: 18px;
-  line-height: 1.2;
+  line-height: 1.2222;
   background-color: #fff;
   width: 100%;
   font-family: 'Lato', sans-serif;
@@ -2587,7 +2587,7 @@ $catalog-menu-colors: (
   display: inline-block;
   overflow: hidden;
 
-  &--open{
+  &--open {
     max-height: none;
   }
 }
@@ -2678,3 +2678,194 @@ $catalog-menu-colors: (
 }
 
 /*<<<materials*/
+/*contacts>>>*/
+.manager__name {
+  font-size: 16px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.managers-block__inner {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px -12px 0
+}
+
+.managers-block__title {
+  font-weight: bold;
+}
+
+.managers-block__item {
+  margin: 0 12px;
+}
+
+.contacts-page__phones {
+  margin-top: 40px;
+}
+
+.contacts-phones__title {
+  font-weight: bold;
+}
+
+.contacts-phones__inner {
+  margin-top: 20px;
+  max-width: 420px;
+}
+
+.contacts-phone {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 20px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.contacts-page__managers {
+  max-width: 560px;
+}
+
+.contacts-page__top {
+  display: flex;
+}
+
+.contacts-page__form {
+  flex: 1 1 auto;
+}
+
+.contacts-page__shops {
+  margin-top: 50px;
+}
+
+.shop {
+  padding: 30px 0;
+  border-bottom: 1px solid #E2E2E2;
+}
+.shop--dealer{
+  border-bottom: none;
+}
+.shop__inner {
+  display: flex;
+
+}
+
+.shop__images {
+
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -5px -15px;
+
+}
+
+.shop__title {
+  font-weight: 700;
+}
+
+.shop__info {
+  padding: 20px 25px;
+  background-color: #F5F5F5;
+  min-width: 490px;
+  max-width: 490px;
+}
+
+.shop__block-title {
+  font-weight: 500;
+}
+
+.shop__image img {
+  display: block;
+}
+
+.shop__image {
+  margin: 0 5px 15px
+}
+
+.shop__map {
+  margin-right: 50px;
+  width: 100%;
+  max-width: 594px;
+
+
+}
+
+.shop__inner-block {
+  margin-top: 20px;
+}
+
+.shops__title {
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+  font-size: 54px;
+  margin: 1.6666rem 0 0 0;
+}
+
+.shop__number {
+  color: #5CA3FD
+}
+
+.shops--dealers {
+  margin-top: 60px;
+}
+
+.shops__tabs {
+  display: flex;
+  margin-top: 30px;
+}
+
+.shops__tab {
+  font-weight: 600;
+  font-size: 24px;
+  margin-right: 39px;
+  border-bottom: 1px dashed;
+  cursor: pointer;
+
+  &:hover,
+  &:active,
+  &:focus,
+  &--active {
+    color: #FFA800
+  }
+}
+.requisites__map{
+  position: relative;
+}
+
+.factory-address{
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  z-index: 1;
+}
+.requisites__info{
+  padding: 0 25px 0 0;
+  min-width: 490px;
+  max-width: 490px;
+}
+.requisites {
+  display: flex;
+  margin-top: 40px;
+}
+.requisites__map{
+  margin-right: 50px;
+  width: 100%;
+  max-width: 594px;
+}
+.factory-address__title{
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.factory-address__phones{
+  margin-top: 10px;
+}
+.factory-address__phone{
+  display: block;
+  margin-top: 5px;
+  font-weight: 600;
+  font-size: 20px;
+  text-decoration: none;
+}
+/*<<<contacts*/
