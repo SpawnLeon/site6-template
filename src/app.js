@@ -27,4 +27,6 @@ require('./html/payment-delivery.html');
 require('./html/materials.html');
 require('./html/contacts.html');
 require('./html/guarantee.html');
+require('./html/works.html');
+
 

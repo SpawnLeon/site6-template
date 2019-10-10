@@ -35,13 +35,15 @@ h1, h2, h3, h4, h5, h6 {
 h1, .h1 {
   margin: 1.6666rem 0 2.222rem 0
 }
-h3, .h3{
+
+h3, .h3 {
   font-family: $RalewayFont;
   font-weight: 600;
   font-size: 46px;
-  margin: 2.222rem 0 1.1111rem ;
+  margin: 2.222rem 0 1.1111rem;
 
 }
+
 .container {
   max-width: 1600px + $container-gutter * 2;
   width: 100%;
@@ -2749,9 +2751,11 @@ $catalog-menu-colors: (
   padding: 30px 0;
   border-bottom: 1px solid #E2E2E2;
 }
-.shop--dealer{
+
+.shop--dealer {
   border-bottom: none;
 }
+
 .shop__inner {
   display: flex;
 
@@ -2834,11 +2838,12 @@ $catalog-menu-colors: (
     color: #FFA800
   }
 }
-.requisites__map{
+
+.requisites__map {
   position: relative;
 }
 
-.factory-address{
+.factory-address {
   padding: 15px;
   background-color: rgba(255, 255, 255, 0.7);
   border-radius: 5px;
@@ -2847,32 +2852,74 @@ $catalog-menu-colors: (
   left: 40px;
   z-index: 1;
 }
-.requisites__info{
+
+.requisites__info {
   padding: 0 25px 0 0;
   min-width: 490px;
   max-width: 490px;
 }
+
 .requisites {
   display: flex;
   margin-top: 40px;
 }
-.requisites__map{
+
+.requisites__map {
   margin-right: 50px;
   width: 100%;
   max-width: 594px;
 }
-.factory-address__title{
+
+.factory-address__title {
   font-weight: 700;
   margin-bottom: 6px;
 }
-.factory-address__phones{
+
+.factory-address__phones {
   margin-top: 10px;
 }
-.factory-address__phone{
+
+.factory-address__phone {
   display: block;
   margin-top: 5px;
   font-weight: 600;
   font-size: 20px;
   text-decoration: none;
 }
+
 /*<<<contacts*/
+/*works>>>*/
+.works-page__list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 40px -10px 0;
+}
+
+.works-page__item {
+  margin: 0 10px 20px;
+  flex: 1 1 385px;
+}
+
+.works-page__image {
+  display: block;
+  width: 100%;
+}
+
+.works-filter__item {
+  border: 2px solid #5CA3FD;
+  padding: 10px 20px 11px;
+  transition: all 0.3s;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 24px;
+  color: #5CA3FD;
+
+  &:focus,
+  &:active,
+  &:hover {
+    background-color: #5CA3FD;
+    color: #fff;
+  }
+}
+
+/*<<<works*/
