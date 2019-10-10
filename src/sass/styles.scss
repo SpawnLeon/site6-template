@@ -7,11 +7,12 @@ $RalewayFont: 'Raleway', sans-serif;
 
 html {
   min-width: 100%;
+  font-size: 18px;
 }
 
 body {
   color: #333;
-  font-size: 18px;
+  font-size: 1rem;
   line-height: 1.2222;
   background-color: #fff;
   width: 100%;
@@ -31,10 +32,16 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 800;
 }
 
-h1 {
+h1, .h1 {
   margin: 1.6666rem 0 2.222rem 0
 }
+h3, .h3{
+  font-family: $RalewayFont;
+  font-weight: 600;
+  font-size: 46px;
+  margin: 2.222rem 0 1.1111rem ;
 
+}
 .container {
   max-width: 1600px + $container-gutter * 2;
   width: 100%;
@@ -2514,7 +2521,7 @@ $catalog-menu-colors: (
 /*<<<how-buy*/
 /*payment-delivery>>>*/
 .payment-delivery-item__title {
-  font-family: 'Raleway', sans-serif;
+  font-family: $RalewayFont;
   font-weight: bold;
   font-size: 52px;
 }
@@ -2605,7 +2612,7 @@ $catalog-menu-colors: (
 }
 
 .materials-item__title {
-  font-family: 'Raleway', sans-serif;
+  font-family: $RalewayFont;
   font-weight: bold;
   font-size: 18px;
 }
