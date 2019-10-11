@@ -202,65 +202,269 @@
         </ul>
     </div>
 </header>
-<main class="page__middle content content__actions-page">
+<main class="page__middle content content__basket-page">
     <div class="container">
-        <h1 class="content__title">Акции</h1>
+        <h1 class="content__title">Корзина</h1>
         <div class="content__inner">
-            <div class="actions-page">
-                <div class="actions-page__list">
-                    <a href="" class="actions-page__item actions-item">
-                        <img src="../example_images/actions/1.png" alt="" class="img-fluid actions-item__image">
-                    </a>
-                    <a href="" class="actions-page__item actions-item">
-                        <span class="actions-item__sticker--archive">
-                            Акция завершена
-                        </span>
-                        <img src="../example_images/actions/2.png" alt="" class="img-fluid actions-item__image">
-                    </a>
-                    <a href="" class="actions-page__item actions-item">
-                        <img src="../example_images/actions/3.png" alt="" class="img-fluid actions-item__image">
-                    </a>
-                    <a href="" class="actions-page__item actions-item">
-                        <img src="../example_images/actions/4.png" alt="" class="img-fluid actions-item__image">
-                    </a>
-                    <a href="" class="actions-page__item actions-item">
-                        <img src="../example_images/actions/5.png" alt="" class="img-fluid actions-item__image">
-                    </a>
-                    <a href="" class="actions-page__item actions-item">
-                        <img src="../example_images/actions/6.png" alt="" class="img-fluid actions-item__image">
-                    </a>
-                    <a href="" class="actions-page__item actions-item">
-                        <img src="../example_images/actions/7.png" alt="" class="img-fluid actions-item__image">
-                    </a>
-                </div>
-                <ul class="pager list--clear">
-                    <li>
-                        <a href="" class="pager__item pager__item-arrow">
-                            &larr;
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" class="pager__item">
-                            1
-                        </a>
-                    </li>
-                    <li>
-                            <span class="pager__item pager__item--active">
-                                2
-                            </span>
-                    </li>
-                    <li>
-                        <a href="" class="pager__item">
-                            3
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" class="pager__item pager__item-arrow">
-                            &rarr;
-                        </a>
-                    </li>
+            <div class="basket-page">
+                <div class="basket-page__list">
+                    <div class="basket-list">
+                        <div class="basket-list__row basket-list__header basket-list-header">
+                            <div class="basket-list__col basket-list__col--info">
+                                Товар
+                            </div>
+                            <div class="basket-list__col basket-list__col--cost">
+                                Стоимость
+                            </div>
+                            <div class="basket-list__col basket-list__col--qty">
+                                Количество
+                            </div>
+                            <div class="basket-list__col basket-list__col--discount">
+                                Скидка
+                            </div>
+                            <div class="basket-list__col basket-list__col--total">
+                                Сумма
+                            </div>
+                        </div>
+                        <div class="basket-list__body">
+                            <div class="basket-list__item basket-item basket-list__row">
+                                <div class="basket-list__col basket-list__col--info">
+                                    <div class="basket-item__info">
+                                        <div class="basket-item__image">
+                                            <img class="img-fluid" src="../example_images/basket/1.png" alt="">
+                                        </div>
+                                        <div class="basket-item__name-wrapper">
+                                            <a href="" class="basket-item__name">Кровать Бали</a>
+                                            <div class="basket-item__vendor-code">
+                                                Артикул: Т001083
+                                            </div>
+                                        </div>
+                                        <ul class="basket-item__props list--clear">
+                                            <li>Размер: 80 x 190 см</li>
+                                            <li>Цвет: Не выбран</li>
+                                            <li>Комплектация: стандартная</li>
+                                            <li>Ящики: Без ящиков</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="basket-list__col basket-list__col--cost">
+                                    <div class="basket-item__cost">
+                                        31 600 ₽
+                                    </div>
+                                </div>
+                                <div class="basket-list__col basket-list__col--qty">
+                                    <div class="basket-item__qty basket-item-qty">
+                                        <button type="button"
+                                                class="basket-item-qty__btn basket-item-qty__minus btn--clear">
+                                            <svg width="11" height="10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M9 5H1.929" stroke="#767676" stroke-width="2"
+                                                      stroke-linecap="round"/>
+                                            </svg>
+                                        </button>
+                                        <input type="text" class="basket-item-qty__count" value="1">
+                                        <button type="button"
+                                                class="basket-item-qty__btn basket-item-qty__plus btn--clear">
+                                            <svg width="11" height="10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M8.904 4.932l-3.39.033m0 0l.032-3.419m-.033 3.42L1.93 5m3.584-.035L5.48 8.521"
+                                                      stroke="#767676" stroke-width="2" stroke-linecap="round"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="basket-list__col basket-list__col--discount">
+                                    <div class="basket-item__discount">
+                                        -20%
+                                    </div>
+                                </div>
+                                <div class="basket-list__col basket-list__col--total">
+                                    <div class="basket-item__total basket-item-total">
+                                        <div class="basket-item-total__price">31 600 ₽</div>
+                                        <button type="button" class="basket-item-total__remove btn--clear">
+                                            <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M8.827 7.5l5.898-5.898A.938.938 0 1013.4.276L7.5 6.174 1.601.276A.938.938 0 10.275 1.602l5.899 5.899-5.9 5.898a.938.938 0 101.327 1.327l5.9-5.9 5.898 5.9a.935.935 0 001.326 0 .937.937 0 000-1.327L8.827 7.501z"
+                                                      fill="#515151"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="basket-list__item basket-item basket-list__row">
+                                <div class="basket-list__col basket-list__col--info">
+                                    <div class="basket-item__info">
+                                        <div class="basket-item__image">
+                                            <img class="img-fluid" src="../example_images/basket/1.png" alt="">
+                                        </div>
+                                        <div class="basket-item__name-wrapper">
+                                            <a href="" class="basket-item__name">Кровать Бали</a>
+                                            <div class="basket-item__vendor-code">
+                                                Артикул: Т001083
+                                            </div>
+                                        </div>
+                                        <ul class="basket-item__props list--clear">
+                                            <li>Размер: 80 x 190 см</li>
+                                            <li>Цвет: Не выбран</li>
+                                            <li>Комплектация: стандартная</li>
+                                            <li>Ящики: Без ящиков</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="basket-list__col basket-list__col--cost">
+                                    <div class="basket-item__cost">
+                                        31 600 ₽
+                                    </div>
+                                </div>
+                                <div class="basket-list__col basket-list__col--qty">
+                                    <div class="basket-item__qty basket-item-qty">
+                                        <button type="button"
+                                                class="basket-item-qty__btn basket-item-qty__minus btn--clear">
+                                            <svg width="11" height="10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M9 5H1.929" stroke="#767676" stroke-width="2"
+                                                      stroke-linecap="round"/>
+                                            </svg>
+                                        </button>
+                                        <input type="text" class="basket-item-qty__count" value="1">
+                                        <button type="button"
+                                                class="basket-item-qty__btn basket-item-qty__plus btn--clear">
+                                            <svg width="11" height="10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M8.904 4.932l-3.39.033m0 0l.032-3.419m-.033 3.42L1.93 5m3.584-.035L5.48 8.521"
+                                                      stroke="#767676" stroke-width="2" stroke-linecap="round"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="basket-list__col basket-list__col--discount">
+                                    <div class="basket-item__discount">
+                                        -20%
+                                    </div>
+                                </div>
+                                <div class="basket-list__col basket-list__col--total">
+                                    <div class="basket-item__total basket-item-total">
+                                        <div class="basket-item-total__price">31 600 ₽</div>
+                                        <button type="button" class="basket-item-total__remove btn--clear">
+                                            <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M8.827 7.5l5.898-5.898A.938.938 0 1013.4.276L7.5 6.174 1.601.276A.938.938 0 10.275 1.602l5.899 5.899-5.9 5.898a.938.938 0 101.327 1.327l5.9-5.9 5.898 5.9a.935.935 0 001.326 0 .937.937 0 000-1.327L8.827 7.501z"
+                                                      fill="#515151"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="basket-list__item basket-item basket-list__row">
+                                <div class="basket-list__col basket-list__col--info">
+                                    <div class="basket-item__info">
+                                        <div class="basket-item__image">
+                                            <img class="img-fluid" src="../example_images/basket/1.png" alt="">
+                                        </div>
+                                        <div class="basket-item__name-wrapper">
+                                            <a href="" class="basket-item__name">Кровать Бали</a>
+                                            <div class="basket-item__vendor-code">
+                                                Артикул: Т001083
+                                            </div>
+                                        </div>
+                                        <ul class="basket-item__props list--clear">
+                                            <li>Размер: 80 x 190 см</li>
+                                            <li>Цвет: Не выбран</li>
+                                            <li>Комплектация: стандартная</li>
+                                            <li>Ящики: Без ящиков</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="basket-list__col basket-list__col--cost">
+                                    <div class="basket-item__cost">
+                                        31 600 ₽
+                                    </div>
+                                </div>
+                                <div class="basket-list__col basket-list__col--qty">
+                                    <div class="basket-item__qty basket-item-qty">
+                                        <button type="button"
+                                                class="basket-item-qty__btn basket-item-qty__minus btn--clear">
+                                            <svg width="11" height="10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M9 5H1.929" stroke="#767676" stroke-width="2"
+                                                      stroke-linecap="round"/>
+                                            </svg>
+                                        </button>
+                                        <input type="text" class="basket-item-qty__count" value="1">
+                                        <button type="button"
+                                                class="basket-item-qty__btn basket-item-qty__plus btn--clear">
+                                            <svg width="11" height="10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M8.904 4.932l-3.39.033m0 0l.032-3.419m-.033 3.42L1.93 5m3.584-.035L5.48 8.521"
+                                                      stroke="#767676" stroke-width="2" stroke-linecap="round"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="basket-list__col basket-list__col--discount">
+                                    <div class="basket-item__discount">
+                                        -20%
+                                    </div>
+                                </div>
+                                <div class="basket-list__col basket-list__col--total">
+                                    <div class="basket-item__total basket-item-total">
+                                        <div class="basket-item-total__price">31 600 ₽</div>
+                                        <button type="button" class="basket-item-total__remove btn--clear">
+                                            <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M8.827 7.5l5.898-5.898A.938.938 0 1013.4.276L7.5 6.174 1.601.276A.938.938 0 10.275 1.602l5.899 5.899-5.9 5.898a.938.938 0 101.327 1.327l5.9-5.9 5.898 5.9a.935.935 0 001.326 0 .937.937 0 000-1.327L8.827 7.501z"
+                                                      fill="#515151"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="basket-list__bottom">
+                            <form action="" class="basket-list__coupon basket-coupon">
 
-                </ul>
+                                <div class="basket-coupon__title">Промокод</div>
+                                <label class="basket-coupon__label">
+                                    <input type="text" class="basket-coupon__field" placeholder="XXXX-XXXX-XXXX">
+                                </label>
+                                <button type="button" class="basket-coupon__btn btn--clear btn">Применить</button>
+                            </form>
+                            <div class="basket-list__total">
+                                Итого: 63 200 ₽
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="basket-page__bottom">
+                    <div class="basket-page__form basket-form">
+                        <div class="basket-form__title">Оформление заказа</div>
+                        <!--                       TODO: form here-->
+                    </div>
+                    <div class="basket-page__additional">
+                        <div class="basket-additional-block basket-additional-block--delivery">
+                            <div class="basket-additional-block__title">
+                                Условия доставки
+                            </div>
+                            <div class="basket-additional-block__inner">
+                                <ul class="basket-additional-list">
+                                    <li><b>Москва</b> - 1000 р</li>
+                                    <li><b>Подмосковье</b> - +30руб./км</li>
+                                    <li><b>Регионы</b> - 1000 руб. + тариф ТК</li>
+                                    <li>Доставка мебели осуществляется только до подъезда.</li>
+                                    <li>По согласованию возможна доставка мебели до квартиры и сборка мебели.</li>
+                                    <li>Доставка осуществляется в течение 10-ти рабочих дней.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="basket-additional-block basket-additional-block--services">
+                            <div class="basket-additional-block__title">
+                                Доп. услуги
+                            </div>
+                            <form action="" method="post" class="basket-additional-block__inner">
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" class="custom-checkbox__field">
+                                    <span class="custom-checkbox__label">Подъём до квартиры (+650 ₽)</span>
+                                </label> <br>
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" class="custom-checkbox__field">
+                                    <span class="custom-checkbox__label">Сборка (+650 ₽)</span>
+                                </label>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -1,0 +1,26 @@
+.btn {
+  transition: all 0.3s;
+  font-size: 0.8888rem;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+.btn--uppercase {
+  text-transform: uppercase;
+}
+.btn--bigger{
+  font-size: 1rem ;
+}
+.btn--big{
+  font-size: 1.3333rem ;
+}
+.btn--clear {
+  background: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  line-height: inherit;
+  outline: none;
+  cursor: pointer;
+}
