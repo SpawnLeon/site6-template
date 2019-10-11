@@ -28,5 +28,8 @@ require('./html/materials.html');
 require('./html/contacts.html');
 require('./html/guarantee.html');
 require('./html/works.html');
+require('./html/useful.html');
+require('./html/actions.html');
+require('./html/basket.html');
 
 

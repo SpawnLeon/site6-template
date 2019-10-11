@@ -818,7 +818,7 @@ $catalog-menu-colors: (
 }
 
 .advantages__title {
-  font-family: '700', sans-serif;
+  font-family: $RalewayFont;
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
@@ -2922,4 +2922,90 @@ $catalog-menu-colors: (
   }
 }
 
-/*<<<works*/
+/*useful>>>*/
+.useful-page__list {
+  display: flex;
+  margin: 0 -33px 0;
+  flex-wrap: wrap;
+
+}
+
+.useful-page__item {
+  margin: 0 33px 45px;
+  position: relative;
+  display: inline-block;
+  flex: 1 1 auto;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    background: linear-gradient(180deg, rgba(34, 34, 34, 0) 48%, rgba(34, 34, 34, 0.8) 95%);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    transition: all 0.3s;
+  }
+
+  &:hover::before {
+    top: -300px;
+  }
+}
+
+.useful-item__image {
+  width: 100%;
+  display: block;
+}
+
+.useful-item__title {
+  font-size: 20px;
+  color: #FFFFFF;
+  position: absolute;
+  z-index: 1;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+}
+
+/*<<<useful*/
+/*actions>>>*/
+.actions-page__list {
+  display: flex;
+  margin: 0 -33px -45px;
+  flex-wrap: wrap;
+
+}
+
+.actions-item__image{
+  display: block;
+  width: 100%;
+}
+.actions-page__item {
+  margin: 0 33px 45px;
+  position: relative;
+  display: inline-block;
+  flex: 1 1 auto;
+  overflow: hidden;
+  max-width: 50%;
+}
+.actions-item__sticker--archive{
+  background-color: #FFD716;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  position: absolute;
+  z-index: 1;
+  font-size: 12px;
+  font-weight: 500;
+  color: #000000;
+  text-transform: uppercase;
+  top: 39px;
+  left: -159px;
+  transform: rotate(-45deg);
+  padding: 5px 150px;
+  text-align: center;
+  white-space: nowrap;
+}
+/*<<<actions*/
+/*basket>>>*/
+
+/*<<<basket*/
