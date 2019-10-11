@@ -3266,5 +3266,37 @@ $basket-col-width: (
   font-size: 36px;
   margin-left: auto;
 }
-
 /*<<<basket*/
+/*confirm>>>*/
+.confirm-page{
+  max-width: 745px ;
+}
+.confirm-page__title {
+  font-family: $RalewayFont;
+  font-weight: 600;
+  font-size: 46px;
+}
+
+.confirm-page__text {
+  font-size: 24px;
+  margin-top: 10px;
+}
+.confirm-page__continue-btn {
+  background: #222222;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 18px;
+  text-align: center;
+  color: #FFFFFF;
+  padding: 6px 30px 7px;
+  border: 2px solid #222222;
+  margin-top: 35px;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: #fff;
+    color: #000;
+  }
+}
+/*<<<confirm*/

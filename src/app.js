@@ -34,5 +34,6 @@ require('./html/works.html');
 require('./html/useful.html');
 require('./html/actions.html');
 require('./html/basket.html');
+require('./html/confirm.html');
 
 
