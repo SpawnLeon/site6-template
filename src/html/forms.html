@@ -9,9 +9,7 @@
     <link rel="stylesheet" href="../template_styles.css">
     <script src="../app.js"></script>
 </head>
-<body class="page page--not-front">
-
-
+<body class="page page--front">
 <header class="page__header">
     <div class="container">
         <div class="header__top">
@@ -69,7 +67,7 @@
                     <button type="button" class="phones__bnt-open btn btn--clear"><i class="fa fa-caret-down"
                                                                                      aria-hidden="true"></i></button>
                 </div>
-                <button type="button" class="header__call-order js__call-order btn btn--clear" data-form-id="">
+                <button type="button" class="header__call-order btn btn--clear" data-popup-form-id="58">
                     Заказать звонок
                 </button>
                 <div class="phones__phones-list phones-list">
@@ -174,96 +172,19 @@
                 </ul>
             </nav>
 
+
         </div>
-    </div>
-    <div class="container">
-        <ul class="list--clear breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
-            <li class="breadcrumbs__item" itemprop="itemListElement" itemscope
-                itemtype="http://schema.org/ListItem">
-                <a class="breadcrumbs__link" itemprop="item" href="/">
-                    <span class="breadcrumbs__name" itemprop="name">Главная</span>
-                </a>
-                <span class="breadcrumbs__delimiter">/</span>
-                <meta itemprop="position" content="1"/>
-            </li>
-            <li class="breadcrumbs__item" itemprop="itemListElement" itemscope
-                itemtype="http://schema.org/ListItem">
-                <a class="breadcrumbs__link" itemprop="item" href="/">
-                    <span class="breadcrumbs__name" itemprop="name">Кровати</span></a>
-                <span class="breadcrumbs__delimiter">/</span>
-                <meta itemprop="position" content="12"/>
-            </li>
-            <li class="breadcrumbs__item" itemprop="itemListElement" itemscope
-                itemtype="http://schema.org/ListItem">
-                <a class="breadcrumbs__link" itemprop="item" href="/">
-                    <span class="breadcrumbs__name" itemprop="name">Кровать Вероника Soft-М</span></a>
-                <meta itemprop="position" content="3"/>
-            </li>
-        </ul>
     </div>
 </header>
-<main class="page__middle content content__actions-page">
-    <div class="container">
-        <h1 class="content__title">Акции</h1>
-        <div class="content__inner">
-            <div class="actions-page">
-                <div class="actions-page__list">
-                    <a href="" class="actions-page__item actions-item">
-                        <img src="../example_images/actions/1.png" alt="" class="img-fluid actions-item__image">
-                    </a>
-                    <a href="" class="actions-page__item actions-item">
-                        <span class="actions-item__sticker--archive">
-                            Акция завершена
-                        </span>
-                        <img src="../example_images/actions/2.png" alt="" class="img-fluid actions-item__image">
-                    </a>
-                    <a href="" class="actions-page__item actions-item">
-                        <img src="../example_images/actions/3.png" alt="" class="img-fluid actions-item__image">
-                    </a>
-                    <a href="" class="actions-page__item actions-item">
-                        <img src="../example_images/actions/4.png" alt="" class="img-fluid actions-item__image">
-                    </a>
-                    <a href="" class="actions-page__item actions-item">
-                        <img src="../example_images/actions/5.png" alt="" class="img-fluid actions-item__image">
-                    </a>
-                    <a href="" class="actions-page__item actions-item">
-                        <img src="../example_images/actions/6.png" alt="" class="img-fluid actions-item__image">
-                    </a>
-                    <a href="" class="actions-page__item actions-item">
-                        <img src="../example_images/actions/7.png" alt="" class="img-fluid actions-item__image">
-                    </a>
-                </div>
-                <ul class="pager list--clear">
-                    <li>
-                        <a href="" class="pager__item pager__item-arrow">
-                            &larr;
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" class="pager__item">
-                            1
-                        </a>
-                    </li>
-                    <li>
-                            <span class="pager__item pager__item--active">
-                                2
-                            </span>
-                    </li>
-                    <li>
-                        <a href="" class="pager__item">
-                            3
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" class="pager__item pager__item-arrow">
-                            &rarr;
-                        </a>
-                    </li>
+<main class="page__middle content content__front">
+    <section class="content__section block-section collections">
+        <div class="container">
 
-                </ul>
-            </div>
         </div>
-    </div>
+
+    </section>
+
+
 </main>
 <footer class="page__footer page-footer">
     <div class="page-footer__top footer-top">
@@ -431,5 +352,43 @@
 
     </div>
 </footer>
+<!-- template for the modal component -->
+<script type="text/x-template" id="js__vue-app-forms-modal-template">
+    <transition name="modal">
+        <div class="modal-mask">
+            <div class="modal-wrapper">
+                <div class="modal-container">
+                    <div class="modal-header">
+
+                    </div>
+
+                    <div class="modal-body">
+                        <slot name="body">
+                            default body
+                        </slot>
+                    </div>
+
+                    <div class="modal-footer">
+
+                        default footer
+                        <button class="modal-default-button" @click="$emit('close')">
+                            OK
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </transition>
+</script>
+
+<!-- app modal form -->
+<div id="js__vue-app-forms-modal" v-cloak>
+    <!-- use the modal component, pass in the prop -->
+    <modal v-if="showModal" @close="showModal = false">
+
+        <div slot="body">{{modalBody}}</div>
+    </modal>
+</div>
 </body>
 </html>

@@ -15,7 +15,10 @@ module.exports = {
     overlay: true,
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
-    port: 9001
+    port: 9001,
+    headers: {
+      'Access-Control-Allow-Origin': 'http://localhost:8000'
+    }
   },
   module: {
     rules: [
@@ -50,31 +53,19 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpe?g|gif|svg)$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              outputPath: 'images',
-              name: '[name].[ext]'
-            }
-          }
-        ]
-      },
-      {
         test: /\.(woff|woff2|ttf|otf|eot)$/,
         use: [
           {
             loader: "file-loader",
             options: {
               outputPath: 'fonts',
-              name: '[name].[ext]'
+              name: '/[name].[ext]'
             }
           }
         ]
       },
       {
-        test: /\.html$/,
+        test: /\.(html)$/,
         use: [
           {
             loader: 'file-loader',
@@ -96,6 +87,18 @@ module.exports = {
           //   }
           // },
         ],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              outputPath: './images',
+              name: '[name].[ext]'
+            }
+          }
+        ]
       }
     ]
   },
@@ -106,7 +109,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "bundle.css"
+      filename: "template_styles.css",
     }),
     new CopyPlugin([
       {from: 'src/assets', to: 'assets'},

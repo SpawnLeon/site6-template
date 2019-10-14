@@ -1,5 +1,4 @@
 import 'normalize.css';
-import 'bootstrap-4-grid';
 import 'font-awesome/scss/font-awesome.scss'
 
 import './fonts/fonts.css';
@@ -35,5 +34,4 @@ require('./html/useful.html');
 require('./html/actions.html');
 require('./html/basket.html');
 require('./html/confirm.html');
-
-
+require('./html/forms.html');

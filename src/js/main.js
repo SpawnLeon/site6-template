@@ -1,5 +1,8 @@
+"use strict";
 import Swiper from 'swiper';
+import Vue from 'vue';
 
+let formPopupApp;
 
 const domReady = () => {
   document.querySelectorAll('.phones__bnt-open').forEach((el) => {
@@ -36,6 +39,9 @@ const domReady = () => {
 
   new Swiper('.main-slider__container', {
     speed: 400,
+    autoplay: {
+      delay: 3000,
+    },
     spaceBetween: 100,
     pagination: {
       el: '.main-slider__pagination',
@@ -118,6 +124,46 @@ const domReady = () => {
   //     }
   //   }
   // });
+
+
+// register modal component
+  let modalTemplate = Vue.component('modal', {
+    template: '#js__vue-app-forms-modal-template'
+  });
+
+// start app
+  let formPopupApp = new Vue({
+    el: '#js__vue-app-forms-modal',
+    data: {
+      showModal: false,
+      modalBody: ''
+    }
+  });
+
+  document.querySelectorAll('[data-popup-form-id]').forEach((el) => {
+    el.addEventListener('click', () => {
+      const popupFormID = el.getAttribute('data-popup-form-id');
+
+      let ajaxUrl = './form.html?formID=' + popupFormID;
+      //TODO: set correct ajax url
+      ajaxUrl = 'http://localhost:8000/form.php?formID=' + popupFormID;
+      ((popupFormID) => {
+        fetch(ajaxUrl, {
+          method: 'POST',
+          mode: 'cors', // no-cors, cors, *same-origin
+        })
+          .then(dataWrappedByPromise => dataWrappedByPromise.json())
+          .then((response) => {
+            formPopupApp.modalBody = response;
+            console.log(response);
+          });
+
+        formPopupApp.showModal = true;
+      })(popupFormID);
+    });
+  });
+
+
 };
 
 

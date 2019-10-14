@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../bundle.css">
+    <link rel="stylesheet" href="../template_styles.css">
     <script src="../app.js"></script>
 </head>
 <body class="page page--not-front page--catalog page--catalog-section">
@@ -297,6 +297,23 @@
                     </div>
                 </div>
                 <div class="catalog__content">
+                    <div class="catalog__sorting sorting-block">
+                        <div class="sorting-block__title">Сортировать по: </div>
+                        <div class="sorting-block__list list--clear">
+                            <button type="button" class="sorting-block__item  sorting-item btn--clear">
+                                <span class="sorting-item__title">Названию</span> <svg width="7" height="4" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 4L.469.25H6.53L3.5 4z"/></svg>
+                            </button>
+                            <button type="button" class="sorting-block__item sorting-item sorting-item--active btn--clear">
+                                <span class="sorting-item__title sorting-item__title--active">Новизне</span> <svg width="7" height="4" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 4L.469.25H6.53L3.5 4z"/></svg>
+                            </button>
+                            <button type="button" class="sorting-block__item sorting-item  btn--clear">
+                                <span class="sorting-item__title">Рейтингу</span> <svg width="7" height="4" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 4L.469.25H6.53L3.5 4z"/></svg>
+                            </button>
+                            <button type="button" class="sorting-block__item sorting-item btn--clear">
+                                <span class="sorting-item__title">Цене</span> <svg width="7" height="4" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 4L.469.25H6.53L3.5 4z"/></svg>
+                            </button>
+                        </div>
+                    </div>
                     <ul class="catalog__list catalog-list list--clear">
                         <li class="catalog-list__item-wrapper">
                             <div class="catalog-list__item catalog-list-item">
