@@ -67,10 +67,10 @@
             <div class="header__phones phones">
                 <div class="phones__btn">
                     <a href="tel:88005502302" class="phones__phone">8 (800) 550-23-02</a>
-                    <button type="button" class="phones__bnt-open btn btn--clear"><i class="fa fa-caret-down"
-                                                                                     aria-hidden="true"></i></button>
+                    <button type="button" class="phones__bnt-open btn--clear"><i class="fa fa-caret-down"
+                                                                                 aria-hidden="true"></i></button>
                 </div>
-                <button type="button" class="header__call-order js__call-order btn btn--clear" data-form-id="">
+                <button type="button" class="header__call-order btn--clear" data-form-id="">
                     Заказать звонок
                 </button>
                 <div class="phones__phones-list phones-list">
@@ -86,7 +86,7 @@
                                 autocomplete="off"
                                 class="search__field" type="text" name="search" placeholder="Поиск">
                     </label>
-                    <button type="submit" class="search__submit btn btn--clear" title="поиск по сайту"></button>
+                    <button type="submit" class="search__submit btn--clear" title="поиск по сайту"></button>
 
                 </div>
             </form>
@@ -297,16 +297,16 @@
                     </div>
                 </div>
                 <div class="catalog__content">
-                    <div class="catalog__card catalog-card" id="js__catalog-card-app">
+                    <div class="catalog__card catalog-card" id="js__catalog-card-app" v-cloak>
                         <h1 class="catalog-card__title">Кровать Амелия с мягкой вставкой</h1>
                         <div class="catalog-card__vendor-code">Артикул: Т001002</div>
                         <div class="catalog-card__inner">
                             <div class="catalog-card__block card-block card-block--3">
                                 <div class="card__prices">
-                                    <div class="card-block__price">41 760* ₽</div>
+                                    <div class="card-block__price">{{formatPrice(price)}}* ₽</div>
                                     <div class="card-block__old-price--wrapper">
                                         <div class="card-block__price--old">
-                                            43 760 ₽
+                                            {{formatPrice(oldPrice)}} ₽
                                         </div>
                                         <button type="button"
                                                 class="btn--clear catalog-card__save-price-button save-price-button">
@@ -322,6 +322,13 @@
                                 </div>
                                 <div class="catalog-card__options">
                                     <div class="catalog-card__option card-option">
+
+                                        <v-select label="PROP TEST" :options="list" v-model="selected"></v-select>
+                                        <v-select label="PROP TEST" :options="list" v-model="selected1"></v-select>
+                                        <v-select label="PROP TEST" :options="list" v-model="selected2"></v-select>
+                                        <v-select label="PROP TEST" :options="list" v-model="selected3"></v-select>
+
+
                                         <div class="card-option__title">
                                             Цвет
                                         </div>
@@ -406,62 +413,88 @@
 
                                     </button>
                                 </div>
+
                                 <div class="catalog-card__mattress-composition mattress-composition">
                                     <div class="mattress-composition__item mattress-composition-item">
                                         <div class="mattress-composition-item__count"></div>
                                         <div class="mattress-composition-item__text">
                                             Двойной жаккард
                                         </div>
-                                        <div    title="Описание для состава матрасов.  Независимые пружины EVS-500, 255 пр./м2"
-                                                class="mattress-composition-item__help tooltip">?</div>
+                                        <div title="Описание для состава матрасов.  Независимые пружины EVS-500, 255 пр./м2"
+                                             class="mattress_help tooltip">?
+                                        </div>
                                     </div>
                                     <div class="mattress-composition__item mattress-composition-item">
                                         <div class="mattress-composition-item__count"></div>
                                         <div class="mattress-composition-item__text">
                                             ППУ 2 см
                                         </div>
-                                        <div    title="Описание для состава матрасов.  Независимые пружины EVS-500, 255 пр./м2"
-                                                class="mattress-composition-item__help tooltip">?</div>
+                                        <div title="Описание для состава матрасов.  Независимые пружины EVS-500, 255 пр./м2"
+                                             class="mattress_help tooltip">?
+                                        </div>
                                     </div>
                                     <div class="mattress-composition__item mattress-composition-item">
                                         <div class="mattress-composition-item__count"></div>
                                         <div class="mattress-composition-item__text">
                                             Войлок
                                         </div>
-                                        <div    title="Описание для состава матрасов.  Независимые пружины EVS-500, 255 пр./м2"
-                                                class="mattress-composition-item__help tooltip">?</div>
+                                        <div title="Описание для состава матрасов.  Независимые пружины EVS-500, 255 пр./м2"
+                                             class="mattress_help tooltip">?
+                                        </div>
                                     </div>
                                     <div class="mattress-composition__item mattress-composition-item">
                                         <div class="mattress-composition-item__count"></div>
                                         <div class="mattress-composition-item__text">
                                             Спанбонд
                                         </div>
-                                        <div    title="Описание для состава матрасов.  Независимые пружины EVS-500, 255 пр./м2"
-                                                class="mattress-composition-item__help tooltip">?</div>
+                                        <div title="Описание для состава матрасов.  Независимые пружины EVS-500, 255 пр./м2"
+                                             class="mattress_help tooltip">?
+                                        </div>
                                     </div>
                                     <div class="mattress-composition__item mattress-composition-item">
                                         <div class="mattress-composition-item__count"></div>
                                         <div class="mattress-composition-item__text">
                                             Независимые пружины EVS-500, 255 пр./м2
                                         </div>
-                                        <div    title="Описание для состава матрасов.  Независимые пружины EVS-500, 255 пр./м2"
-                                                class="mattress-composition-item__help tooltip">?</div>
+                                        <div title="Описание для состава матрасов.  Независимые пружины EVS-500, 255 пр./м2"
+                                             class="mattress_help tooltip">?
+                                        </div>
                                     </div>
                                     <div class="mattress-composition__item mattress-composition-item">
                                         <div class="mattress-composition-item__count"></div>
                                         <div class="mattress-composition-item__text">
                                             ППУ по периметру
                                         </div>
-                                        <div    title="Описание для состава матрасов.  Независимые пружины EVS-500, 255 пр./м2"
-                                                class="mattress-composition-item__help tooltip">?</div>
+                                        <div title="Описание для состава матрасов.  Независимые пружины EVS-500, 255 пр./м2"
+                                             class="mattress_help tooltip">?
+                                        </div>
                                     </div>
                                     <div class="mattress-composition__item mattress-composition-item">
                                         <div class="mattress-composition-item__count"></div>
                                         <div class="mattress-composition-item__text">
                                             Аэраторы
                                         </div>
-                                        <div    title="Описание для состава матрасов.  Независимые пружины EVS-500, 255 пр./м2"
-                                                class="mattress-composition-item__help tooltip">?</div>
+                                        <div title="Описание для состава матрасов.  Независимые пружины EVS-500, 255 пр./м2"
+                                             class="mattress_help tooltip">?
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mattress-add-options">
+                                    <div class="mattress-add-options__item">
+                                        <label class="custom-checkbox">
+                                            <input type="checkbox" class="custom-checkbox__field">
+                                            <span class="custom-checkbox__label"> <span>Покрытие Люкс (+650 ₽)</span>
+                                             <span title="Описание для состава матрасов.  Независимые пружины EVS-500, 255 пр./м2"
+                                                   class="mattress_help tooltip">?</span>
+                                            </span>
+                                        </label>
+                                        <label class="custom-checkbox">
+                                            <input type="checkbox" class="custom-checkbox__field">
+                                            <span class="custom-checkbox__label"> <span>Стежка Зима-Лето (+1040 ₽)</span>
+                                            <span title="Описание для состава матрасов.  Независимые пружины EVS-500, 255 пр./м2"
+                                                  class="mattress_help tooltip">?</span>
+                                            </span>
+                                        </label>
                                     </div>
                                 </div>
                             </div>
@@ -1270,8 +1303,8 @@
                             <a
                                     href="tel:88005502302"
                                     class="phones__phone phones__phone--has-icon">8 (800) 550-23-02</a>
-                            <button type="button" class="phones__bnt-open btn btn--clear"><i class="fa fa-caret-down"
-                                                                                             aria-hidden="true"></i>
+                            <button type="button" class="phones__bnt-open btn--clear"><i class="fa fa-caret-down"
+                                                                                         aria-hidden="true"></i>
                             </button>
                         </div>
                         <div class="phones__phones-list phones-list phones-list--footer">

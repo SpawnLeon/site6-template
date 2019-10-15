@@ -12,7 +12,8 @@ import 'jquery';
 import 'tooltipster';
 
 import '@fancyapps/fancybox';
-import './js/main.js';
+import './js/components';
+import './js/main';
 
 require('./html/index.html');
 require('./html/catalog.html');

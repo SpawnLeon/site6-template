@@ -1,27 +1,15 @@
 *::-webkit-input-placeholder {
   color: #ADADAD;
-
 }
-
-
 *:-moz-placeholder {
   color: #ADADAD;
-
-
 }
-
-
 *::-moz-placeholder {
   color: #ADADAD;
-
 }
-
-
 *:-ms-input-placeholder {
   color: #ADADAD;
-
 }
-
 
 * {
   box-sizing: border-box;
@@ -1842,13 +1830,19 @@ $catalog-menu-colors: (
     border-color: transparent;
   }
 }
-
+.catalog-card__title {
+  margin-top: 0;
+  margin-bottom: 0;
+}
 
 .catalog-card__select-your-size {
   font-family: $RalewayFont;
   margin-top: 20px;
+  font-size: 14px;
 }
-
+.catalog-card__options{
+  margin-top: 15px;
+}
 .catalog-card__actions {
   display: flex;
   flex-wrap: wrap;
@@ -2238,8 +2232,10 @@ $catalog-menu-colors: (
 .swiper-container-horizontal.card-additional-products__container > .swiper-pagination-bullets .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: #FFA800;
 }
-
-.mattress-composition-item__help {
+.mattress-add-options{
+  margin-top: 30px;
+}
+.mattress_help {
   min-width: 14px;
   width: 14px;
   height: 14px;

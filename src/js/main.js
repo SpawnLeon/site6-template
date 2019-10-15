@@ -1,9 +1,6 @@
 "use strict";
 import Swiper from 'swiper';
 import Vue from 'vue';
-
-let formPopupApp;
-
 const domReady = () => {
   document.querySelectorAll('.phones__bnt-open').forEach((el) => {
     el.addEventListener('click', () => {
@@ -111,60 +108,66 @@ const domReady = () => {
         .classList.toggle('phones-list--open');
     });
   });
+  let detailCardVueAppParams = {};
 
-  // const app = new Vue({
-  //   el: '#js__catalog-card-app',
-  //   data: {
-  //     ...detailCardVueAppParams,
-  //   },
-  //   methods: {
-  //     formatPrice(value) {
-  //       let val = (value / 1).toFixed(0).replace('.', ',')
-  //       return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
-  //     }
-  //   }
-  // });
+  detailCardVueAppParams.price = 48000;
+  detailCardVueAppParams.oldPrice = 80100;
+  detailCardVueAppParams.selected = null;
+  detailCardVueAppParams.selected1 = null;
+  detailCardVueAppParams.selected2 = null;
+  detailCardVueAppParams.selected3 = null;
+  detailCardVueAppParams.list = ['TEST1', 'TEST2', 'TEST3', 'TEST4', 'TEST5', 'TEST6', 'TEST7', 'TEST8', 'TEST9'];
+  const app = new Vue({
+    el: '#js__catalog-card-app',
+    props: ['options','label','value'],
+    data: {
+      ...detailCardVueAppParams,
+    },
+    methods: {
+      formatPrice(value) {
+        let val = (value / 1).toFixed(0).replace('.', ',')
+        return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+      }
+    }
+  });
 
 
 // register modal component
   let modalTemplate = Vue.component('modal', {
     template: '#js__vue-app-forms-modal-template'
   });
-
+  if (document.getElementById('js__vue-app-forms-modal') !== null) {
 // start app
-  let formPopupApp = new Vue({
-    el: '#js__vue-app-forms-modal',
-    data: {
-      showModal: false,
-      modalBody: ''
-    },
-  });
+    let formPopupApp = new Vue({
+      el: '#js__vue-app-forms-modal',
+      data: {
+        showModal: false,
+        modalBody: ''
+      }
 
-  document.querySelectorAll('[data-popup-form-id]').forEach((el) => {
-    el.addEventListener('click', () => {
-      const popupFormID = el.getAttribute('data-popup-form-id');
-
-      let ajaxUrl = './form.html?formID=' + popupFormID;
-      //TODO: set correct ajax url
-      ajaxUrl = 'http://localhost:8000/form.php?formID=' + popupFormID;
-      (() => {
-        fetch(ajaxUrl, {
-          method: 'POST',
-          mode: 'cors', // no-cors, cors, *same-origin
-        })
-          .then(dataWrappedByPromise => dataWrappedByPromise.json())
-          .then((response) => {
-
-
-            formPopupApp.modalBody = response.form;
-
-
-          });
-
-        formPopupApp.showModal = true;
-      })(popupFormID);
     });
-  });
+
+    document.querySelectorAll('[data-popup-form-id]').forEach((el) => {
+      el.addEventListener('click', () => {
+        const popupFormID = el.getAttribute('data-popup-form-id');
+
+        let ajaxUrl = './form.html?formID=' + popupFormID;
+        //TODO: set correct ajax url
+        ajaxUrl = 'http://localhost:8000/form.php?formID=' + popupFormID;
+        (() => {
+          fetch(ajaxUrl, {
+            method: 'POST',
+            mode: 'cors', // no-cors, cors, *same-origin
+          })
+            .then(dataWrappedByPromise => dataWrappedByPromise.json())
+            .then((response) => {
+              formPopupApp.modalBody = response.form;
+            });
+          formPopupApp.showModal = true;
+        })(popupFormID);
+      });
+    });
+  }
 
 
 };

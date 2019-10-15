@@ -1,21 +1,4 @@
 @import "variables.scss";
-.btn {
-  transition: all 0.3s;
-  font-size: 0.8888rem;
-  border-width: 2px;
-  border-style: solid;
-  border-radius: 8px;
-  box-sizing: border-box;
-}
-.btn--uppercase {
-  text-transform: uppercase;
-}
-.btn--bigger{
-  font-size: 1rem ;
-}
-.btn--big{
-  font-size: 1.3333rem ;
-}
 .btn--clear {
   background: none;
   margin: 0;
@@ -26,4 +9,42 @@
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
+}
+.btn {
+  transition: all 0.3s;
+  font-size: 0.8888rem;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 8px;
+  border-color: #F53A41;
+  box-sizing: border-box;
+  background-color: $btn--primary;
+  padding: 0.4375em 1.125em 0.5em;
+  color: #fff;
+  text-align: center;
+
+
+  &:hover,
+  &:active,
+  &:focus {
+    background: $btn--hover;
+  }
+
+  &:active {
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+
+}
+.btn--outline{
+  background-color: transparent;
+  color: $btn--primary;
+}
+.btn--uppercase {
+  text-transform: uppercase;
+}
+.btn--bigger{
+  font-size: 1rem ;
+}
+.btn--big{
+  font-size: 1.3333rem ;
 }

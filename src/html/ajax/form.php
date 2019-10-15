@@ -29,7 +29,7 @@ ob_start();
             <div class="form__required-note">
                 <span class="form__asterisk">*</span> Поля обязательные для заполнения
             </div>
-            <button type="button" class="btn--clear "></button>
+            <button type="button" class="btn--clear form__submit btn">Отправить</button>
         </div>
         <div class="form__bottom">
             <div class="form__personal-data">
