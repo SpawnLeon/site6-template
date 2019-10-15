@@ -137,7 +137,7 @@ const domReady = () => {
     data: {
       showModal: false,
       modalBody: ''
-    }
+    },
   });
 
   document.querySelectorAll('[data-popup-form-id]').forEach((el) => {
@@ -147,15 +147,18 @@ const domReady = () => {
       let ajaxUrl = './form.html?formID=' + popupFormID;
       //TODO: set correct ajax url
       ajaxUrl = 'http://localhost:8000/form.php?formID=' + popupFormID;
-      ((popupFormID) => {
+      (() => {
         fetch(ajaxUrl, {
           method: 'POST',
           mode: 'cors', // no-cors, cors, *same-origin
         })
           .then(dataWrappedByPromise => dataWrappedByPromise.json())
           .then((response) => {
-            formPopupApp.modalBody = response;
-            console.log(response);
+
+
+            formPopupApp.modalBody = response.form;
+
+
           });
 
         formPopupApp.showModal = true;

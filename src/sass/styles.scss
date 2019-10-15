@@ -1,5 +1,27 @@
-$container-gutter: 20px;
-$RalewayFont: 'Raleway', sans-serif;
+*::-webkit-input-placeholder {
+  color: #ADADAD;
+
+}
+
+
+*:-moz-placeholder {
+  color: #ADADAD;
+
+
+}
+
+
+*::-moz-placeholder {
+  color: #ADADAD;
+
+}
+
+
+*:-ms-input-placeholder {
+  color: #ADADAD;
+
+}
+
 
 * {
   box-sizing: border-box;
