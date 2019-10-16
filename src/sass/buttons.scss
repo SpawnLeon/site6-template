@@ -35,6 +35,16 @@
   }
 
 }
+.btn--black{
+  background-color: $btn--black;
+  border-color: $btn--black;
+
+  &:hover,
+  &:active,
+  &:focus {
+    border-color: $btn--primary;
+  }
+}
 .btn--outline{
   background-color: transparent;
   color: $btn--primary;

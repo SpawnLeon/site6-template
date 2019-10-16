@@ -2,18 +2,23 @@ const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require('copy-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
 
 module.exports = {
   entry: {
-    app: './src/app.js'
+    'app': './src/app.js'
   },
+  devtool: 'source-map',
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, './dist')
+    //path: path.resolve(__dirname, './dist')
+    path: path.resolve('/mnt/share/murom-mebel.bsdev/www/local/templates/mebel/', './')
   },
   devServer: {
     overlay: true,
-    contentBase: path.join(__dirname, 'dist'),
+    //contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.join('/mnt/share/murom-mebel.bsdev/www/local/templates/mebel/', './'),
     compress: true,
     port: 9001,
     headers: {
@@ -119,6 +124,14 @@ module.exports = {
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery'
-    })
-  ]
+    }),
+  ],
+  optimization: {
+    minimize: true,
+    minimizer: [new UglifyJsPlugin({
+      include: /\.min\.js$/,
+      sourceMap: true,
+
+    })]
+  }
 };

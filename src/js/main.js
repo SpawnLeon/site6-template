@@ -1,6 +1,7 @@
 "use strict";
 import Swiper from 'swiper';
 import Vue from 'vue';
+
 const domReady = () => {
   document.querySelectorAll('.phones__bnt-open').forEach((el) => {
     el.addEventListener('click', () => {
@@ -9,6 +10,23 @@ const domReady = () => {
         .classList.toggle('phones-list--open');
     });
   });
+
+
+  document.querySelectorAll('.header__search-btn').forEach((el) => {
+    el.addEventListener('click', () => {
+      el.closest('.search-block')
+        .querySelector('.search-block__form')
+        .classList.toggle('search-block__form--open');
+    });
+  });
+
+  document.querySelectorAll('.burger-menu').forEach((el) => {
+    el.addEventListener('click', () => {
+      el.classList.toggle('burger-menu__item--active');
+    });
+  });
+
+
 
   document.querySelectorAll('.card-tabs__tab-name').forEach((el) => {
     el.addEventListener('click', () => {
@@ -108,28 +126,31 @@ const domReady = () => {
         .classList.toggle('phones-list--open');
     });
   });
-  let detailCardVueAppParams = {};
+  //TODO:212
+  if (document.getElementById('js__catalog-card-app') !== null) {
+    let detailCardVueAppParams = {};
 
-  detailCardVueAppParams.price = 48000;
-  detailCardVueAppParams.oldPrice = 80100;
-  detailCardVueAppParams.selected = null;
-  detailCardVueAppParams.selected1 = null;
-  detailCardVueAppParams.selected2 = null;
-  detailCardVueAppParams.selected3 = null;
-  detailCardVueAppParams.list = ['TEST1', 'TEST2', 'TEST3', 'TEST4', 'TEST5', 'TEST6', 'TEST7', 'TEST8', 'TEST9'];
-  const app = new Vue({
-    el: '#js__catalog-card-app',
-    props: ['options','label','value'],
-    data: {
-      ...detailCardVueAppParams,
-    },
-    methods: {
-      formatPrice(value) {
-        let val = (value / 1).toFixed(0).replace('.', ',')
-        return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+    detailCardVueAppParams.price = 48000;
+    detailCardVueAppParams.oldPrice = 80100;
+    detailCardVueAppParams.selected = null;
+    detailCardVueAppParams.selected1 = null;
+    detailCardVueAppParams.selected2 = null;
+    detailCardVueAppParams.selected3 = null;
+    detailCardVueAppParams.list = ['TEST1', 'TEST2', 'TEST3', 'TEST4', 'TEST5', 'TEST6', 'TEST7', 'TEST8', 'TEST9'];
+    const app = new Vue({
+      el: '#js__catalog-card-app',
+      props: ['options', 'label', 'value'],
+      data: {
+        ...detailCardVueAppParams,
+      },
+      methods: {
+        formatPrice(value) {
+          let val = (value / 1).toFixed(0).replace('.', ',')
+          return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+        }
       }
-    }
-  });
+    });
+  }
 
 
 // register modal component
@@ -151,17 +172,17 @@ const domReady = () => {
       el.addEventListener('click', () => {
         const popupFormID = el.getAttribute('data-popup-form-id');
 
-        let ajaxUrl = './form.html?formID=' + popupFormID;
+        let ajaxUrl = '/ajax/form.php?form_id=' + popupFormID;
         //TODO: set correct ajax url
-        ajaxUrl = 'http://localhost:8000/form.php?formID=' + popupFormID;
+        //ajaxUrl = 'http://localhost:8000/form.php?formID=' + popupFormID;
         (() => {
           fetch(ajaxUrl, {
             method: 'POST',
-            mode: 'cors', // no-cors, cors, *same-origin
+            //mode: 'cors', // no-cors, cors, *same-origin
           })
-            .then(dataWrappedByPromise => dataWrappedByPromise.json())
-            .then((response) => {
-              formPopupApp.modalBody = response.form;
+            .then(response => response.text())
+            .then((strData) => {
+              formPopupApp.modalBody = strData;
             });
           formPopupApp.showModal = true;
         })(popupFormID);
