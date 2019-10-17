@@ -2823,6 +2823,7 @@ $catalog-menu-colors: (
 
 .material-item__image {
   display: block;
+  max-width: 331px;
 }
 
 .material-item__title {
@@ -2831,7 +2832,7 @@ $catalog-menu-colors: (
   background-color: #FFD716;
   border-radius: 0 15px 0 0;
   padding: 8px 15px;
-  max-width: 150px;
+  width: 65%;
 }
 
 .materials-item__inner {
@@ -2845,7 +2846,10 @@ $catalog-menu-colors: (
   position: relative;
 
 }
-
+.materials-item__description {
+  margin: 0 47px 50px;
+  position: relative;
+}
 /*<<<materials*/
 /*contacts>>>*/
 .manager__name {
