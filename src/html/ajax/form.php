@@ -34,8 +34,8 @@ ob_start();
         <div class="form__bottom">
             <div class="form__personal-data">
                 <label class="custom-checkbox">
-                    <input type="checkbox" class="custom-checkbox__field">
-                    <span class="custom-checkbox__label"> <span>Нажимая кнопку Купить, я даю <a href="">согласие на обработку персональных данных</a></span></span>
+                    <input type="checkbox" class="custom-checkbox__field" checked>
+                    <span class="custom-checkbox__label"> <span>Я даю <a href="">согласие на обработку персональных данных</a></span></span>
                 </label>
             </div>
 

@@ -22,7 +22,7 @@ module.exports = {
     compress: true,
     port: 9001,
     headers: {
-      'Access-Control-Allow-Origin': 'http://localhost:8000'
+      'Access-Control-Allow-Origin': '*'
     }
   },
   module: {
