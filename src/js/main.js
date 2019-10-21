@@ -3,6 +3,42 @@ import Swiper from 'swiper';
 import Vue from 'vue';
 
 const domReady = () => {
+
+  document.querySelectorAll('.qty-widget').forEach((el) => {
+
+    let field = el.querySelector('.qty-widget__count');
+    field.onchange = (field) => {
+      const currentCount = parseInt(field.value);
+      if (currentCount < 1) {
+        field.value = 1;
+      }
+    };
+  });
+
+
+  document.querySelectorAll('.qty-widget__btn').forEach((el) => {
+    el.addEventListener('click', () => {
+      let field = el.closest('.qty-widget').querySelector('.qty-widget__count');
+      const currentCount = parseInt(field.value);
+      let newCount = currentCount;
+      const action = el.getAttribute('data-action');
+      switch (action) {
+        case 'minus':
+          newCount = currentCount - 1;
+          break;
+        case 'plus':
+          newCount = currentCount + 1;
+          break;
+      }
+      field.value = newCount;
+      field.onchange(field);
+
+    });
+
+
+  });
+
+
   document.querySelectorAll('.phones__bnt-open').forEach((el) => {
     el.addEventListener('click', () => {
       el.closest('.phones')
@@ -26,6 +62,15 @@ const domReady = () => {
     });
   });
 
+  document.querySelectorAll('.header__basket-icon, .basket-block__close').forEach((el) => {
+    el.addEventListener('click', () => {
+      const basketBlock = document.querySelector('.basket-block');
+      if (basketBlock) {
+        basketBlock.classList.toggle('basket-block--show');
+      }
+
+    });
+  });
 
 
   document.querySelectorAll('.card-tabs__tab-name').forEach((el) => {
@@ -173,8 +218,6 @@ const domReady = () => {
         const popupFormID = el.getAttribute('data-popup-form-id');
 
         let ajaxUrl = '/ajax/form.php?form_id=' + popupFormID;
-        //TODO: set correct ajax url
-        //ajaxUrl = 'http://localhost:8000/form.php?formID=' + popupFormID;
         (() => {
           fetch(ajaxUrl, {
             method: 'POST',
@@ -182,7 +225,12 @@ const domReady = () => {
           })
             .then(response => response.text())
             .then((strData) => {
+              const pattern = /<script[\s\S]*?>([\s\S]*?)<\/script>/gi;
+              const match = pattern.exec(strData);
               formPopupApp.modalBody = strData;
+              setTimeout(() => eval(match[1]), 500);
+
+
             });
           formPopupApp.showModal = true;
         })(popupFormID);

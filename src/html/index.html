@@ -107,9 +107,149 @@
                     </div>
                 </form>
             </div>
-            <a href="" class="header__basket-icon basket-icon">
-                <div class="basket-icon__counter">22</div>
-            </a>
+            <button type="button"  class="header__basket-icon basket-icon btn--clear">
+                <span class="basket-icon__counter">0</span>
+            </button>
+            <div class="header__basket-block basket-block">
+                <div class="basket-block__header">
+                    <div class="basket-block_title">Корзина</div>
+                    <button type="button" class="btn--clear basket-block__close"><svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.827 7.5l5.898-5.898A.938.938 0 1013.4.276L7.5 6.174 1.601.276A.938.938 0 10.275 1.602l5.899 5.899-5.9 5.898a.938.938 0 101.327 1.327l5.9-5.899 5.898 5.899a.935.935 0 001.326 0 .937.937 0 000-1.327L8.827 7.501z" fill="#fff"/></svg></button>
+                </div>
+                <div class="basket-block__inner basket-block-table">
+                    <div class="basket-block-table__header">
+                        <div class="basket-block-table__col basket-block-table__col--info">
+                            Товар
+                        </div>
+                        <div class="basket-block-table__col basket-block-table__col--qty">
+                            Количество
+                        </div>
+                        <div class="basket-block-table__col basket-block-table_col--cost">
+                            Цена
+                        </div>
+                    </div>
+                    <div class="basket-block__item basket-block-item">
+                        <div class="basket-block-table__col basket-block-table__col--info">
+                            <div class="basket-block-item__info">
+                                <div class="basket-block-item__image">
+                                    <img src="../example_images/basket/1.png" alt="" class="img-fluid">
+                                </div>
+                                <div class="basket-block-item__name">Кровать Бали</div>
+                            </div>
+                        </div>
+                        <div class="basket-block-table__col basket-block-table__col--qty">
+
+
+                            <div class="basket-item__qty qty-widget">
+                                <button type="button"
+                                        class="qty-widget__btn qty-widget__minus btn--clear">
+                                    <svg width="11" height="10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 5H1.929" stroke="#767676" stroke-width="2"
+                                              stroke-linecap="round"/>
+                                    </svg>
+                                </button>
+                                <input type="text" class="qty-widget__count" value="1">
+                                <button type="button"
+                                        class="qty-widget__btn qty-widget__plus btn--clear">
+                                    <svg width="11" height="10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.904 4.932l-3.39.033m0 0l.032-3.419m-.033 3.42L1.93 5m3.584-.035L5.48 8.521"
+                                              stroke="#767676" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="basket-block-table__col basket-block-table_col--cost">
+                            <div class="basket-block-item__cost">
+                                31 600 ₽
+                            </div>
+                            <button type="button" class="basket-block-item__remove btn--clear">Удалить</button>
+                        </div>
+                    </div>
+                    <div class="basket-block__item basket-block-item">
+                        <div class="basket-block-table__col basket-block-table__col--info">
+                            <div class="basket-block-item__info">
+                                <div class="basket-block-item__image">
+                                    <img src="../example_images/basket/1.png" alt="" class="img-fluid">
+                                </div>
+                                <div class="basket-block-item__name">Кровать Бали</div>
+                            </div>
+                        </div>
+                        <div class="basket-block-table__col basket-block-table__col--qty">
+
+
+                            <div class="basket-item__qty qty-widget">
+                                <button type="button"
+                                        class="qty-widget__btn qty-widget__minus btn--clear">
+                                    <svg width="11" height="10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 5H1.929" stroke="#767676" stroke-width="2"
+                                              stroke-linecap="round"/>
+                                    </svg>
+                                </button>
+                                <input type="text" class="qty-widget__count" value="1">
+                                <button type="button"
+                                        class="qty-widget__btn qty-widget__plus btn--clear">
+                                    <svg width="11" height="10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.904 4.932l-3.39.033m0 0l.032-3.419m-.033 3.42L1.93 5m3.584-.035L5.48 8.521"
+                                              stroke="#767676" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="basket-block-table__col basket-block-table_col--cost">
+                            <div class="basket-block-item__cost">
+                                31 600 ₽
+                            </div>
+                            <button type="button" class="basket-block-item__remove btn--clear">Удалить</button>
+                        </div>
+                    </div>
+                    <div class="basket-block__item basket-block-item">
+                        <div class="basket-block-table__col basket-block-table__col--info">
+                            <div class="basket-block-item__info">
+                                <div class="basket-block-item__image">
+                                    <img src="../example_images/basket/1.png" alt="" class="img-fluid">
+                                </div>
+                                <div class="basket-block-item__name">Кровать Бали</div>
+                            </div>
+                        </div>
+                        <div class="basket-block-table__col basket-block-table__col--qty">
+
+
+                            <div class="basket-item__qty qty-widget">
+                                <button type="button"
+                                        class="qty-widget__btn qty-widget__minus btn--clear">
+                                    <svg width="11" height="10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 5H1.929" stroke="#767676" stroke-width="2"
+                                              stroke-linecap="round"/>
+                                    </svg>
+                                </button>
+                                <input type="text" class="qty-widget__count" value="1">
+                                <button type="button"
+                                        class="qty-widget__btn qty-widget__plus btn--clear">
+                                    <svg width="11" height="10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.904 4.932l-3.39.033m0 0l.032-3.419m-.033 3.42L1.93 5m3.584-.035L5.48 8.521"
+                                              stroke="#767676" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="basket-block-table__col basket-block-table_col--cost">
+                            <div class="basket-block-item__cost">
+                                31 600 ₽
+                            </div>
+                            <button type="button" class="basket-block-item__remove btn--clear">Удалить</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="basket-block__footer">
+                    <div class="basket-block__total">
+                        Итого: 63 200 ₽
+                    </div>
+                    <div class="basket-block__action">
+                        <button type="button" class="btn--clear btn btn--bigger basket-block__checkout">Оформить заказ</button>
+                    </div>
+                </div>
+            </div>
+
+
             <div class="header__burger-menu burger-menu">
                 <div class="burger-menu__item burger-menu__item--top"></div>
                 <div class="burger-menu__item burger-menu__item--middle"></div>
