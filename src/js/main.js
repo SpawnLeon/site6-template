@@ -4,36 +4,56 @@ import Vue from 'vue';
 
 const domReady = () => {
 
+
   document.querySelectorAll('.qty-widget').forEach((el) => {
+    el.querySelectorAll('.qty-widget__btn').forEach((el) => {
+      el.addEventListener('click', () => {
+        let field = el.closest('.qty-widget').querySelector('.qty-widget__count');
+        const currentCount = parseInt(field.value);
+        let newCount = currentCount;
+        const action = el.getAttribute('data-action');
+        switch (action) {
+          case 'minus':
+            newCount = currentCount - 1;
+            break;
+          case 'plus':
+            newCount = currentCount + 1;
+            break;
+        }
+        field.value = newCount;
+        field.onchange(field);
+      });
+    });
+
 
     let field = el.querySelector('.qty-widget__count');
     field.onchange = (field) => {
-      const currentCount = parseInt(field.value);
+      let currentCount = parseInt(field.value);
       if (currentCount < 1) {
-        field.value = 1;
+        currentCount = 1;
       }
+      field.value = currentCount;
+
+      // fetch('/ajax/basket.php', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Accept': 'application/json',
+      //     'Content-Type': 'application/json'
+      //   },
+      //   body: JSON.stringify({
+      //     'action': 'setQuantity',
+      //     'id': '23446',
+      //     'productId': '4484',
+      //     'quantity': currentCount,
+      //     'rz_ajax': 'y'
+      //   })
+      //
+      // })
+      //   .then(response => response.json())
+      //   .then(response => {
+      //     smallCartObject.refreshCart();
+      //   });
     };
-  });
-
-
-  document.querySelectorAll('.qty-widget__btn').forEach((el) => {
-    el.addEventListener('click', () => {
-      let field = el.closest('.qty-widget').querySelector('.qty-widget__count');
-      const currentCount = parseInt(field.value);
-      let newCount = currentCount;
-      const action = el.getAttribute('data-action');
-      switch (action) {
-        case 'minus':
-          newCount = currentCount - 1;
-          break;
-        case 'plus':
-          newCount = currentCount + 1;
-          break;
-      }
-      field.value = newCount;
-      field.onchange(field);
-
-    });
 
 
   });
