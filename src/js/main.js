@@ -103,9 +103,24 @@ const domReady = () => {
       });
       el.classList.add('card-tabs__tab-name--active');
       const tabTarget = el.getAttribute('data-tab-target');
-
       document.querySelector(`[data-tab="${tabTarget}"]`).classList.add('card-tabs__tab--active');
+    });
+  });
 
+
+
+  document.querySelectorAll('.shops__tab').forEach((el) => {
+    el.addEventListener('click', () => {
+      document.querySelectorAll('.shops__tab').forEach((el) => {
+        el.classList.remove('shops__tab--active');
+
+      });
+      document.querySelectorAll('.shops__tab-content').forEach((el) => {
+        el.classList.remove('shops__tab-content--active');
+      });
+      el.classList.add('shops__tab--active');
+      const tabTarget = el.getAttribute('data-tab-target');
+      document.querySelector(`[data-tab="${tabTarget}"]`).classList.add('shops__tab-content--active');
     });
   });
 
@@ -182,15 +197,15 @@ const domReady = () => {
   });
 
 
-  document.querySelectorAll('.materials-item__more').forEach((el) => {
-    el.addEventListener('click', () => {
-      el.classList.toggle('materials-item__more--open')
-
-      el.closest('.phones')
-        .querySelector('.phones-list')
-        .classList.toggle('phones-list--open');
-    });
-  });
+  // document.querySelectorAll('.materials-item__more').forEach((el) => {
+  //   el.addEventListener('click', () => {
+  //     el.classList.toggle('materials-item__more--open')
+  //
+  //     el.closest('.phones')
+  //       .querySelector('.phones-list')
+  //       .classList.toggle('phones-list--open');
+  //   });
+  // });
   //TODO:212
   if (document.getElementById('js__catalog-card-app') !== null) {
     let detailCardVueAppParams = {};
