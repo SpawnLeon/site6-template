@@ -23,3 +23,14 @@ p:first-child {
 p:last-child {
   margin-bottom: 0;
 }
+/*legacy supporting*/
+.image-margin-left{
+  margin-left: 15px;
+  margin-bottom: 15px;
+  float: right;
+}
+.image-margin-right{
+  margin-right: 15px;
+  margin-bottom: 15px;
+  float: left;
+}

@@ -2,9 +2,8 @@
 import Swiper from 'swiper';
 import Vue from 'vue';
 
+
 const domReady = () => {
-
-
   document.querySelectorAll('.qty-widget').forEach((el) => {
     el.querySelectorAll('.qty-widget__btn').forEach((el) => {
       el.addEventListener('click', () => {
@@ -91,22 +90,6 @@ const domReady = () => {
 
     });
   });
-
-
-  document.querySelectorAll('.card-tabs__tab-name').forEach((el) => {
-    el.addEventListener('click', () => {
-      document.querySelectorAll('.card-tabs__tab-name').forEach((el) => {
-        el.classList.remove('card-tabs__tab-name--active');
-      });
-      document.querySelectorAll('.card-tabs__tab').forEach((el) => {
-        el.classList.remove('card-tabs__tab--active');
-      });
-      el.classList.add('card-tabs__tab-name--active');
-      const tabTarget = el.getAttribute('data-tab-target');
-      document.querySelector(`[data-tab="${tabTarget}"]`).classList.add('card-tabs__tab--active');
-    });
-  });
-
 
 
   document.querySelectorAll('.shops__tab').forEach((el) => {
@@ -196,7 +179,7 @@ const domReady = () => {
     delay: 100,
   });
 
-
+  //TODO: make materials tabs
   // document.querySelectorAll('.materials-item__more').forEach((el) => {
   //   el.addEventListener('click', () => {
   //     el.classList.toggle('materials-item__more--open')
@@ -206,7 +189,7 @@ const domReady = () => {
   //       .classList.toggle('phones-list--open');
   //   });
   // });
-  //TODO:212
+
   if (document.getElementById('js__catalog-card-app') !== null) {
     let detailCardVueAppParams = {};
 
@@ -222,6 +205,23 @@ const domReady = () => {
       props: ['options', 'label', 'value'],
       data: {
         ...detailCardVueAppParams,
+      },
+      mounted: () => {
+        document.querySelectorAll('.card-tabs__tab-name').forEach((el) => {
+
+          el.addEventListener('click', () => {
+
+            document.querySelectorAll('.card-tabs__tab-name').forEach((el) => {
+              el.classList.remove('card-tabs__tab-name--active');
+            });
+            document.querySelectorAll('.card-tabs__tab').forEach((el) => {
+              el.classList.remove('card-tabs__tab--active');
+            });
+            el.classList.add('card-tabs__tab-name--active');
+            const tabTarget = el.getAttribute('data-tab-target');
+            document.querySelector(`[data-tab="${tabTarget}"]`).classList.add('card-tabs__tab--active');
+          });
+        });
       },
       methods: {
         formatPrice(value) {
