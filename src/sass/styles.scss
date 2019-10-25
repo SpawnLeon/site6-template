@@ -17,7 +17,9 @@
 * {
   box-sizing: border-box;
 }
-
+[hidden] {
+  display: none!important;
+}
 .nowrap {
   white-space: nowrap;
 }
@@ -2044,7 +2046,10 @@ $catalog-menu-colors: (
 }
 
 .catalog-card__main-image {
-  flex: 0 1 auto;
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .card__prices {
@@ -2314,12 +2319,12 @@ $catalog-menu-colors: (
 }
 
 
-
 .card-thumb-images__item--all-images {
   font-family: $RalewayFont;
   font-size: 14px;
   text-align: center;
   color: #818181;
+  border: none;
 }
 
 .card-tabs__tab {
@@ -2355,6 +2360,7 @@ $catalog-menu-colors: (
   font-size: 15px;
   margin-top: 15px;
 }
+
 .reviews__item.review-item {
   margin-bottom: 30px;
 }
@@ -2362,6 +2368,7 @@ $catalog-menu-colors: (
 .reviews__items {
   margin-bottom: -30px;
 }
+
 .reviews__more-btn {
   background: #fff;
   border: 1px solid #222222;
@@ -3265,7 +3272,7 @@ $catalog-menu-colors: (
 
 .works-page__item {
   margin: 0 10px 20px;
-  flex: 1 1 385px;
+  flex: 0 1 385px;
 }
 
 .works-page__image {

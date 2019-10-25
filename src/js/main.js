@@ -1,9 +1,20 @@
 "use strict";
-import Swiper from 'swiper';
 import Vue from 'vue';
+import axios from 'axios';
+import sliders from './sliders';
 
 
 const domReady = () => {
+  sliders();
+  let formPopupApp = new Vue({
+    el: '#js__vue-app-forms-modal',
+    data: {
+      showModal: false,
+      modalBody: ''
+    }
+
+  });
+
   document.querySelectorAll('.qty-widget').forEach((el) => {
     el.querySelectorAll('.qty-widget__btn').forEach((el) => {
       el.addEventListener('click', () => {
@@ -115,71 +126,15 @@ const domReady = () => {
     });
   });
 
-  new Swiper('.main-slider__container', {
-    speed: 400,
-    autoplay: {
-      delay: 3000,
-    },
-    spaceBetween: 100,
-    pagination: {
-      el: '.main-slider__pagination',
-      type: 'bullets',
-      clickable: true,
-    },
-  });
-  new Swiper('.products-of-week__container', {
-    speed: 400,
-    spaceBetween: 100,
-    pagination: {
-      el: '.products-of-week__pagination',
-      type: 'bullets',
-      clickable: true,
-    },
-    navigation: {
-      prevEl: '.products-of-week__prev',
-      nextEl: '.products-of-week__next',
-    },
-  });
 
-
-  new Swiper('.card-additional-products__container', {
-    speed: 400,
-    autoplay: {
-      delay: 3000,
-    },
-    spaceBetween: 0,
-    slidesPerView: 4,
-    slidesPerGroup: 4,
-    pagination: {
-      el: '.card-additional-products__pager',
-      type: 'bullets',
-      clickable: true,
-    },
-  });
-
-
-  $('[data-fancybox="card-main-images"]').fancybox({
-    thumbs: {
-      autoStart: true,
-    },
-  });
-  $('.card-thumb-images__item--all-images-btn').click(() => {
-    $.fancybox.open(
-      $('[data-fancybox="card-main-images"]'),
-      {
-        thumbs: {
-          autoStart: true,
-        }
-      }
-    );
-  });
   $('.tooltip').tooltipster({
     theme: 'tooltipster-noir',
     maxWidth: 320,
     delay: 100,
   });
 
-  //TODO: make materials tabs
+  //TODO: make materials
+  //
   // document.querySelectorAll('.materials-item__more').forEach((el) => {
   //   el.addEventListener('click', () => {
   //     el.classList.toggle('materials-item__more--open')
@@ -191,26 +146,74 @@ const domReady = () => {
   // });
 
   if (document.getElementById('js__catalog-card-app') !== null) {
-    let detailCardVueAppParams = {};
 
-    detailCardVueAppParams.price = 48000;
-    detailCardVueAppParams.oldPrice = 80100;
-    detailCardVueAppParams.selected = null;
-    detailCardVueAppParams.selected1 = null;
-    detailCardVueAppParams.selected2 = null;
-    detailCardVueAppParams.selected3 = null;
-    detailCardVueAppParams.list = ['TEST1', 'TEST2', 'TEST3', 'TEST4', 'TEST5', 'TEST6', 'TEST7', 'TEST8', 'TEST9'];
-    const app = new Vue({
+
+    const catalogCardApp = new Vue({
       el: '#js__catalog-card-app',
       props: ['options', 'label', 'value'],
-      data: {
-        ...detailCardVueAppParams,
+      data() {
+        return {
+          ...catalogCardAppParams,
+          reviews: [],
+          reviewsIsLastPage: false,
+          reviewsNumPage: 2,
+          selectYourSizeForm: false,
+
+
+        }
+      },
+      filters: {
+        formatPrice: (value) => {
+          let val = (value / 1).toFixed(0).replace('.', ',')
+          return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + ' ₽';
+        },
+      },
+      methods: {
+        selectYourSizeFormToggle() {
+          this.selectYourSizeForm = !this.selectYourSizeForm;
+
+        },
+        getReviews(productID) {
+          axios
+            .post('/local/templates/mebel/components/bitrix/catalog.element/detail/reviews_ajax.php',
+              {
+                'PRODUCT_ID': productID,
+                'NUM_PAGE': this.reviewsNumPage,
+
+
+              })
+            .then(response => {
+
+              this.reviewsNumPage += 1;
+              const data = response.data;
+              this.reviewsIsLastPage = data['IS_LAST_PAGE'];
+              this.reviews.push(...data['REVIEWS']);
+
+
+            });
+        },
+
+        getReviewForm(productID) {
+          axios
+            .post('/ajax/form.php',
+              {
+                'type': 'review-form',
+                'productID': productID
+              })
+            .then(response => {
+              const pattern = /<script[\s\S]*?>([\s\S]*?)<\/script>/gi;
+              const match = pattern.exec(response.data);
+              formPopupApp.modalBody = response.data;
+              setTimeout(() => eval(match[1]), 500);
+              formPopupApp.showModal = true;
+            });
+
+
+        },
       },
       mounted: () => {
         document.querySelectorAll('.card-tabs__tab-name').forEach((el) => {
-
           el.addEventListener('click', () => {
-
             document.querySelectorAll('.card-tabs__tab-name').forEach((el) => {
               el.classList.remove('card-tabs__tab-name--active');
             });
@@ -222,13 +225,26 @@ const domReady = () => {
             document.querySelector(`[data-tab="${tabTarget}"]`).classList.add('card-tabs__tab--active');
           });
         });
+
+
+        $('[data-fancybox="card-main-images"]').fancybox({
+          thumbs: {
+            autoStart: true,
+          },
+        });
+        $('.card-thumb-images__item--all-images-btn').click(() => {
+          $.fancybox.open(
+            $('[data-fancybox="card-main-images"]'),
+            {
+              thumbs: {
+                autoStart: true,
+              }
+            }
+          );
+        });
+
       },
-      methods: {
-        formatPrice(value) {
-          let val = (value / 1).toFixed(0).replace('.', ',')
-          return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
-        }
-      }
+
     });
   }
 
@@ -238,15 +254,7 @@ const domReady = () => {
     template: '#js__vue-app-forms-modal-template'
   });
   if (document.getElementById('js__vue-app-forms-modal') !== null) {
-// start app
-    let formPopupApp = new Vue({
-      el: '#js__vue-app-forms-modal',
-      data: {
-        showModal: false,
-        modalBody: ''
-      }
 
-    });
 
     document.querySelectorAll('[data-popup-form-id]').forEach((el) => {
       el.addEventListener('click', () => {

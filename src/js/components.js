@@ -1,24 +1,43 @@
 "use strict";
 
 import Vue from 'vue';
+
 Vue.component('v-select', {
-  props: ['options','label','value'],
+  props: ['options', 'label', 'value'],
   template: `
-    <div class="vselect">
-        <div class="form-group">
-            <label>{{label}}</label>
-            <p class="control has-icon has-icon-right">
-                <input ref="selected" @keyup="filterSelect($event)" @focus="onFocus" v-model="mutableValue" type="text" class="form-control"
-                    @keydown.up.prevent="onKeyUp" 
-@blur="onBlur"
-@keydown.down.prevent="onKeyDown" @keydown.enter.prevent="onKeyEnter">
-            </p>
+  <div class="catalog-card__option card-option">
+    <div class="card-option__inner">
+        <div class="card-option__selected" @click="onFocus">
+            {{label}}
         </div>
-        <div ref="dropdown" class="my-dropdown" v-show="toggled" v-if="options">
-            <div v-for="(item,index) in filterList" :class="{'my-dropdwon--item':true,active:index === pointer}" @mousedown="handleItemClick(item)"
-                @mouseover="pointer = index">{{item}}</div>
-        </div>
-    </div>`,
+        <p class="control has-icon has-icon-right">
+            <input ref="selected" @keyup="filterSelect($event)" @focus="onFocus" v-model="mutableValue" type="text"
+                   class="form-control"
+                   @keydown.up.prevent="onKeyUp"
+                   @blur="onBlur"
+                   @keydown.down.prevent="onKeyDown" @keydown.enter.prevent="onKeyEnter">
+        </p>
+        <ul
+                ref="dropdown"
+                v-show="toggled"
+                v-if="options"
+                class="card-option__list list--clear">
+            <li v-for="(item,index) in filterList" :class="{'card-option__item card-option-item':true,_selected:index === pointer}"
+                @mousedown="handleItemClick(item)"
+                @mouseover="pointer = index">
+                <div class="card-option-item__image">
+                  <img :src="item.PREVIEW_IMAGE" alt="">
+                </div>
+                <div class="card-option-item__title">
+                    {{item.NAME}}
+                </div>
+            </li>
+
+        </ul>
+
+    </div>
+</div>
+  `,
   data() {
     return {
       selected: null,
@@ -39,7 +58,7 @@ Vue.component('v-select', {
         oldArr = oldArr.filter(item => {
           if (item.toLowerCase().includes(this.mutableValue.toLowerCase()))
             return true;
-        })
+        });
         this.filterList = oldArr;
         //console.log('type', this.filterList)
       }
@@ -74,7 +93,7 @@ Vue.component('v-select', {
     },
     onKeyEnter: function () {
       //console.log(this.filterList.length> 0);
-      if(this.filterList.length > 0)
+      if (this.filterList.length > 0)
         this.handleItemClick(this.filterList[this.pointer])
       this.$refs.selected.blur();
       this.$emit('input', this.mutableValue);
@@ -137,4 +156,4 @@ Vue.component('v-select', {
     }
 
   }
-})
+});
