@@ -158,8 +158,6 @@ const domReady = () => {
           reviewsIsLastPage: false,
           reviewsNumPage: 2,
           selectYourSizeForm: false,
-
-
         }
       },
       filters: {
@@ -207,9 +205,19 @@ const domReady = () => {
               setTimeout(() => eval(match[1]), 500);
               formPopupApp.showModal = true;
             });
-
-
         },
+        addToCart() {
+          axios
+            .post('/ajax/addProduct.php',
+              {
+                qty: 1,
+                productID: this.productID,
+                method: 'addItem'
+              })
+            .then(response => {
+              console.log(response);
+            });
+        }
       },
       mounted: () => {
         document.querySelectorAll('.card-tabs__tab-name').forEach((el) => {
@@ -260,10 +268,11 @@ const domReady = () => {
       el.addEventListener('click', () => {
         const popupFormID = el.getAttribute('data-popup-form-id');
 
-        let ajaxUrl = '/ajax/form.php?form_id=' + popupFormID;
+
         (() => {
-          fetch(ajaxUrl, {
+          fetch('/ajax/form.php', {
             method: 'POST',
+            body: JSON.stringify({form_id: popupFormID}),
             //mode: 'cors', // no-cors, cors, *same-origin
           })
             .then(response => response.text())
