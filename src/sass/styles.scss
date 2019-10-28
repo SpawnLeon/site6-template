@@ -2154,13 +2154,14 @@ $catalog-menu-colors: (
   height: 28px;
   border-radius: 50%;
   overflow: hidden;
-  margin-right: 12px;
 
   img {
     display: block;
   }
 }
-
+.card-option-item__title{
+  margin-left: 12px;
+}
 .card-option-item {
   display: flex;
   align-items: center;

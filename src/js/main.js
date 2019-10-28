@@ -208,14 +208,29 @@ const domReady = () => {
         },
         addToCart() {
           axios
-            .post('/ajax/addProduct.php',
+            .post('/ajax/product.php',
               {
                 qty: 1,
-                productID: this.productID,
+                params: Object.assign({}, this.params),
                 method: 'addItem'
               })
             .then(response => {
-              console.log(response);
+
+            });
+        },
+        getPrice() {
+          debugger
+          axios
+            .post('/ajax/product.php',
+              {
+                qty: 1,
+                params: Object.assign({}, this.params),
+                method: 'getPrice'
+              })
+            .then(response => {
+              const data = response.data;
+              this.params.price = data.VALUE;
+              this.params.oldPrice = data.OLD_VALUE;
             });
         }
       },
