@@ -3,7 +3,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require('copy-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
   entry: {
@@ -104,6 +104,10 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
       }
     ]
   },
@@ -125,6 +129,7 @@ module.exports = {
       $: 'jquery',
       jQuery: 'jquery'
     }),
+    new VueLoaderPlugin()
   ],
   optimization: {
     minimize: true,

@@ -92,15 +92,7 @@ const domReady = () => {
     });
   });
 
-  document.querySelectorAll('.header__basket-icon, .basket-block__close').forEach((el) => {
-    el.addEventListener('click', () => {
-      const basketBlock = document.querySelector('.basket-block');
-      if (basketBlock) {
-        basketBlock.classList.toggle('basket-block--show');
-      }
 
-    });
-  });
 
 
   document.querySelectorAll('.shops__tab').forEach((el) => {
@@ -127,12 +119,6 @@ const domReady = () => {
   });
 
 
-  $('.tooltip').tooltipster({
-    theme: 'tooltipster-noir',
-    maxWidth: 320,
-    delay: 100,
-  });
-
   //TODO: make materials
   //
   // document.querySelectorAll('.materials-item__more').forEach((el) => {
@@ -150,7 +136,6 @@ const domReady = () => {
 
     const catalogCardApp = new Vue({
       el: '#js__catalog-card-app',
-      props: ['options', 'label', 'value'],
       data() {
         return {
           ...catalogCardAppParams,
@@ -158,6 +143,21 @@ const domReady = () => {
           reviewsIsLastPage: false,
           reviewsNumPage: 2,
           selectYourSizeForm: false,
+          selectedSize: null,
+        }
+      },
+      watch: {
+        params: {
+          immediate: true,
+          deep: true,
+          handler(newValue, oldValue) {
+            this.$children.map(el => {
+              el.setParams();
+            });
+            this.getPrice();
+
+
+          }
         }
       },
       filters: {
@@ -215,11 +215,10 @@ const domReady = () => {
                 method: 'addItem'
               })
             .then(response => {
-
+              smallCartObject.refreshCart();
             });
         },
         getPrice() {
-          debugger
           axios
             .post('/ajax/product.php',
               {
@@ -229,8 +228,11 @@ const domReady = () => {
               })
             .then(response => {
               const data = response.data;
-              this.params.price = data.VALUE;
-              this.params.oldPrice = data.OLD_VALUE;
+              if (data) {
+                this.price = data.VALUE;
+                this.oldPrice = data.OLD_VALUE;
+              }
+
             });
         }
       },
@@ -264,6 +266,11 @@ const domReady = () => {
               }
             }
           );
+        });
+        $('.tooltip').tooltipster({
+          theme: 'tooltipster-noir',
+          maxWidth: 320,
+          delay: 100,
         });
 
       },
