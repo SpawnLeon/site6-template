@@ -15,55 +15,34 @@ const domReady = () => {
 
   });
 
-  document.querySelectorAll('.qty-widget').forEach((el) => {
-    el.querySelectorAll('.qty-widget__btn').forEach((el) => {
-      el.addEventListener('click', () => {
-        let field = el.closest('.qty-widget').querySelector('.qty-widget__count');
-        const currentCount = parseInt(field.value);
-        let newCount = currentCount;
-        const action = el.getAttribute('data-action');
-        switch (action) {
-          case 'minus':
-            newCount = currentCount - 1;
-            break;
-          case 'plus':
-            newCount = currentCount + 1;
-            break;
-        }
-        field.value = newCount;
-        field.onchange(field);
-      });
-    });
-
-
-    let field = el.querySelector('.qty-widget__count');
-    field.onchange = (field) => {
-      let currentCount = parseInt(field.value);
-      if (currentCount < 1) {
-        currentCount = 1;
-      }
-      field.value = currentCount;
-
-      // fetch('/ajax/basket.php', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Accept': 'application/json',
-      //     'Content-Type': 'application/json'
-      //   },
-      //   body: JSON.stringify({
-      //     'action': 'setQuantity',
-      //     'id': '23446',
-      //     'productId': '4484',
-      //     'quantity': currentCount,
-      //     'rz_ajax': 'y'
-      //   })
-      //
-      // })
-      //   .then(response => response.json())
-      //   .then(response => {
-      //     smallCartObject.refreshCart();
-      //   });
-    };
+  $(document).on('click', '.qty-widget__btn', function () {
+    const el = this;
+    let field = el.closest('.qty-widget').querySelector('.qty-widget__count');
+    const currentCount = parseInt(field.value);
+    let newCount = currentCount;
+    const action = el.getAttribute('data-action');
+    switch (action) {
+      case 'minus':
+        newCount = currentCount - 1 > 0 ? currentCount - 1 : 1;
+        break;
+      case 'plus':
+        newCount = currentCount + 1;
+        break;
+    }
+    field.value = newCount;
+    const productID = field.getAttribute('data-id');
+    if (typeof productID !== "undefined") {
+      axios
+        .post('/ajax/product.php',
+          {
+            ID: productID,
+            quantity: newCount,
+            method: 'changeCount'
+          })
+        .then(response => {
+          smallCartObject.refreshCart();
+        });
+    }
 
 
   });
@@ -91,8 +70,6 @@ const domReady = () => {
       el.classList.toggle('burger-menu__item--active');
     });
   });
-
-
 
 
   document.querySelectorAll('.shops__tab').forEach((el) => {
@@ -131,9 +108,8 @@ const domReady = () => {
   //   });
   // });
 
+
   if (document.getElementById('js__catalog-card-app') !== null) {
-
-
     const catalogCardApp = new Vue({
       el: '#js__catalog-card-app',
       data() {
@@ -188,22 +164,6 @@ const domReady = () => {
               this.reviews.push(...data['REVIEWS']);
 
 
-            });
-        },
-
-        getReviewForm(productID) {
-          axios
-            .post('/ajax/form.php',
-              {
-                'type': 'review-form',
-                'productID': productID
-              })
-            .then(response => {
-              const pattern = /<script[\s\S]*?>([\s\S]*?)<\/script>/gi;
-              const match = pattern.exec(response.data);
-              formPopupApp.modalBody = response.data;
-              setTimeout(() => eval(match[1]), 500);
-              formPopupApp.showModal = true;
             });
         },
         addToCart() {
@@ -289,12 +249,16 @@ const domReady = () => {
     document.querySelectorAll('[data-popup-form-id]').forEach((el) => {
       el.addEventListener('click', () => {
         const popupFormID = el.getAttribute('data-popup-form-id');
+        const custom_hidden = el.getAttribute('data-popup-form-hidden');
 
 
         (() => {
           fetch('/ajax/form.php', {
             method: 'POST',
-            body: JSON.stringify({form_id: popupFormID}),
+            body: JSON.stringify({
+              form_id: popupFormID,
+              custom_hidden: custom_hidden
+            }),
             //mode: 'cors', // no-cors, cors, *same-origin
           })
             .then(response => response.text())

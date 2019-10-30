@@ -4,10 +4,10 @@ import Vue from 'vue';
 
 
 Vue.component('v-select', {
-  props: ['options', 'value', 'select', 'formatPrice'],
+  props: ['options', 'value', 'select',  'hardness'],
   template: `
 
-<div class="card-option-item-wrapper">
+<div class="card-option-item-wrapper" >
     <div class="catalog-card__option card-option" :class="{'card-option--open':isItemOpen === true}">
         <div class="card-option__title" @click="onFocus">
             {{select.NAME}}
@@ -18,7 +18,7 @@ Vue.component('v-select', {
                     <img :src="selectedItem.PREVIEW_IMAGE" alt="">
                 </div>
                 <div class="card-option-item__title" v-if="selectedItem">
-                    {{selectedItem.NAME}} <span v-if="selectedItem.PRICE" class="card-option-item__price">{{selectedItem.PRICE}}</span>
+                    {{selectedItem.NAME}}
                 </div>
             </div>
 
@@ -37,8 +37,7 @@ Vue.component('v-select', {
                         <img :src="item.PREVIEW_IMAGE" alt="">
                     </div>
                     <div class="card-option-item__title">
-                        {{item.NAME}}
-                        <span v-if="item.PRICE" class="card-option-item__price">{{item.PRICE}}</span>
+                        {{item.NAME}}                   
                     </div>
                 </li>
 
@@ -52,7 +51,7 @@ Vue.component('v-select', {
                     <path d="M9 5H1.929" stroke="#767676" stroke-width="2" stroke-linecap="round"></path>
                 </svg>
             </button>
-            <input type="text" class="qty-widget__count" v-model="selectedItemCount">
+            <input type="text" class="qty-widget__count" v-model="selectedItemCount" readonly>
             <button v-on:click="qtyWidgetAction('plus')" type="button" class="qty-widget__btn qty-widget__plus btn--clear">
                 <svg width="11" height="10" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8.904 4.932l-3.39.033m0 0l.032-3.419m-.033 3.42L1.93 5m3.584-.035L5.48 8.521"
@@ -60,6 +59,7 @@ Vue.component('v-select', {
                 </svg>
             </button>
         </div>
+        <div v-html="hardness"></div>
 </div>
   `,
   data() {
@@ -68,15 +68,27 @@ Vue.component('v-select', {
       pointer: null,
       isItemOpen: false,
       selectedItem: {},
-      selectedItemCount: 0
+      selectedItemCount: 0, 
     }
   },
   methods: {
     handleItemClick: function (item) {
-
       this.selectedItem = item;
       this.toggled = !this.toggled;
       this.isItemOpen = !this.isItemOpen;
+
+      switch (item.TYPE) {
+        case "1302":
+          const sizeComponent =this.$parent.$children.filter((el) => {
+            return el.select.VAR_NAME === 'PROP_BED_BOX';
+          });
+          sizeComponent[0].selectedItem = sizeComponent[0].select.ITEMS.box_924;
+          break;
+        default:
+
+          break
+      }
+
 
       this.setParams();
 
@@ -90,6 +102,9 @@ Vue.component('v-select', {
       const item = this.selectedItem;
       switch (this.select.VAR_NAME) {
         case 'PROP_BED_BOX':
+
+
+
           if (this.selectedItem.TYPE === '924') {
             this.selectedItemCount = 0;
           } else {
