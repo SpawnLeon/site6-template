@@ -4,10 +4,10 @@ import Vue from 'vue';
 
 
 Vue.component('v-select', {
-  props: ['options', 'value', 'select',  'hardness'],
+  props: ['options', 'value', 'select', 'hardness'],
   template: `
 
-<div class="card-option-item-wrapper" >
+<div class="card-option-item-wrapper" :disabled="isDisabled" >
     <div class="catalog-card__option card-option" :class="{'card-option--open':isItemOpen === true}">
         <div class="card-option__title" @click="onFocus">
             {{select.NAME}}
@@ -18,7 +18,7 @@ Vue.component('v-select', {
                     <img :src="selectedItem.PREVIEW_IMAGE" alt="">
                 </div>
                 <div class="card-option-item__title" v-if="selectedItem">
-                    {{selectedItem.NAME}}
+                    {{selectedItem.NAME}} 
                 </div>
             </div>
 
@@ -37,7 +37,8 @@ Vue.component('v-select', {
                         <img :src="item.PREVIEW_IMAGE" alt="">
                     </div>
                     <div class="card-option-item__title">
-                        {{item.NAME}}                   
+                        {{item.NAME}} 
+<!--                        <span class="card-option-item__price" v-if="item.PRICE">{{item.PRICE}}</span>       -->
                     </div>
                 </li>
 
@@ -68,25 +69,32 @@ Vue.component('v-select', {
       pointer: null,
       isItemOpen: false,
       selectedItem: {},
-      selectedItemCount: 0, 
+      selectedItemCount: 0,
+      isDisabled: false
     }
   },
   methods: {
     handleItemClick: function (item) {
       this.selectedItem = item;
-      this.toggled = !this.toggled;
-      this.isItemOpen = !this.isItemOpen;
-
-      switch (item.TYPE) {
-        case "1302":
-          const sizeComponent =this.$parent.$children.filter((el) => {
+      if (!this.isDisabled) {
+        this.toggled = !this.toggled;
+        this.isItemOpen = !this.isItemOpen;
+      }
+      if (typeof item.TYPE !== "undefined") {
+        let sizeComponent;
+        if (item.TYPE === "1302") {
+          sizeComponent = this.$parent.$children.filter((el) => {
             return el.select.VAR_NAME === 'PROP_BED_BOX';
           });
           sizeComponent[0].selectedItem = sizeComponent[0].select.ITEMS.box_924;
-          break;
-        default:
+          sizeComponent[0].isDisabled = true;
+        } else {
+          sizeComponent = this.$parent.$children.filter((el) => {
+            return el.select.VAR_NAME === 'PROP_BED_BOX';
+          });
+          sizeComponent[0].isDisabled = false;
+        }
 
-          break
       }
 
 
@@ -94,15 +102,16 @@ Vue.component('v-select', {
 
     },
     onFocus: function () {
-      this.toggled = !this.toggled;
-      this.isItemOpen = !this.isItemOpen;
+      if (!this.isDisabled) {
+        this.toggled = !this.toggled;
+        this.isItemOpen = !this.isItemOpen;
+      }
     },
     setParams: function () {
 
       const item = this.selectedItem;
       switch (this.select.VAR_NAME) {
         case 'PROP_BED_BOX':
-
 
 
           if (this.selectedItem.TYPE === '924') {

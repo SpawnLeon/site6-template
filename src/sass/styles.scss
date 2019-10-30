@@ -39,6 +39,14 @@
 
 }
 
+[disabled *="disabled"] {
+  opacity: 0.3;
+  cursor: not-allowed;
+
+  * {
+    cursor: not-allowed;
+  }
+}
 
 * {
   box-sizing: border-box;
@@ -2037,14 +2045,17 @@ $catalog-menu-colors: (
 /*catalog card>>>*/
 .card-block--1 {
   max-width: 868px;
+  max-width: calc(100% - 429px);
   order: 0;
   width: 100%;
   border-right: 1px solid #E2E2E2;
   padding-right: 40px;
+  padding-bottom: 40px;
 }
 
 .card-block--2 {
   max-width: 868px;
+  max-width: calc(100% - 429px);
   padding-bottom: 40px;
   order: 4;
   width: 100%;
@@ -2065,7 +2076,6 @@ $catalog-menu-colors: (
 
 .catalog-card__inner {
   margin-top: 30px;
-  display: flex;
   flex-wrap: wrap;
 }
 
@@ -2451,11 +2461,11 @@ $catalog-menu-colors: (
   font-size: 14px;
   display: flex;
   flex-wrap: wrap;
-  flex: 0 1 495px;
+  flex: 1 0 495px;
 }
 
 .sizes-table__size-prices {
-  margin-left: 27px;
+  margin-left: 25px;
 }
 
 .sizes-table__size-price {
@@ -2472,8 +2482,9 @@ $catalog-menu-colors: (
 }
 
 .sizes-table__item {
-  padding: 6px 20px;
+  padding: 6px 15px;
   display: flex;
+  justify-content: flex-start;
   align-items: center;
   flex: 0 1 50%;
 
@@ -2485,7 +2496,10 @@ $catalog-menu-colors: (
   &:nth-child(4n + 2) {
     background-color: #EEEEEE;
   }
-
+}
+.sizes-table__size-name{
+  white-space: nowrap;
+  flex: 0 0 40%;
 }
 
 
@@ -2495,7 +2509,7 @@ $catalog-menu-colors: (
 
 .card-block__additional {
   display: flex;
-  margin-top: 35px;
+
 }
 
 .catalog-card__additional {
