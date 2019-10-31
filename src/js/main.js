@@ -2,20 +2,22 @@
 import Vue from 'vue';
 import axios from 'axios';
 import sliders from './sliders';
-
-
+import VueLazyload from 'vue-lazyload'
+Vue.use(VueLazyload);
 const domReady = () => {
   sliders();
   let formPopupApp = new Vue({
     el: '#js__vue-app-forms-modal',
-    data: {
-      showModal: false,
-      modalBody: ''
+    data() {
+      return {
+        showModal: false,
+        modalBody: ''
+      }
     }
 
   });
 
-  $(document).on('click', '.qty-widget__btn', function () {
+  $(document).on('click', '#smallCartObject .qty-widget__btn', function () {
     const el = this;
     let field = el.closest('.qty-widget').querySelector('.qty-widget__count');
     const currentCount = parseInt(field.value);
@@ -228,9 +230,22 @@ const domReady = () => {
           );
         });
         $('.tooltip').tooltipster({
-          theme: 'tooltipster-noir',
+          theme: 'tooltipster-shadow',
           maxWidth: 320,
           delay: 100,
+          side: 'left'
+        });
+        $('.tooltip-color').tooltipster({
+          theme: 'tooltipster-shadow',
+          side: 'left',
+          maxWidth: 600,
+          height: 600,
+          arrow: false,
+          distance: {
+
+            left: 50,
+
+          },
         });
 
       },
