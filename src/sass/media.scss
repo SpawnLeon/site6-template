@@ -106,6 +106,20 @@
   .promo-block {
     grid-template-rows: repeat(2, 256px);
   }
+  .catalog-list {
+    flex: 1 1 33%;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .actions-page__list {
+    margin: 0 -22px -30px;
+  }
+  .actions-page__item {
+    margin: 0 22px 30px;
+    flex: 0 1 calc(100% / 3 - 44px);
+  }
+  .works-page__item {
+    flex: 0 1 calc(100% / 3 - 20px);
+  }
 }
 
 @media screen and (max-width: 1140px) {
@@ -186,7 +200,7 @@
 
   .advantages__item {
     flex-basis: calc(100% / 3);
-    margin-bottom: 40px ;
+    margin-bottom: 40px;
   }
   .promo-block {
     grid-template-rows: repeat(2, 164px);
@@ -236,12 +250,25 @@
   .product-of-week {
     padding: 15px 15px;
   }
-
+  .actions-page__list {
+    margin: 0 -15px -30px;
+  }
+  .actions-page__item {
+    margin: 0 15px 30px;
+    flex: 0 1 calc(100% / 2 - 30px);
+  }
+  .works-page__item {
+    flex: 0 1 calc(100% / 2 - 20px);
+    margin: 0 10px 20px;
+  }
 }
 
 @media screen and (max-width: 767px) {
 
   .menu-catalog__list {
+    margin: 0 -15px;
+  }
+  .main-slider {
     margin: 0 -15px;
   }
   .menu-catalog-item {
@@ -369,9 +396,14 @@
     grid-column: span 12;
   }
   .promo-block-item--1 {
-
     grid-row: span 1;
 
+  }
+  h3, .h3 {
+    font-size: 30px;
+  }
+  .content__title {
+    font-size: 28px;
   }
 
 }
@@ -380,6 +412,20 @@
   .header__logo {
     max-width: 158px;
     margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .actions-page__list {
+    margin: 0 0 -15px;
+  }
+  .actions-page__item {
+    margin: 0 0 15px;
+    flex: 1 1 100%;
+  }
+  .works-page__item {
+    flex: 1 1 100%;
+    margin: 0 0 20px;
   }
 }
 
@@ -405,5 +451,37 @@
   }
   .advantages__item {
     flex-basis: calc(100% / 2);
+  }
+}
+
+@media screen and (max-width: 320px) {
+
+}
+
+.bx-no-touch {
+
+  ::-webkit-scrollbar-button {
+    width: 6px;
+    height: 0
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #F0F0F0;
+    box-shadow: 0 0 3px #b5b5b5 inset;
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #CDCDCD;
+    box-shadow: 0 1px 1px #fff inset;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  ::-webkit-scrollbar {
+    width: 11px;
+
   }
 }

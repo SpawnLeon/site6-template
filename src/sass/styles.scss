@@ -1,3 +1,14 @@
+
+* {
+  box-sizing: border-box;
+
+  &:before, &:after {
+    box-sizing: border-box;
+  }
+
+
+}
+
 *::-webkit-input-placeholder {
   color: #ADADAD;
 }
@@ -14,30 +25,6 @@
   color: #ADADAD;
 }
 
-::-webkit-scrollbar-button {
-  width: 6px;
-  height: 0
-}
-
-::-webkit-scrollbar-track {
-  background-color: #F0F0F0;
-  box-shadow: 0 0 3px #b5b5b5 inset;
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb {
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  background-color: #CDCDCD;
-  box-shadow: 0 1px 1px #fff inset;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-::-webkit-scrollbar {
-  width: 11px;
-
-}
 
 [v-cloak] {
   display: none !important;
@@ -52,10 +39,6 @@
   }
 }
 
-* {
-  box-sizing: border-box;
-}
-
 [hidden] {
   display: none !important;
 }
@@ -65,8 +48,8 @@
 }
 
 html {
-  width: 100%;
   font-size: 18px;
+
 }
 
 body {
@@ -79,6 +62,8 @@ body {
   font-weight: normal;
   font-feature-settings: 'pnum' on, 'lnum' on, 'liga' off;
   overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
 }
 
 a {
@@ -322,7 +307,7 @@ ul {
 /*<<<header__top*/
 /*main-menu>>>*/
 .main-menu__link {
-  font-size: 12px;
+  font-size: 14px;
   display: block;
 
   &:hover,
@@ -367,7 +352,7 @@ ul {
 
 .phones {
   font-family: 'Lato', sans-serif;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 20px;
   line-height: 1.2;
   position: relative;
@@ -386,16 +371,23 @@ ul {
 }
 
 .header__call-order {
-  font-weight: normal;
-  font-size: 12px;
+  font-weight: 500;
+  font-size: 13px;
   line-height: 14px;
-  color: #8B8B8B;
+  color: #333;
   background: none;
   border: none;
   padding: 0;
   margin: 0;
   cursor: pointer;
   display: block;
+  border-bottom: 1px dashed;
+
+  &:hover,
+  &:active,
+  &:focus {
+    border-color: transparent;
+  }
 }
 
 .header__logo {
@@ -1465,7 +1457,7 @@ $catalog-menu-colors: (
 }
 
 .catalog__sidebar {
-  max-width: 495px;
+  max-width: 455px;
   width: 100%;
   margin-right: 30px;
 }
@@ -1673,9 +1665,22 @@ $catalog-menu-colors: (
   background-color: #3E8CE5;
   color: #ffffff;
   text-decoration: none;
-  padding: 11px 30px 11px;
+  padding: 11px 57px 11px 30px;
   display: block;
   margin-top: 30px;
+  position: relative;
+
+  &::after {
+    content: '';
+    width: 34px;
+    height: 34px;
+    background-image: url(../images/our-work-arrow.svg);
+    display: block;
+    position: absolute;
+    right: 23px;
+    top: 50%;
+    margin-top: -17px;
+  }
 }
 
 .our-works__link:hover,
@@ -2142,9 +2147,12 @@ $catalog-menu-colors: (
   align-items: flex-start;
 }
 
-.catalog-card__fittings-samples {
+.additional-block__link {
+
+
+  margin: 10px 0;
   font-weight: 600;
-  font-size: 24px;
+  font-size: 20px;
   color: #5CA3FD;
   padding: 9px 20px 11px;
   text-decoration: none;
@@ -2152,12 +2160,17 @@ $catalog-menu-colors: (
   border: 1px solid #5CA3FD;
   display: flex;
   align-items: center;
-  max-width: 390px;
+  max-width: 490px;
   width: 100%;
   justify-content: space-between;
 
+  svg {
+    flex: 0 0 auto;
+  }
+
   svg path {
     transition: all 0.3s;
+
   }
 
 
@@ -2460,26 +2473,6 @@ $catalog-menu-colors: (
 .catalog-card__quick-buy:active {
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
 }
-
-.catalog-card__collection-link {
-  font-weight: 600;
-  font-size: 14px;
-  color: #5CA3FD;
-  text-align: center;
-  padding: 10px;
-  text-decoration: none;
-  transition: all 0.3s;
-  border: 1px solid #5CA3FD;
-  display: block;
-
-  &:hover,
-  &:active,
-  &:focus {
-    color: #fff;
-    background-color: #5CA3FD;
-  }
-}
-
 
 .catalog-card__about-prices {
   font-size: 14px;
@@ -3591,7 +3584,7 @@ $catalog-menu-colors: (
 
 .works-page__item {
   margin: 0 10px 20px;
-  flex: 0 1 385px;
+  flex: 0 1 calc(100% / 4 - 20px);
 }
 
 .works-page__image {
@@ -3705,9 +3698,8 @@ $catalog-menu-colors: (
   margin: 0 33px 45px;
   position: relative;
   display: inline-block;
-  flex: 1 1 21%;
+  flex: 0 1 calc(100% / 4 - 66px);
   overflow: hidden;
-  max-width: calc(100% / 2 - 67px);
 }
 
 .actions-item__sticker--archive {
@@ -3861,6 +3853,12 @@ $basket-col-width: (
     &--#{$name} {
       flex-basis: $width;
     }
+  }
+
+  .basket-item__old-cost {
+    line-height: 28px;
+    color: #767373;
+    text-decoration: line-through;
   }
 
   &--info {
@@ -4098,11 +4096,13 @@ $basket-col-width: (
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   opacity: 0;
   transition: opacity 0.3s;
+  display: none;
 }
 
 .basket-block--show {
   opacity: 1;
   right: 0;
+  display: block;
 }
 
 .basket-block__header {
