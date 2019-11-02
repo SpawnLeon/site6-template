@@ -3,6 +3,7 @@ import Vue from 'vue';
 import axios from 'axios';
 import sliders from './sliders';
 import VueLazyload from 'vue-lazyload'
+
 Vue.use(VueLazyload);
 const domReady = () => {
   sliders();
@@ -69,9 +70,18 @@ const domReady = () => {
 
   document.querySelectorAll('.burger-menu').forEach((el) => {
     el.addEventListener('click', () => {
-      el.classList.toggle('burger-menu__item--active');
+      el.classList.toggle('burger-menu--active');
     });
   });
+
+  document.querySelectorAll('.js__burger-menu--catalog-menu').forEach((el) => {
+    el.addEventListener('click', () => {
+      document.querySelector('.catalog-left__content').classList.toggle('catalog-left__content--show');
+    });
+  });
+
+
+
 
 
   document.querySelectorAll('.shops__tab').forEach((el) => {
@@ -215,6 +225,7 @@ const domReady = () => {
 
 
         $('[data-fancybox="card-main-images"]').fancybox({
+          loop: true,
           thumbs: {
             autoStart: true,
           },
@@ -223,6 +234,7 @@ const domReady = () => {
           $.fancybox.open(
             $('[data-fancybox="card-main-images"]'),
             {
+              loop: true,
               thumbs: {
                 autoStart: true,
               }

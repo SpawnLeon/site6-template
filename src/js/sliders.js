@@ -33,7 +33,27 @@ export default () => {
     autoplay: {
       delay: 3000,
     },
-    spaceBetween: 0,
+    spaceBetween: 10,
+    breakpoints: {
+      320: {
+
+        slidesPerView: 1,
+        slidesPerGroup: 1,
+      },
+      560: {
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+
+      },
+      920: {
+        slidesPerView: 3,
+        slidesPerGroup: 3,
+      },
+      1440: {
+        slidesPerView: 4,
+        slidesPerGroup: 4,
+      }
+    },
     slidesPerView: 4,
     slidesPerGroup: 4,
     pagination: {
