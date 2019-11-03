@@ -321,6 +321,12 @@ ul {
   margin-right: 35px;
   padding: 15px 0;
   position: relative;
+
+
+  &--open > .main-menu__list--child ,
+  &:hover > .main-menu__list--child {
+    display: block;
+  }
 }
 
 .main-menu__list {
@@ -337,9 +343,7 @@ ul {
   padding: 0 15px;
 }
 
-.main-menu__item:hover > .main-menu__list--child {
-  display: block;
-}
+
 
 /*<<<main-menu*/
 /*header__middle>>>*/
@@ -1478,7 +1482,7 @@ $catalog-menu-colors: (
   margin-right: 1.6%;
   min-width: 290px;
   max-width: 455px;
-  flex:  1 1 25%;
+  flex: 1 1 25%;
 }
 
 .catalog-search-block {
@@ -1917,7 +1921,7 @@ $catalog-menu-colors: (
 
 .catalog__content {
   flex: 1 1 73.6%;
-  max-width:  73.6%;
+  max-width: 73.6%;
 }
 
 
@@ -3861,14 +3865,13 @@ $catalog-menu-colors: (
 $basket-col-width: (
         cost: 10%,
         qty: 10%,
-        discount: 0%,
-        total: 14%,
+        discount: 10%,
+        total: 10%,
 );
 .basket-list__col {
   padding: 0 15px;
   flex-shrink: 0;
   flex-grow: 0;
-  min-width: 160px;
   text-align: center;
   position: relative;
 
@@ -3894,6 +3897,9 @@ $basket-col-width: (
 
   &--total {
     text-align: left;
+  }
+  &--cost {
+    white-space: nowrap;
   }
 }
 
@@ -3926,6 +3932,7 @@ $basket-col-width: (
   font-weight: 500;
   font-size: 18px;
   color: #F53A41;
+  white-space: nowrap;
 }
 
 .basket-form__title {
@@ -4454,3 +4461,85 @@ $basket-col-width: (
 .catalog-subsections {
   margin-bottom: 22px;
 }
+
+/*mobile-main-menu>>>*/
+.mobile-main-menu {
+  display: none;
+  position: absolute;
+  overflow-y: auto;
+  background-color: #fff;
+  top: 100px;
+  z-index: 10;
+  padding: 0;
+  right: -15px;
+  max-width: 290px;
+
+  &--show {
+    display: inline-block;
+  }
+
+  .header__icons,
+  .header__city {
+    display: block;
+    margin: 0;
+  }
+
+  .block-user-item {
+    display: flex;
+    margin: 5px 0;
+    align-items: center;
+    border: none;
+  }
+
+  .block-user-item__title {
+    font-family: $RalewayFont;
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .block-user__item {
+    min-width: 47px;
+    height: 42px;
+    background-position: center center;
+    border: none;
+    padding-top: 10px;
+    background-size: 32px;
+  }
+
+  .block-user__counter {
+    width: 18px;
+    height: 18px;
+    font-size: 11px;
+    right: 0;
+    top: 0;
+  }
+
+  .mobile-main-menu__item {
+    padding: 25px 25px;
+
+    display: none;
+    position: relative;
+
+
+    &--block-user {
+      display: block;
+    }
+
+    &::after {
+      content: '';
+      height: 0;
+      width: 100%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-bottom: 1px solid #E8E8E8;
+      position: absolute;
+    }
+  }
+
+}
+
+
+/*<<<mobile-main-menu*/

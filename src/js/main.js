@@ -80,8 +80,24 @@ const domReady = () => {
     });
   });
 
+  document.querySelectorAll('.js__burger-menu--main-menu').forEach((el) => {
+    el.addEventListener('click', () => {
+      document.querySelector('.mobile-main-menu').classList.toggle('mobile-main-menu--show');
+    });
+  });
 
 
+  if (window.innerWidth < 768) {
+    document.querySelectorAll('.main-menu__item--has-children > .main-menu__link').forEach((el) => {
+      el.addEventListener('click', (event) => {
+        let menuItem = el.closest('.main-menu__item');
+        if (!menuItem.classList.contains('main-menu__item--open')) {
+          menuItem.classList.add('main-menu__item--open');
+          event.preventDefault();
+        }
+      });
+    });
+  }
 
 
   document.querySelectorAll('.shops__tab').forEach((el) => {
