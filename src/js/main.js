@@ -4,7 +4,10 @@ import axios from 'axios';
 import sliders from './sliders';
 import VueLazyload from 'vue-lazyload'
 
+
 Vue.use(VueLazyload);
+
+
 const domReady = () => {
   sliders();
   let formPopupApp = new Vue({
@@ -16,6 +19,36 @@ const domReady = () => {
       }
     }
 
+  });
+
+  let handleOutsideClick;
+  Vue.directive('closable', {
+    bind(el, binding, vnode) {
+      handleOutsideClick = (e) => {
+        e.stopPropagation();
+        const {handler, exclude} = binding.value;
+        let clickedOnExcludedEl = false;
+        if (typeof exclude !== "undefined") {
+          exclude.forEach(refName => {
+            if (!clickedOnExcludedEl) {
+              const excludedEl = vnode.context.$refs[refName];
+              clickedOnExcludedEl = excludedEl.contains(e.target)
+            }
+          });
+        }
+
+        if (!el.contains(e.target) && !clickedOnExcludedEl) {
+          vnode.context[handler](e.target);
+        }
+      };
+      document.addEventListener('click', handleOutsideClick);
+      document.addEventListener('touchstart', handleOutsideClick)
+    },
+
+    unbind() {
+      document.removeEventListener('click', handleOutsideClick);
+      document.removeEventListener('touchstart', handleOutsideClick)
+    }
   });
 
   $(document).on('click', '#smallCartObject .qty-widget__btn', function () {
@@ -71,23 +104,55 @@ const domReady = () => {
   document.querySelectorAll('.burger-menu').forEach((el) => {
     el.addEventListener('click', () => {
       el.classList.toggle('burger-menu--active');
+
+
     });
   });
 
   document.querySelectorAll('.js__burger-menu--catalog-menu').forEach((el) => {
     el.addEventListener('click', () => {
-      document.querySelector('.catalog-left__content').classList.toggle('catalog-left__content--show');
+      const menu = document.querySelector('.catalog-left__content');
+      showMenuWithOverlay(menu);
     });
   });
 
   document.querySelectorAll('.js__burger-menu--main-menu').forEach((el) => {
     el.addEventListener('click', () => {
-      document.querySelector('.mobile-main-menu').classList.toggle('mobile-main-menu--show');
+      const menu = document.querySelector('.mobile-main-menu');
+
+      if (menu.classList.contains('show')) {
+        hideMenuWithOverlay(menu);
+      } else {
+        showMenuWithOverlay(menu);
+        document.body.classList.add('has-overlay-main-menu');
+      }
     });
   });
 
+  const showMenuWithOverlay = (menu) => {
+    menu.classList.toggle('show');
+    const catalogMenuOverlay = document.createElement("div");
+    catalogMenuOverlay.classList.add('menu-overlay');
+    catalogMenuOverlay.addEventListener('click', () => {
+      hideMenuWithOverlay(menu);
+    });
+    document.body.appendChild(catalogMenuOverlay);
+    document.body.classList.add('has-overlay-menu');
+  };
 
-  if (window.innerWidth < 768) {
+
+  const hideMenuWithOverlay = (menu) => {
+    document.querySelectorAll('.menu-overlay').forEach((el) => el.remove());
+    menu.classList.remove('show');
+    document.querySelectorAll('.burger-menu').forEach((el) => {
+      el.classList.remove('burger-menu--active');
+      document.body.classList.remove('has-overlay-menu');
+      document.body.classList.remove('has-overlay-main-menu');
+    });
+  };
+
+
+  if (window.innerWidth < 769) {
     document.querySelectorAll('.main-menu__item--has-children > .main-menu__link').forEach((el) => {
       el.addEventListener('click', (event) => {
         let menuItem = el.closest('.main-menu__item');
@@ -124,17 +189,15 @@ const domReady = () => {
   });
 
 
-  //TODO: make materials
-  //
-  // document.querySelectorAll('.materials-item__more').forEach((el) => {
-  //   el.addEventListener('click', () => {
-  //     el.classList.toggle('materials-item__more--open')
-  //
-  //     el.closest('.phones')
-  //       .querySelector('.phones-list')
-  //       .classList.toggle('phones-list--open');
-  //   });
-  // });
+  document.querySelectorAll('.materials-item__more').forEach((el) => {
+    el.addEventListener('click', () => {
+      el.classList.toggle('materials-item__more--open');
+
+      el.closest('.materials-item')
+        .querySelector('.materials-item__inner')
+        .classList.toggle('materials-item__inner--open');
+    });
+  });
 
 
   if (document.getElementById('js__catalog-card-app') !== null) {
@@ -171,6 +234,16 @@ const domReady = () => {
         },
       },
       methods: {
+        hideProductOptions: function (elementTarget) {
+          this.$children.forEach((el) => {
+            if (typeof el.toggled !== "undefined" && !el.$el.contains(elementTarget)) {
+
+              el.toggled = false;
+              el.isItemOpen = false;
+            }
+          });
+        },
+
         selectYourSizeFormToggle() {
           this.selectYourSizeForm = !this.selectYourSizeForm;
 

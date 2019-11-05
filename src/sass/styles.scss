@@ -3043,6 +3043,7 @@ $catalog-menu-colors: (
 .partners__left {
   margin-right: 170px;
 }
+
 .partners__right {
   flex: 0 0 29%;
   min-width: 340px;
@@ -3051,6 +3052,7 @@ $catalog-menu-colors: (
 .partners__image img {
   width: 100%;
 }
+
 .we-are-ready-cooperate__title {
 
   font-family: $RalewayFont;
@@ -3091,12 +3093,15 @@ $catalog-menu-colors: (
 .we-are-ready-cooperate__text {
   margin-top: 20px;
 }
+
 .boss-content__block--left {
   flex: 1 1 auto;
 }
+
 .boss-content__block--right {
   flex: 0 0 385px;
 }
+
 .boss-content__promo {
   font-weight: 600;
   font-size: 18px;
@@ -3106,10 +3111,12 @@ $catalog-menu-colors: (
   padding: 20px;
   margin-left: 60px;
 }
+
 .boss-content__promo--in-content {
   display: none;
   margin: 30px 0;
 }
+
 .boss-content {
   display: flex;
   align-items: center;
@@ -3130,7 +3137,6 @@ $catalog-menu-colors: (
   align-items: center;
   margin-top: 40px;
 }
-
 
 
 .boss-content__title {
@@ -3392,8 +3398,15 @@ $catalog-menu-colors: (
 
 .materials-item__inner {
   display: flex;
-  margin: 15px 25px 0;
+  margin: 15px 25px -50px;
   flex-wrap: wrap;
+  height: 380px;
+  overflow: hidden;
+
+
+  &--open{
+    height: auto;
+  }
 }
 
 .material-item {
@@ -3403,7 +3416,7 @@ $catalog-menu-colors: (
 }
 
 .materials-item__description {
-  margin: 0 47px 50px;
+  margin: 50px 47px 50px;
   position: relative;
 }
 
@@ -4526,7 +4539,7 @@ $basket-col-width: (
   right: -15px;
   max-width: 290px;
 
-  &--show {
+  &.show {
     display: inline-block;
   }
 
@@ -4595,3 +4608,49 @@ $basket-col-width: (
 
 
 /*<<<mobile-main-menu*/
+/*<<<search-page*/
+.form-item--search {
+  display: flex;
+}
+
+.form__submit--search {
+  margin-left: 30px;
+}
+
+.form-item__label--search {
+  flex: 1 1 auto;
+}
+
+.search-page {
+  max-width: 800px;
+}
+
+/*<<<search-page*/
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  z-index: 90;
+
+  &::before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    display: block;
+    background-image: url(../images/menu-overlay.svg);
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+  }
+}
+
+.has-overlay-main-menu .container--show-with-menu {
+  z-index: 100;
+  position: relative;
+  background-color: #fff;
+}

@@ -82,6 +82,7 @@ Vue.component('v-select', {
     }
   },
   methods: {
+
     handleItemClick: function (item) {
       let boxComponent = this.$parent.$children.filter(el => {
         if (typeof el.select !== "undefined") {
@@ -171,7 +172,7 @@ Vue.component('v-select', {
       }
       this.selectedItemCount = newCount;
     },
-    setMaxBoxesCount: function() {
+    setMaxBoxesCount: function () {
       let boxComponent = this.$parent.$children.filter(el => {
         if (typeof el.select !== "undefined") {
           return el.select.VAR_NAME === 'PROP_BED_BOX';
