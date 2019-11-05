@@ -14,6 +14,7 @@ export default () => {
     },
   });
   new Swiper('.products-of-week__container', {
+    loop: true,
     speed: 400,
     spaceBetween: 100,
     pagination: {

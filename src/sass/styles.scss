@@ -323,7 +323,7 @@ ul {
   position: relative;
 
 
-  &--open > .main-menu__list--child ,
+  &--open > .main-menu__list--child,
   &:hover > .main-menu__list--child {
     display: block;
   }
@@ -342,7 +342,6 @@ ul {
   z-index: 1;
   padding: 0 15px;
 }
-
 
 
 /*<<<main-menu*/
@@ -2953,9 +2952,11 @@ $catalog-menu-colors: (
   text-decoration: none;
   border: 1px solid #EEEEEE;
   margin: 0 15px 30px;
+  flex: 0 0 calc(100% / 5 - 30px);
 
   & img {
     display: block;
+    width: 100%;
   }
 }
 
@@ -3042,7 +3043,14 @@ $catalog-menu-colors: (
 .partners__left {
   margin-right: 170px;
 }
+.partners__right {
+  flex: 0 0 29%;
+  min-width: 340px;
+}
 
+.partners__image img {
+  width: 100%;
+}
 .we-are-ready-cooperate__title {
 
   font-family: $RalewayFont;
@@ -3083,7 +3091,12 @@ $catalog-menu-colors: (
 .we-are-ready-cooperate__text {
   margin-top: 20px;
 }
-
+.boss-content__block--left {
+  flex: 1 1 auto;
+}
+.boss-content__block--right {
+  flex: 0 0 385px;
+}
 .boss-content__promo {
   font-weight: 600;
   font-size: 18px;
@@ -3091,12 +3104,12 @@ $catalog-menu-colors: (
   background: #5CA3FD;
   border-radius: 0 50px 0 0;
   padding: 20px;
-  max-width: 385px;
-  min-width: 385px;
-  width: 100%;
   margin-left: 60px;
 }
-
+.boss-content__promo--in-content {
+  display: none;
+  margin: 30px 0;
+}
 .boss-content {
   display: flex;
   align-items: center;
@@ -3118,9 +3131,7 @@ $catalog-menu-colors: (
   margin-top: 40px;
 }
 
-.boss-content__image {
-  margin-right: 20px;
-}
+
 
 .boss-content__title {
   font-weight: 700;
@@ -3131,6 +3142,9 @@ $catalog-menu-colors: (
   width: 130px;
   height: 130px;
   background-image: url(../example_images/boss.png);
+  margin-right: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 /*how-buy>>>*/
@@ -3197,6 +3211,7 @@ $catalog-menu-colors: (
 
 .how-buy-page__call-out-managers-wrapper {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .how-buy-page-blocks__item {
@@ -3204,13 +3219,15 @@ $catalog-menu-colors: (
 }
 
 .how-buy-page-form {
-  max-width: 920px;
+  flex: 0 1 calc(100% - 593px);
+  min-width: 460px;
 }
 
 .how-buy-page-form-wrapper {
   background-image: url(../images/how-buy-form.png);
   background-repeat: no-repeat;
   background-position: 100% 0;
+  display: flex;
 
 }
 
@@ -3232,7 +3249,7 @@ $catalog-menu-colors: (
 }
 
 .payment-delivery-item__image {
-  flex: 0 0 530px;
+  flex: 0 0 480px;
   position: relative;
 
   &::before {
@@ -3241,7 +3258,8 @@ $catalog-menu-colors: (
     background-repeat: no-repeat;
     display: block;
     height: 100%;
-    margin-right: 155px;
+    margin-right: 150px;
+    background-size: contain;
 
   }
 
@@ -3305,12 +3323,14 @@ $catalog-menu-colors: (
   padding: 0 50px 0 5px;
   min-height: 37px;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .materials-item__title {
   font-family: $RalewayFont;
   font-weight: bold;
   font-size: 18px;
+  margin-right: 15px;
 }
 
 .materials-item__more {
@@ -3319,6 +3339,7 @@ $catalog-menu-colors: (
   display: flex;
   align-items: center;
   cursor: pointer;
+
 
   &::after {
     content: '';
@@ -3357,7 +3378,7 @@ $catalog-menu-colors: (
 
 .material-item__image {
   display: block;
-  max-width: 331px;
+  width: 100%;
 }
 
 .material-item__title {
@@ -3371,14 +3392,14 @@ $catalog-menu-colors: (
 
 .materials-item__inner {
   display: flex;
-  margin: 15px 22px 0;
+  margin: 15px 25px 0;
   flex-wrap: wrap;
 }
 
 .material-item {
   margin: 0 25px 50px;
   position: relative;
-
+  flex: 0 0 calc(100% / 4 - 50px);
 }
 
 .materials-item__description {
@@ -3469,6 +3490,7 @@ $catalog-menu-colors: (
   flex-wrap: wrap;
   margin: 0 -5px -15px;
 
+
 }
 
 .shop__title {
@@ -3496,7 +3518,8 @@ $catalog-menu-colors: (
 }
 
 .shop__image {
-  margin: 0 5px 15px
+  margin: 0 5px 15px;
+  max-width: 276px;
 }
 
 .shop__map {
@@ -3527,6 +3550,7 @@ $catalog-menu-colors: (
 .shops__tabs {
   display: flex;
   margin-top: 30px;
+  flex-wrap: wrap;
 }
 
 .shops__tab {
@@ -3761,22 +3785,40 @@ $catalog-menu-colors: (
 .basket-page__form {
   width: 100%;
   max-width: 780px;
+  flex: 1 1 50%;
 
 }
 
 .basket-page__bottom {
   display: flex;
   margin-top: 40px;
+  flex-wrap: wrap;
 }
 
 .basket-page__additional {
-  margin-left: 160px;
+  padding-left: 160px;
+  flex: 1 1 calc(50% - 160px);
+}
+
+.basket-additional-block--delivery {
+  padding-top: 20px;
 }
 
 .basket-additional-list li:not(:last-child) {
   margin-bottom: 10px;
 }
 
+.basket-page__bottom {
+  .form__title {
+    font-family: $RalewayFont;
+    font-weight: 300;
+    font-size: 54px;
+    line-height: 63px;
+    text-align: left;
+    flex: 1 1 100%;
+    margin-bottom: 30px;
+  }
+}
 
 .basket-item__discount {
   font-weight: 900;
@@ -3811,7 +3853,7 @@ $catalog-menu-colors: (
 .basket-item {
   background-color: #F5F5F5;
   border-radius: 0 30px 0 0;
-  padding: 10px 3.7% 10px 0;
+  padding: 20px 3.7% 20px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -3847,6 +3889,7 @@ $catalog-menu-colors: (
 
 .basket-item__image img {
   display: block;
+  min-width: 115px;
 }
 
 .basket-item__name-wrapper {
@@ -3861,6 +3904,14 @@ $catalog-menu-colors: (
   margin-top: 10px;
 }
 
+.basket-list__col-title {
+  font-family: $RalewayFont;
+  display: none;
+  flex: 1 1 50%;
+  text-align: right;
+  font-weight: 300;
+  font-size: 16px;
+}
 
 $basket-col-width: (
         cost: 10%,
@@ -3898,6 +3949,7 @@ $basket-col-width: (
   &--total {
     text-align: left;
   }
+
   &--cost {
     white-space: nowrap;
   }
