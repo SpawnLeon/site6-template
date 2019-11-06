@@ -128,6 +128,10 @@ module.exports = (env, options) => {
           terserOptions: {
             // https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
             extractComments: false,
+            ecma: 8,
+            mangle: {
+              safari10: true
+            }
           }
         }),
       ],

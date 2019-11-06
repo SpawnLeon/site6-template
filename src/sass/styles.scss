@@ -449,6 +449,8 @@ ul {
   display: none;
   line-height: 0;
   margin-left: 15px;
+  background-size: contain;
+  background-image: url(../images/i-search.svg);
 }
 
 .search__submit {
@@ -583,20 +585,7 @@ ul {
 
 /*<<<search-block-title***/
 /*basket-icon>>>*/
-.basket-icon__counter {
-  position: absolute;
-  width: 17px;
-  height: 17px;
-  border-radius: 50%;
-  background-color: #333;
-  font-size: 9px;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 0;
-  right: 0;
-}
+
 
 .basket-icon {
   position: relative;
@@ -604,7 +593,24 @@ ul {
   height: 36px;
   background-image: url(../images/basket.svg);
   margin-left: 58px;
+  background-size: contain;
+  background-repeat: no-repeat;
 
+  &__counter {
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background-color: #333;
+    font-size: 9px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    right: 0;
+
+  }
 }
 
 /*<<<basket-icon*/
@@ -1560,7 +1566,7 @@ $catalog-menu-colors: (
     font-weight: 700;
     font-size: 16px;
     color: #000;
-    padding: 15px 56px 16px 30px;
+    padding: 15px 55px 16px 55px;
     display: block;
     min-height: 50px;
     width: 100%;
@@ -1609,20 +1615,19 @@ $catalog-menu-colors: (
 
 }
 
+.catalog-left-menu__image {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+  display: block;
+  width: 30px;
+  height: auto;
+  max-height: 30px;
+}
 
 .catalog-left-menu__item {
   position: relative;
-
-  &--oak::before {
-    content: '' !important;
-    position: absolute;
-    top: 16px;
-    left: 8px;
-    display: block;
-    background-image: url(../images/catalog-left-menu__item-oak.svg.svg);
-    width: 16px;
-    height: 16px;
-  }
 
 
   &--177 .catalog-left-menu__link {
@@ -1633,9 +1638,8 @@ $catalog-menu-colors: (
     border-bottom: none;
     margin-left: -1px;
     margin-right: -1px;
-    padding-left: 31px;
-    padding-right: 31px;
     width: auto;
+    padding: 15px 55px 16px;
 
     &:hover,
     &:focus,
@@ -2507,7 +2511,7 @@ $catalog-menu-colors: (
   font-size: 14px;
   display: flex;
   flex-wrap: wrap;
-  flex: 1 0 495px;
+  flex: 1 1 auto;
 }
 
 .sizes-table__size-prices {
@@ -2567,9 +2571,8 @@ $catalog-menu-colors: (
 }
 
 .catalog-card__additional-block {
-  max-width: 420px;
   margin-right: 15px;
-  width: 100%;
+  flex: 1 1 auto;
 }
 
 .card-tabs__header {
@@ -2607,9 +2610,11 @@ $catalog-menu-colors: (
     border-bottom-color: #FFA800;
   }
 }
+
 .card-tabs__tab-name {
   padding: 0 30px;
 }
+
 .card-tabs__tab-name-counter {
   font-weight: 500;
   font-size: 10px;
@@ -3676,6 +3681,10 @@ $catalog-menu-colors: (
 }
 
 /*useful>>>*/
+.useful-page {
+  overflow: hidden;
+}
+
 .useful-page__list {
   display: flex;
   margin: 0 -33px -45px;
@@ -3687,9 +3696,8 @@ $catalog-menu-colors: (
   margin: 0 33px 45px;
   position: relative;
   display: inline-block;
-  flex: 0 1 calc(100% / 3 - 67px);
+  flex: 0 1 calc(100% / 4 - 67px);
   overflow: hidden;
-  min-width: 290px;
 
   &::before {
     content: '';
@@ -4594,16 +4602,7 @@ $basket-col-width: (
       display: block;
     }
 
-    &::after {
-      content: '';
-      height: 0;
-      width: 100%;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      border-bottom: 1px solid #E8E8E8;
-      position: absolute;
-    }
+
   }
 
 }
@@ -4714,3 +4713,47 @@ $basket-col-width: (
 
 
 /*<<<page-404*/
+/*catalog-main-page>>>*/
+
+.catalog-main-page {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item-wrapper {
+    border: 1px solid #E2E2E2;
+    margin-left: -1px;
+    margin-top: -1px;
+    flex: 0 0 25%;
+
+    &:hover {
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+  }
+
+  &-item {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+
+    &__name {
+      font-family: $RalewayFont;
+      font-weight: bold;
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: auto;
+    }
+
+    &__image {
+      margin-top: 35px;
+      margin-bottom: auto;
+    }
+  }
+}
+
+
+/*<<<catalog-main-page\*/

@@ -297,7 +297,7 @@ const domReady = () => {
             });
         }
       },
-      mounted: () => {
+      mounted: function () {
         document.querySelectorAll('.card-tabs__tab-name').forEach((el) => {
           el.addEventListener('click', () => {
             document.querySelectorAll('.card-tabs__tab-name').forEach((el) => {
@@ -348,6 +348,39 @@ const domReady = () => {
 
           },
         });
+
+
+        //fix for bitrix ajax
+        let paramsViewed = new URLSearchParams();
+        paramsViewed.append('AJAX', 'Y');
+        paramsViewed.append('SITE_ID', this.params.SITE_ID);
+        paramsViewed.append('PRODUCT_ID', this.params.ID);
+        paramsViewed.append('PARENT_ID', this.params.ID);
+
+        axios({
+          url: '/bitrix/components/bitrix/catalog.element/ajax.php',
+          method: 'post',
+          headers: {
+            'content-type': 'application/x-www-form-urlencoded'
+          },
+          data: paramsViewed
+        })
+          .then(response => {
+            axios
+              .post('/ajax/product.php',
+                {
+                  method: 'getViewedCount'
+                })
+              .then(response => {
+                const data = response.data;
+                if (data) {
+                  document.querySelector('.block-user__item--visited .block-user__counter').innerHTML = data.VIEWED_COUNT;
+                }
+
+              });
+
+          });
+
 
       },
 
