@@ -72,23 +72,34 @@
 
 .form__item {
   margin: 10px 0;
+
+
 }
 
-.form-item__field {
-  background-color: #FFFFFF;
-  border: 1px solid #E2E2E2;
-  box-sizing: border-box;
-  font-size: 16px;
-  padding: 14px;
-  width: 100%;
-  resize: none;
 
-  &--error {
-    border-color: #f00;
-  }
+.form-item {
 
-  &--textarea {
-    min-height: 200px;
+  &__field {
+    background-color: #FFFFFF;
+    border: 1px solid #E2E2E2;
+    box-sizing: border-box;
+    font-size: 16px;
+    padding: 14px;
+    width: 100%;
+    resize: none;
+
+    &--error {
+      border-color: #F53A41;
+    }
+
+    &--textarea {
+      min-height: 200px;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: #F59502;
+    }
   }
 }
 
@@ -201,6 +212,7 @@
     margin: 15px 0 15px;
   }
 }
+
 @media screen and (max-width: 600px) {
   .modal-container {
     padding-left: 15px;

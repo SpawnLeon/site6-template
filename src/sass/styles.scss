@@ -2451,7 +2451,7 @@ $catalog-menu-colors: (
 .catalog-card__add-to-cart::before {
   content: "";
   width: 23px;
-  height: 21px;
+  height: 20px;
   background-image: url(../images/i-add-to-cart.svg);
   margin-right: 15px;
   padding: 3px;
@@ -2607,7 +2607,9 @@ $catalog-menu-colors: (
     border-bottom-color: #FFA800;
   }
 }
-
+.card-tabs__tab-name {
+  padding: 0 30px;
+}
 .card-tabs__tab-name-counter {
   font-weight: 500;
   font-size: 10px;
@@ -3147,7 +3149,7 @@ $catalog-menu-colors: (
 .boss-content__image {
   width: 130px;
   height: 130px;
-  background-image: url(../example_images/boss.png);
+  background-image: url(../images/boss.png);
   margin-right: 20px;
   background-size: contain;
   background-repeat: no-repeat;
@@ -3404,7 +3406,7 @@ $catalog-menu-colors: (
   overflow: hidden;
 
 
-  &--open{
+  &--open {
     height: auto;
   }
 }
@@ -4654,3 +4656,61 @@ $basket-col-width: (
   position: relative;
   background-color: #fff;
 }
+
+/*page-404>>>*/
+.page-404 {
+  font-family: $RalewayFont;
+  display: flex;
+  margin-top: -42px;
+
+  &-block {
+    flex: 1 0 50%;
+  }
+
+  &-block--image {
+    background-image: url(../images/page-404.svg);
+    background-repeat: no-repeat;
+    background-position: center 0;
+    background-size: contain;
+    padding-top: 42%;
+  }
+
+  &-block--content {
+    padding: 130px 0;
+  }
+
+  &__title {
+    font-weight: 300;
+    font-size: 52px;
+  }
+
+  &__text {
+    font-weight: bold;
+    font-size: 22px;
+    color: #222222;
+    margin-top: 35px;
+  }
+
+  &__list {
+    font-size: 16px;
+    margin-top: 27px;
+
+    li {
+      margin-bottom: 13px;
+
+      a {
+        color: #5CA3FD;
+        text-decoration: none;
+
+        &:active,
+        &:focus,
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+
+/*<<<page-404*/
