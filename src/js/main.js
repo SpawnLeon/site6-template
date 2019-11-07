@@ -267,6 +267,21 @@ const domReady = () => {
 
             });
         },
+
+        addToFavorite() {
+          axios
+            .post('/ajax/product.php',
+              {
+                qty: 1,
+                params: Object.assign({}, this.params),
+                method: 'addFavorite'
+              })
+            .then(response => {
+              const data = response.data;
+              document.querySelector('.block-user__item--favorite .block-user__counter').innerHTML = data.COUNT;
+              this.isAddFavorite = data.IS_ADD_FAVORITE;
+            });
+        },
         addToCart() {
           axios
             .post('/ajax/product.php',
@@ -354,8 +369,8 @@ const domReady = () => {
         let paramsViewed = new URLSearchParams();
         paramsViewed.append('AJAX', 'Y');
         paramsViewed.append('SITE_ID', this.params.SITE_ID);
-        paramsViewed.append('PRODUCT_ID', this.params.ID);
-        paramsViewed.append('PARENT_ID', this.params.ID);
+        paramsViewed.append('PRODUCT_ID', this.params.PRODUCT_ID);
+        paramsViewed.append('PARENT_ID', this.params.PRODUCT_ID);
 
         axios({
           url: '/bitrix/components/bitrix/catalog.element/ajax.php',
@@ -424,7 +439,12 @@ const domReady = () => {
       });
     });
   }
-
+  $('.tooltip--sticker').tooltipster({
+    theme: 'tooltipster-shadow',
+    maxWidth: 320,
+    delay: 0,
+    side: 'top'
+  });
 
 };
 

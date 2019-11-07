@@ -6,9 +6,10 @@ import Vue from 'vue';
 Vue.component('v-select', {
   props: ['options', 'value', 'select', 'hardness'],
   template: `
-
 <div class="card-option-item-wrapper" :disabled="isDisabled" :class="">
-    <div class="catalog-card__option card-option" :class="{'card-option--open':isItemOpen === true, 'card-option--has-hardness': hardness}">
+    <div 
+        class="catalog-card__option card-option" 
+        :class="{'card-option--open':isItemOpen === true, 'card-option--has-hardness': hardness, 'card-option--not-title': !select.NAME}">
         <div class="card-option__title" @click="onFocus" v-if="select.NAME">
             {{select.NAME}}
         </div>

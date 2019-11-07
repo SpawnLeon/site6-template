@@ -2,6 +2,7 @@ import Swiper from "swiper";
 
 export default () => {
   new Swiper('.main-slider__container', {
+    loop: true,
     speed: 400,
     autoplay: {
       delay: 3000,
