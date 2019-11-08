@@ -370,6 +370,7 @@ ul {
   padding-right: 15px;
   flex: 0 0 50%;
   margin-bottom: 2px;
+  text-align: right;
 }
 
 .phones__phone {
@@ -4101,6 +4102,7 @@ $basket-col-width: (
   font-weight: bold;
   font-size: 36px;
   margin-left: auto;
+  white-space: nowrap;
 }
 
 /*<<<basket*/
@@ -4571,7 +4573,7 @@ $basket-col-width: (
   position: absolute;
   overflow-y: auto;
   background-color: #fff;
-  top: 100px;
+  top: 105px;
   z-index: 10;
   padding: 0;
   right: -15px;
@@ -4628,8 +4630,12 @@ $basket-col-width: (
     &--block-user {
       display: block;
     }
-
-
+  }
+  .phones__btn {
+    margin-bottom: 5px;
+  }
+  .header__phones {
+    font-weight: 700;
   }
 
 }

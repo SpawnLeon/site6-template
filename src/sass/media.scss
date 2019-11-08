@@ -565,7 +565,6 @@
     flex: 0 0 calc(100% / 2);
   }
   .header__phones {
-    font-weight: 500;
     font-size: 14px;
     top: 4px;
   }
@@ -725,16 +724,20 @@
     display: block;
   }
   .header__phones {
-    display: none;
+    .phone-item:nth-child(n + 2) {
+      display: none;
+    }
   }
   .mobile-main-menu {
     .header__phones {
       display: block;
-      font-weight: 500;
       white-space: nowrap;
       margin-top: 20px;
       font-size: 20px;
     }
+  }
+  .header__phones {
+    font-size: 20px;
   }
 }
 
@@ -1196,7 +1199,9 @@
   .products-of-week__button {
     top: 39%;
   }
-
+  .header__phones {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 600px) {

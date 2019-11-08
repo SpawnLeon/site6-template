@@ -13,6 +13,7 @@ module.exports = (env, options) => {
     entry: {
       "app": "./src/app.js",
     },
+    devtool: webpackMode === 'production' ? 'source-map' : false,
     output: {
       filename: '[name].js',
       //path: path.resolve(__dirname, './dist')
