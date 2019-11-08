@@ -333,6 +333,9 @@
   .catalog-main-page__item-wrapper {
     flex: 0 0 calc(100% / 3);
   }
+  .search-block {
+    width: auto;
+  }
 }
 
 @media screen and (max-width: 1280px) {
@@ -531,6 +534,7 @@
   }
   .burger-menu {
     display: block;
+
     &--catalog {
       display: none;
     }
@@ -560,13 +564,29 @@
   .catalog-main-page__item-wrapper {
     flex: 0 0 calc(100% / 2);
   }
+  .header__phones {
+    font-weight: 500;
+    font-size: 14px;
+    top: 4px;
+  }
+
+  .phones__item.phone-item {
+    flex-basis: 140px;
+  }
+  .phones__inner {
+    max-width: 282px;
+  }
+  .header__call-order {
+    margin-top: 3px;
+  }
 }
 
-
-@media screen and (max-width: 920px) {
-
+@media screen and (max-width: 1120px) {
   .header__search-btn {
     display: block;
+    width: 35px;
+    height: 35px;
+    margin-left: auto;
   }
   .search-block__form {
     position: absolute;
@@ -585,6 +605,9 @@
       display: block;
     }
   }
+}
+
+@media screen and (max-width: 920px) {
 
   .header__logo {
     margin-right: 30px;
@@ -698,8 +721,20 @@
     }
   }
 
-  .burger-menu--catalog{
+  .burger-menu--catalog {
     display: block;
+  }
+  .header__phones {
+    display: none;
+  }
+  .mobile-main-menu {
+    .header__phones {
+      display: block;
+      font-weight: 500;
+      white-space: nowrap;
+      margin-top: 20px;
+      font-size: 20px;
+    }
   }
 }
 
@@ -773,9 +808,7 @@
   .header__top {
     display: none;
   }
-  .header__phones {
-    display: none;
-  }
+
   .header__middle {
     padding: 20px 15px;
     position: fixed;
@@ -850,6 +883,9 @@
     margin: 0 10px;
   }
   .payment-block {
+    text-align: center;
+  }
+  .footer_social {
     text-align: center;
   }
   .payment-block__inner {
@@ -991,13 +1027,6 @@
       margin-top: 15px;
     }
 
-
-    .header__phones {
-      display: block;
-      font-weight: 500;
-      white-space: nowrap;
-      margin-top: 20px;
-    }
 
     .phones__btn {
       justify-content: flex-start;
@@ -1150,7 +1179,7 @@
 
   }
   .mobile-main-menu {
-    max-height: calc(100vh - 80px);
+    max-height: calc(100vh - 100px);
     overflow-y: auto;
   }
   .modal_city-select-panel {

@@ -1,4 +1,3 @@
-
 import 'font-awesome/scss/font-awesome.scss'
 
 import './fonts/fonts.css';
@@ -13,6 +12,7 @@ import 'jquery';
 import 'tooltipster';
 
 import '@fancyapps/fancybox';
+
 import './js/components';
 import './js/main';
 

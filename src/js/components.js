@@ -36,9 +36,9 @@ Vue.component('v-select', {
                         @mousedown="handleItemClick(item)"
                         @mouseover="pointer = index">
                     <div class="card-option-item__image" v-if="item && item.PREVIEW_IMAGE">
-                        <img :src="item.PREVIEW_IMAGE" alt="" class="tooltip-color" :data-tooltip-content="'#' + item.ID">
+                        <img :src="item.PREVIEW_IMAGE" alt="" class="tooltip-color" :data-tooltip-content="'#detail-colors-list-item-' + item.ORIGINAL_ID">
                         <div class="tooltip_templates card-option-item__tooltip" hidden>
-                            <div :id="item.ID" style="min-width: 600px; min-height: 610px;">
+                            <div :id="'detail-colors-list-item-' + item.ORIGINAL_ID" style="min-width: 600px; min-height: 610px;">
                                 <img v-lazy="item.FULL_IMAGE" class="img-fluid">
                             </div> 
                         </div>

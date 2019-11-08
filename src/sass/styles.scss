@@ -238,22 +238,23 @@ ul {
   background-repeat: no-repeat;
   position: relative;
   cursor: pointer;
+  background-size: 26px auto;
 }
 
 .block-user__counter {
   position: absolute;
   background-color: #333;
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   display: flex;
-  font-size: 8px;
+  font-size: 9px;
   align-items: center;
   justify-content: center;
   color: #fff;
   border-radius: 50%;
   line-height: 1;
-  right: 6px;
-  top: 0;
+  right: 1px;
+  top: -7px;
 }
 
 .block-user__item--visited {
@@ -262,8 +263,6 @@ ul {
 
 .block-user__item--compare {
   background-image: url(../images/compare.svg);
-  border-left: 1px solid #BFBEBE;
-  border-right: 1px solid #BFBEBE;
 }
 
 .block-user__item--favorite {
@@ -354,11 +353,23 @@ ul {
 }
 
 .phones {
-  font-family: 'Lato', sans-serif;
   font-weight: 700;
   font-size: 20px;
   line-height: 1.2;
   position: relative;
+  top: 5px;
+}
+
+.phones__inner {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 390px;
+}
+
+.phone-item {
+  padding-right: 15px;
+  flex: 0 0 50%;
+  margin-bottom: 2px;
 }
 
 .phones__phone {
@@ -430,15 +441,6 @@ ul {
 
 }
 
-.phones__bnt-open {
-  margin-left: 5px;
-  font-size: 16px;
-}
-
-.phones__btn {
-  display: flex;
-}
-
 /*<<<header__middle*/
 /***search-block>>>*/
 
@@ -452,6 +454,7 @@ ul {
   margin-left: 15px;
   background-size: contain;
   background-image: url(../images/i-search.svg);
+  background-size: contain;
 }
 
 .search__submit {
@@ -595,7 +598,7 @@ ul {
   width: 46px;
   height: 36px;
   background-image: url(../images/basket.svg);
-  margin-left: 58px;
+  margin-left: 25px;
   background-size: contain;
   background-repeat: no-repeat;
 
@@ -1266,6 +1269,7 @@ $catalog-menu-colors: (
   display: inline-block;
   padding-bottom: 1px;
 }
+
 /*<<<footer-bottom*/
 /*footer-top>>*/
 .footer-logo__image {
@@ -1362,6 +1366,10 @@ $catalog-menu-colors: (
   margin-top: 15px;
 }
 
+.footer_social {
+  margin-top: 15px;
+}
+
 .payment-block__inner {
   display: flex;
   margin-top: 4px;
@@ -1377,7 +1385,7 @@ $catalog-menu-colors: (
 }
 
 .footer__price-list {
-  margin-top: 35px;
+  margin-top: 15px;
 }
 
 .price-list-button {
@@ -2440,14 +2448,21 @@ $catalog-menu-colors: (
 .card-actions__item {
   margin: 15px 4px 0;
 }
-.catalog-card__add-favorite--active rect{
+
+.catalog-card__add-compare {
+  display: none;
+}
+
+.catalog-card__add-favorite--active rect {
   fill: #f53a41;
   transition: all 0.3s;
 }
-.catalog-card__add-favorite--active path{
+
+.catalog-card__add-favorite--active path {
   fill: #fff;
   transition: all 0.3s;
 }
+
 .catalog-card__add-to-cart {
   flex: 1 1 100%;
   background-color: #F53A41;
@@ -4412,14 +4427,13 @@ $basket-col-width: (
     border-top: 1px solid #E2E2E2;
     padding-top: 20px;
     margin-top: 12px;
-    display: flex;
-    flex-wrap: wrap;
+    column-count: 2;
 
     li {
       cursor: pointer;
       padding: 10px 20px 10px 0;
       font-size: 16px;
-      flex: 1 1 50%;
+
 
       &.active span {
         font-weight: 700;
@@ -4593,7 +4607,6 @@ $basket-col-width: (
     height: 42px;
     background-position: center center;
     border: none;
-    padding-top: 10px;
     background-size: 32px;
   }
 

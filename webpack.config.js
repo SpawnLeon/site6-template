@@ -61,6 +61,10 @@ module.exports = (env, options) => {
           ]
         },
         {
+          test: /\.vue$/,
+          loader: 'vue-loader',
+        },
+        {
           test: /\.(woff|woff2|ttf|otf|eot)$/,
           use: [
             {
@@ -108,10 +112,7 @@ module.exports = (env, options) => {
             }
           ]
         },
-        {
-          test: /\.vue$/,
-          loader: 'vue-loader'
-        }
+
       ]
     },
     resolve: {

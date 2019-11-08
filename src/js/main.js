@@ -2,11 +2,11 @@
 import Vue from 'vue';
 import axios from 'axios';
 import sliders from './sliders';
-import VueLazyload from 'vue-lazyload'
-
+import VueLazyload from 'vue-lazyload';
+import toTopBtn from './components/v-to-top-btn.vue';
 
 Vue.use(VueLazyload);
-
+Vue.use(toTopBtn);
 
 const domReady = () => {
   sliders();
@@ -18,7 +18,14 @@ const domReady = () => {
         modalBody: ''
       }
     }
+  });
 
+
+  new Vue({
+    el: '#js__toTopBtn',
+    render(h) {
+      return h(toTopBtn)
+    }
   });
 
   let handleOutsideClick;
@@ -81,15 +88,6 @@ const domReady = () => {
     }
 
 
-  });
-
-
-  document.querySelectorAll('.phones__bnt-open').forEach((el) => {
-    el.addEventListener('click', () => {
-      el.closest('.phones')
-        .querySelector('.phones-list')
-        .classList.toggle('phones-list--open');
-    });
   });
 
 
