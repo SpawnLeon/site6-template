@@ -209,6 +209,7 @@ const domReady = () => {
           reviewsNumPage: 2,
           selectYourSizeForm: false,
           selectedSize: null,
+          boxinfo: false
         }
       },
       watch: {
@@ -356,9 +357,7 @@ const domReady = () => {
           height: 600,
           arrow: false,
           distance: {
-
             left: 50,
-
           },
         });
 

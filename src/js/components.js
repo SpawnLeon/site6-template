@@ -12,6 +12,7 @@ Vue.component('v-select', {
         :class="{'card-option--open':isItemOpen === true, 'card-option--has-hardness': hardness, 'card-option--not-title': !select.NAME}">
         <div class="card-option__title" @click="onFocus" v-if="select.NAME">
             {{select.NAME}}
+            <div  class="box-tooltip box-help" v-if="select.VAR_NAME === 'PROP_BED_BOX'" v-on:click="showBoxInfo()">?</div>
         </div>
         <div class="card-option__inner" @click="onFocus">
             <div class="card-option__value">
@@ -129,6 +130,9 @@ Vue.component('v-select', {
 
       this.setParams();
 
+    },
+    showBoxInfo: function () {
+      this.$parent.boxinfo = true;
     },
     onFocus: function () {
       if (!this.isDisabled) {

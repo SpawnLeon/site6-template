@@ -336,11 +336,51 @@
   .search-block {
     width: auto;
   }
+  .header__search-btn {
+    display: block;
+    width: 35px;
+    height: 35px;
+    margin-left: auto;
+  }
+  .search-block__form {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 15;
+    padding: 11px 15px;
+    background-color: #F9F9F9;
+    top: 88%;
+    border-top: 1px solid #e2e2e2;
+    margin: 0 -15px;
+    box-shadow: inset 0 4px 4px 3px #eee;
+    display: none;
+
+    &--open {
+      display: block;
+    }
+  }
+  .search-block-title--header-title-search-input {
+    background-color: #F9F9F9;
+    box-shadow: inset 0 4px 4px 3px #eee;
+    border: none;
+  }
 }
 
 @media screen and (max-width: 1280px) {
   .certificates__item {
     flex: 0 0 calc(100% / 4 - 30px);
+  }
+  .product-add-services {
+
+    &__inner {
+      margin: 30px 0 0
+
+    }
+  }
+  .add-services-item {
+    flex: 0 1 100%;
+    margin: 0 0 15px;
+
   }
 
 }
@@ -577,31 +617,16 @@
   }
   .header__call-order {
     margin-top: 3px;
+    margin-left: 11px;
+    position: relative;
+    top: -5px;
   }
 }
 
 @media screen and (max-width: 1120px) {
-  .header__search-btn {
-    display: block;
-    width: 35px;
-    height: 35px;
-    margin-left: auto;
-  }
-  .search-block__form {
-    position: absolute;
-    left: 0;
-    right: 0;
-    z-index: 15;
-    padding: 11px 15px;
-    background-color: #F9F9F9;
-    top: 88%;
-    border-top: 1px solid #e2e2e2;
-    margin: 0 -15px;
-    box-shadow: inset 0 4px 4px 3px #eee;
-    display: none;
-
-    &--open {
-      display: block;
+  .box-info {
+    &::before {
+      content: none;
     }
   }
 }
@@ -1202,6 +1227,13 @@
   .header__phones {
     display: none;
   }
+  .box-info {
+    top: 0;
+    transform: none;
+    left: 0;
+    max-height: 100vh;
+    overflow: auto;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -1256,6 +1288,26 @@
     flex: 0 1 100%;
     margin: 0 0 15px;
   }
+
+  .add-services-item {
+    flex-wrap: wrap;
+    min-width: 0;
+  }
+
+  .add-services-item__dots {
+    display: none;
+  }
+
+  .add-services-item__title {
+    font-weight: 700;
+    white-space: normal;
+    margin-right: 15px;
+
+    &::after {
+      content: ':';
+    }
+  }
+
 }
 
 @media screen and (max-width: 576px) {
