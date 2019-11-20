@@ -1782,8 +1782,11 @@ $catalog-menu-colors: (
   justify-content: center;
   margin-top: 2px;
   margin-bottom: 10px;
+  flex-wrap: wrap;
 }
-
+.price-description--list {
+  flex: 1 1 100%;
+}
 .catalog-list-item__price {
   font-family: $RalewayFont;
 
@@ -2046,11 +2049,23 @@ $catalog-menu-colors: (
   align-items: center;
   justify-content: center;
   position: relative;
-  background-image: linear-gradient(89.6deg, #64A2F3 0.02%, #408AE4 99.98%);
-  background-position: center;
-  min-height: 109px;
+  background-image: linear-gradient(89.6deg, #64a2f3 0.02%, #408ae4 99.98%);
+  background-position: 0 center, 100% center, center;
+  background-size: auto;
+  min-height: 110px;
   background-repeat: no-repeat;
-  background-size: cover;
+
+  @media screen and (max-width: 767px) {
+    background-size: auto 100%, auto 100%, auto;
+    min-height: 80px;
+  }
+  @media screen and (max-width: 420px) {
+    background-position: -10% center, 110% center, center;
+    min-height: 80px;
+  }
+  @media screen and (max-width: 374px) {
+    min-height: 80px;
+  }
 }
 
 .catalog-title-image::before {
@@ -2073,6 +2088,12 @@ $catalog-menu-colors: (
   font-family: $RalewayFont;
   font-weight: bold;
   font-size: 36px;
+  margin: 15px;
+  text-align: center;
+
+  @media screen and (max-width: 767px) {
+    font-size: 22px;
+  }
 }
 
 /*catalog card>>>*/
@@ -2146,7 +2167,15 @@ $catalog-menu-colors: (
   justify-content: center;
   align-items: flex-start;
 }
+.additional-block__description {
+  font-size: 12px;
+  margin-bottom: 15px;
+  margin-top: -25px;
 
+  a {
+    color: #5ca3fd;
+  }
+}
 .additional-block__link {
   margin: 10px 0;
   font-weight: 600;
@@ -4916,4 +4945,48 @@ $basket-col-width: (
 }
 .price-description-from {
   font-size: 26px;
+}
+
+.ottoman-bed {
+  background-color: #ffd716;
+  font-family: $RalewayFont;
+  font-weight: 500;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  color: #171717;
+  padding: 15px 15px 15px 15px;
+  position: relative;
+  background-image: url(../images/ottoman-bed-image.png);
+  background-repeat: no-repeat;
+  background-position: 96% center;
+  margin-bottom: 30px;
+  color: #171717;
+  background-size: auto;
+
+  &__text {
+    max-width: calc(100% - 390px);
+  }
+  @media screen and(max-width: 1120px) {
+    &__text {
+      max-width: calc(100% - 310px);
+    }
+  }
+  @media screen and(max-width: 767px) {
+    & {
+      text-align: center;
+      padding-top: 100px;
+      background-position: center 15px;
+      font-size: 16px;
+
+      &__text {
+        max-width: 100%;
+      }
+    }
+  }
+  @media screen and (max-width: 374px) {
+    & {
+      background-size: 90%;
+    }
+  }
 }
