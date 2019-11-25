@@ -2412,7 +2412,8 @@ $catalog-menu-colors: (
 
 .card-option__list {
   max-height: 300px;
-  overflow: hidden auto;
+  overflow-x: hidden;
+  overflow-y: auto;
   padding-top: 5px;
   margin-top: 10px;
   position: relative;
