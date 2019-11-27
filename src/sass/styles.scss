@@ -3992,7 +3992,20 @@ $basket-col-width: (
     white-space: nowrap;
   }
 }
-
+.basket-block-item__discount {
+  font-weight: 900;
+  font-size: 13px;
+  text-align: center;
+  color: #ffffff;
+  width: 38px;
+  height: 38px;
+  background: #5ca3fd;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
 .basket-item__info {
   display: flex;
   align-items: center;
@@ -4089,7 +4102,12 @@ $basket-col-width: (
   margin-left: auto;
   white-space: nowrap;
 }
-
+.basket-block__remove-all {
+  font-family: $RalewayFont;
+  font-weight: 600;
+  font-size: 14px;
+  color: #ffffff;
+}
 /*<<<basket*/
 
 /*qty-widget>>>*/
@@ -4225,7 +4243,7 @@ $basket-col-width: (
   top: 100%;
   z-index: 10;
   width: 100%;
-  max-width: 630px;
+  max-width: 740px;
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   opacity: 0;
@@ -4318,6 +4336,7 @@ $basket-col-width: (
 .basket-block-item__image {
   max-width: 110px;
   width: 100%;
+  margin-right: 15px;
 }
 
 .basket-block-table__col--qty {
@@ -4331,7 +4350,16 @@ $basket-col-width: (
 }
 
 .basket-block-table_col--cost {
-  flex: 0 0 130px;
+  flex: 0 0 90px;
+  white-space: nowrap;
+}
+.basket-block-table__col--discount {
+  flex: 0 0 80px;
+  text-align: center;
+}
+.basket-block-table_col--price {
+  flex: 0 0 100px;
+  text-align: center;
 }
 
 .basket-block__action {
@@ -4349,9 +4377,32 @@ $basket-col-width: (
   font-weight: 600;
   font-size: 18px;
   text-decoration: none;
-  padding: 0 20px;
+  display: block;
+}
+.basket-block-item__props {
+  font-size: 12px;
+  color: #969696;
+  text-align: left;
+  margin-top: 10px;
 }
 
+.basket-block-item__props li {
+  margin-bottom: 5px;
+}
+
+.basket-block-item__vendor-code {
+  background: #5ca3fd;
+  border-radius: 10px;
+  font-size: 12px;
+  color: #fff;
+  padding: 3px 8px 4px;
+  display: inline-block;
+  white-space: nowrap;
+  margin-top: 11px;
+}
+.basket-block-item__right {
+  text-align: left;
+}
 /*<<<basket-block*/
 /*modal_city-select-panel>>>*/
 .modal_city-select-panel {
