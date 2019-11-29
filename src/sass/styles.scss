@@ -1958,7 +1958,13 @@ $catalog-menu-colors: (
 .sticker--color {
   background-image: url(../images/i-color.svg);
 }
-
+.sticker--black-friday {
+  background-image: url(../images/black-friday-sticker.png);
+  width: 118px;
+  height: 82px;
+  top: -15px;
+  position: relative;
+}
 .catalog-list-item__stickers {
   display: flex;
   justify-content: space-between;
