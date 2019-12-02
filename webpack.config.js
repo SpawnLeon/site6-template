@@ -149,7 +149,7 @@ module.exports = (env, options) => {
       ]),
       new webpack.ProvidePlugin({
         $: 'jquery',
-        jQuery: 'jquery'
+        jQuery: 'jquery' 
       }),
       new VueLoaderPlugin(),
     ],

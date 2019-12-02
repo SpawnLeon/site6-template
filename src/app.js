@@ -1,20 +1,24 @@
-import 'font-awesome/scss/font-awesome.scss'
+import "font-awesome/scss/font-awesome.scss";
 
-import './fonts/fonts.css';
-import '../node_modules/swiper/swiper.scss';
-import '../node_modules/@fancyapps/fancybox/dist/jquery.fancybox.css';
-import '../node_modules/tooltipster/dist/css/tooltipster.bundle.min.css';
-import '../node_modules/tooltipster/dist/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-shadow.min.css';
+import "./fonts/fonts.css";
+import "../node_modules/swiper/swiper.scss";
+import "../node_modules/@fancyapps/fancybox/dist/jquery.fancybox.css";
+import "../node_modules/tooltipster/dist/css/tooltipster.bundle.min.css";
+import "../node_modules/tooltipster/dist/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-shadow.min.css";
 
-import './sass/app.scss';
+import "./sass/app.scss";
 
-import 'jquery';
-import 'tooltipster';
+//new year style
+import "./assets/new-year/new-year.scss";
+import "./assets/new-year/new-year.js";
 
-import '@fancyapps/fancybox';
+import "jquery";
+import "tooltipster";
 
-import './js/components';
-import './js/main';
+import "@fancyapps/fancybox";
+
+import "./js/components";
+import "./js/main";
 
 // require('./html/index.html');
 // require('./html/catalog.html');

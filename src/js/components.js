@@ -1,10 +1,9 @@
 "use strict";
 
-import Vue from 'vue';
+import Vue from "vue";
 
-
-Vue.component('v-select', {
-  props: ['options', 'value', 'select', 'hardness'],
+Vue.component("v-select", {
+  props: ["options", "value", "select", "hardness"],
   template: `
 <div class="card-option-item-wrapper" :disabled="isDisabled" :class="">
     <div 
@@ -12,7 +11,8 @@ Vue.component('v-select', {
         :class="{'card-option--open':isItemOpen === true, 'card-option--has-hardness': hardness, 'card-option--not-title': !select.NAME}">
         <div class="card-option__title" @click="onFocus" v-if="select.NAME">
             {{select.NAME}}
-            <div  class="box-tooltip box-help" v-if="select.VAR_NAME === 'PROP_BED_BOX'" v-on:click="showBoxInfo()">?</div>
+            <div class="tooltip card-option__tooltip" v-if="select.HINT_FORMATTED"  v-on:click="showInformation(select.HINT_FORMATTED)">?</div>
+            
         </div>
         <div class="card-option__inner" @click="onFocus">
             <div class="card-option__value">
@@ -79,36 +79,32 @@ Vue.component('v-select', {
       selectedItem: {},
       selectedItemCount: 0,
       isDisabled: false,
-      maxItemCount: null,
-
-    }
+      maxItemCount: null
+    };
   },
   methods: {
-
-    handleItemClick: function (item) {
+    handleItemClick: function(item) {
       let boxComponent = this.$parent.$children.filter(el => {
         if (typeof el.select !== "undefined") {
-          return el.select.VAR_NAME === 'PROP_BED_BOX';
+          return el.select.VAR_NAME === "PROP_BED_BOX";
         }
       });
       let bedComponent = this.$parent.$children.filter(el => {
         if (typeof el.select !== "undefined") {
-          return el.select.VAR_NAME === 'ID';
+          return el.select.VAR_NAME === "ID";
         }
       });
       let gradeComponent = this.$parent.$children.filter(el => {
         if (typeof el.select !== "undefined") {
-          return el.select.VAR_NAME === 'PROP_BED_GRADE';
+          return el.select.VAR_NAME === "PROP_BED_GRADE";
         }
       });
-
 
       this.selectedItem = item;
       if (!this.isDisabled) {
         this.toggled = !this.toggled;
         this.isItemOpen = !this.isItemOpen;
       }
-
 
       if (typeof boxComponent[0] !== "undefined") {
         if (typeof item.TYPE !== "undefined") {
@@ -119,96 +115,110 @@ Vue.component('v-select', {
           } else {
             boxComponent[0].isDisabled = false;
           }
-
         }
 
-
         this.setMaxBoxesCount();
-
-
       }
 
       this.setParams();
-
     },
-    showBoxInfo: function () {
-      this.$parent.boxinfo = true;
+    showInformation: function(content) {
+      this.$parent.popupInformation = true;
+      this.$parent.popupInformationContent = content;
     },
-    onFocus: function () {
+    onFocus: function() {
       if (!this.isDisabled) {
         this.toggled = !this.toggled;
         this.isItemOpen = !this.isItemOpen;
       }
     },
-    setParams: function () {
-
+    setParams: function() {
       const item = this.selectedItem;
       switch (this.select.VAR_NAME) {
-        case 'PROP_BED_BOX':
-          if (this.selectedItem.TYPE === '924') {
+        case "PROP_BED_BOX":
+          if (this.selectedItem.TYPE === "924") {
             this.selectedItemCount = 0;
           } else {
             if (this.selectedItemCount < 1) {
               this.selectedItemCount = 1;
             }
           }
-          this.$set(this.$parent.params, this.select.VAR_NAME, item.ITEMS[this.selectedItemCount].ID);
+          this.$set(
+            this.$parent.params,
+            this.select.VAR_NAME,
+            item.ITEMS[this.selectedItemCount].ID
+          );
           break;
-        case 'PROP_BED_GRADE':
+        case "PROP_BED_GRADE":
           const currentBedSizeID = this.$parent.params.ID;
-          const currentBedInfo = this.$parent.optionSelects.filter(el => el['VAR_NAME'] === 'ID').pop().ITEMS.filter(el => el.ID === currentBedSizeID).pop();
+          const currentBedInfo = this.$parent.optionSelects
+            .filter(el => el["VAR_NAME"] === "ID")
+            .pop()
+            .ITEMS.filter(el => el.ID === currentBedSizeID)
+            .pop();
           const bedXmlID = currentBedInfo.XML_ID;
-          this.$set(this.$parent.params, this.select.VAR_NAME, item.ITEMS[bedXmlID]);
+          this.$set(
+            this.$parent.params,
+            this.select.VAR_NAME,
+            item.ITEMS[bedXmlID]
+          );
           break;
         default:
           this.$set(this.$parent.params, this.select.VAR_NAME, item.ID);
       }
     },
-    qtyWidgetAction: function (action) {
+    qtyWidgetAction: function(action) {
       let newCount = this.selectedItemCount;
 
       switch (action) {
-        case 'minus':
-          newCount = this.selectedItemCount - 1 > 0 ? this.selectedItemCount -= 1 : 1;
+        case "minus":
+          newCount =
+            this.selectedItemCount - 1 > 0 ? (this.selectedItemCount -= 1) : 1;
           break;
-        case 'plus':
-          newCount = this.selectedItemCount + 1 > this.maxItemCount ? this.maxItemCount : this.selectedItemCount += 1;
+        case "plus":
+          newCount =
+            this.selectedItemCount + 1 > this.maxItemCount
+              ? this.maxItemCount
+              : (this.selectedItemCount += 1);
           break;
       }
       this.selectedItemCount = newCount;
     },
-    setMaxBoxesCount: function () {
+    setMaxBoxesCount: function() {
       let boxComponent = this.$parent.$children.filter(el => {
         if (typeof el.select !== "undefined") {
-          return el.select.VAR_NAME === 'PROP_BED_BOX';
+          return el.select.VAR_NAME === "PROP_BED_BOX";
         }
       });
       let bedComponent = this.$parent.$children.filter(el => {
         if (typeof el.select !== "undefined") {
-          return el.select.VAR_NAME === 'ID';
+          return el.select.VAR_NAME === "ID";
         }
       });
       let gradeComponent = this.$parent.$children.filter(el => {
         if (typeof el.select !== "undefined") {
-          return el.select.VAR_NAME === 'PROP_BED_GRADE';
+          return el.select.VAR_NAME === "PROP_BED_GRADE";
         }
       });
-      if (typeof boxComponent[0] !== "undefined" && typeof bedComponent[0] !== "undefined") {
-        const sizesHaveOnlyTwoBoxes = ['Ho18IsCj', 'i6HDSbqj', 'xoBplZnY'];
-        if (sizesHaveOnlyTwoBoxes.includes(bedComponent[0].selectedItem.XML_ID)) {
-
+      if (
+        typeof boxComponent[0] !== "undefined" &&
+        typeof bedComponent[0] !== "undefined"
+      ) {
+        const sizesHaveOnlyTwoBoxes = ["Ho18IsCj", "i6HDSbqj", "xoBplZnY"];
+        if (
+          sizesHaveOnlyTwoBoxes.includes(bedComponent[0].selectedItem.XML_ID)
+        ) {
           boxComponent[0].maxItemCount = 2;
           boxComponent[0].selectedItemCount = 2;
         } else {
-          boxComponent[0].maxItemCount = Object.keys(boxComponent[0].selectedItem.ITEMS).length;
+          boxComponent[0].maxItemCount = Object.keys(
+            boxComponent[0].selectedItem.ITEMS
+          ).length;
         }
       }
     }
-
   },
-  mounted() {
-
-  },
+  mounted() {},
   created() {
     //TODO: select default option
     for (const prop in this.select.ITEMS) {
@@ -219,26 +229,23 @@ Vue.component('v-select', {
     this.setParams();
   },
   watch: {
-    selectedItemCount: function () {
+    selectedItemCount: function() {
       this.setParams();
     }
   },
   filters: {
-    formatPrice: (value) => {
-
-      if ((String(value)).includes('%')) {
+    formatPrice: value => {
+      if (String(value).includes("%")) {
         return value;
       }
-      let val = (value / 1).toFixed(0).replace('.', ',')
-      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + ' ₽';
-    },
-  },
-
+      let val = (value / 1).toFixed(0).replace(".", ",");
+      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " ₽";
+    }
+  }
 });
 
-
-Vue.component('v-checkbox-product-option', {
-  props: ['option'],
+Vue.component("v-checkbox-product-option", {
+  props: ["option"],
   template: `
    <div class="mattress-add-options__item">
       <label class="custom-checkbox">
@@ -259,16 +266,19 @@ Vue.component('v-checkbox-product-option', {
     return {
       checked: false,
       selectedItem: {}
-    }
+    };
   },
   methods: {
-    mattressAddChecked: function (item) {
+    mattressAddChecked: function(item) {
       this.setParams();
     },
-    setParams: function () {
-
+    setParams: function() {
       const currentBedSizeID = this.$parent.params.ID;
-      const currentBedInfo = this.$parent.optionSelects.filter(el => el['VAR_NAME'] === 'ID').pop().ITEMS.filter(el => el.ID === currentBedSizeID).pop();
+      const currentBedInfo = this.$parent.optionSelects
+        .filter(el => el["VAR_NAME"] === "ID")
+        .pop()
+        .ITEMS.filter(el => el.ID === currentBedSizeID)
+        .pop();
       const bedXmlID = currentBedInfo.XML_ID;
       let needValue = null;
       if (typeof bedXmlID !== undefined) {
@@ -278,7 +288,6 @@ Vue.component('v-checkbox-product-option', {
         }
         this.$set(this.$parent.params, this.option.VAR_NAME, needValue);
       }
-
     }
   },
   mounted() {

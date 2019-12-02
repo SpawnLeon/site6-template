@@ -30,7 +30,7 @@ export default {
   background-size: contain;
   position: fixed;
   bottom: 25px;
-  right: 25px;
+  right: 50px;
   cursor: pointer;
   display: none;
   opacity: 0.7;

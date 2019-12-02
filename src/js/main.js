@@ -202,7 +202,8 @@ const domReady = () => {
           reviewsNumPage: 2,
           selectYourSizeForm: false,
           selectedSize: null,
-          boxinfo: false
+          popupInformation: false,
+          popupInformationContent: ""
         };
       },
       watch: {
