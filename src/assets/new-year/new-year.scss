@@ -1,0 +1,48 @@
+#Snow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+.header__catalog-title-image,
+.menu-catalog {
+  position: relative;
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 42px;
+    position: absolute;
+    top: -42px;
+    background-image: url(img/spruce-branch.png);
+    display: block;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+    @media screen and (max-width: 767px) {
+      z-index: 100;
+    }
+    @media screen and (max-width: 600px) {
+      content: none;
+    }
+  }
+}
+.header__logo {
+  position: relative;
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 42px;
+    height: 36px;
+    background-image: url(img/christmas-hat.png);
+    left: 90px;
+    top: -3px;
+    @media screen and (max-width: 600px) {
+      content: none;
+    }
+  }
+}
