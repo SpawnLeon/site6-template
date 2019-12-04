@@ -348,6 +348,10 @@ ul {
   line-height: 1.2;
   position: relative;
   top: 5px;
+
+  &--1 {
+    top: -6px;
+  }
 }
 
 .phones__inner {
@@ -4878,7 +4882,7 @@ $basket-col-width: (
 /*<<<product-add-services*/
 
 .popup-information {
-  font-size: 15px; 
+  font-size: 15px;
   background-color: #ffffff;
   max-width: 1110px;
   width: 100%;
@@ -4891,7 +4895,6 @@ $basket-col-width: (
   display: none;
   overflow: auto;
   max-height: 100vh;
-
 
   &--show {
     display: flex;
