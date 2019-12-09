@@ -1075,6 +1075,7 @@ $catalog-menu-colors: (
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(2, 341px);
   margin-bottom: 0;
+  background-color: #f53a41;
 }
 
 .promo-block-item {
@@ -5076,3 +5077,104 @@ $basket-col-width: (
 .colors-hint-item:not(:first-child) {
   margin-top: 15px;
 }
+
+/* custom-section-block >>>*/
+.custom-section-block {
+  margin-bottom: 40px;
+
+  &__header {
+    display: flex;
+    margin-bottom: 30px;
+    align-items: center;
+  }
+
+  &__title {
+    font-family: $RalewayFont;
+    font-weight: 300;
+    font-size: 54px;
+    color: #333333;
+  }
+
+  &__more {
+    margin-left: 40px;
+  }
+}
+/*<<< custom-section-block */
+/* order-consultation >>>*/
+.order-consultation {
+  background-color: #3e8ce5;
+  font-family: $RalewayFont;
+  font-weight: bold;
+  font-size: 38px;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  padding: 28px 0;
+  justify-content: center;
+  margin-top: 40px;
+
+  &__title {
+  }
+
+  &__btn {
+    margin: 0 100px;
+    font-weight: bold;
+    font-size: 22px;
+    text-align: center;
+    color: #3e8ce5;
+    background: #ffffff;
+    box-shadow: 0px 2px 6px rgba(37, 93, 156, 0.5);
+    border-radius: 8px;
+    border-color: #fff;
+    cursor: pointer;
+
+    &:hover,
+    &:active,
+    &:focus {
+      border-color: $btn--primary;
+      background-color: $btn--primary;
+      color: #fff;
+    }
+  }
+  & + .promo-block {
+    margin-top: 0;
+  }
+}
+/*<<< order-consultation */
+
+/* custom-section-add-category-in-list >>>*/
+.custom-section-add-category-in-list {
+  margin: 40px 0;
+
+  &__title {
+    font-family: $RalewayFont;
+    font-weight: 300;
+    font-size: 54px;
+    color: #333333;
+    margin-bottom: 40px;
+  }
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+.custom-section-add-category-in-list-item {
+  flex: 0 1 calc(100% / 3);
+  padding-bottom: 28.43%;
+  background-size: cover;
+  position: relative;
+
+  &__title {
+    font-family: $RalewayFont;
+    font-weight: bold;
+    font-size: 32px;
+    color: #222222;
+    position: absolute;
+    top: 40px;
+    bottom: 40px;
+    right: 40px;
+    left: 40px;
+  }
+}
+/*<<< order-consultation */
