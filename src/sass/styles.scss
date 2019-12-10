@@ -307,6 +307,13 @@ ul {
 .main-menu__link {
   font-size: 14px;
   display: block;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &--selected {
+    text-decoration: underline !important;
+  }
 }
 
 .main-menu__item {
@@ -757,6 +764,17 @@ $catalog-menu-colors: (
   position: relative;
   display: inline-block;
   height: 100%;
+  overflow: hidden;
+
+  &__image {
+    transition: all 0.3s;
+  }
+
+  &:hover &__image,
+  &:focus &__image,
+  &:active &__image {
+    transform: scale(1.2);
+  }
 
   &--full {
     grid-area: cif;
@@ -5114,10 +5132,14 @@ $basket-col-width: (
   margin-top: 40px;
 
   &__title {
+    margin: 0 50px;
+  }
+  &__text {
+    margin: 0 50px;
   }
 
   &__btn {
-    margin: 0 100px;
+    margin: 0 50px;
     font-weight: bold;
     font-size: 22px;
     text-align: center;
@@ -5139,6 +5161,16 @@ $basket-col-width: (
   & + .promo-block {
     margin-top: 0;
   }
+  @media screen and (max-width: 1210px) {
+    & > * {
+      margin: 15px 15px;
+      font-size: 20px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    padding: 15px 0;
+  }
 }
 /*<<< order-consultation */
 
@@ -5152,6 +5184,10 @@ $basket-col-width: (
     font-size: 54px;
     color: #333333;
     margin-bottom: 40px;
+
+    @media screen and (max-width: 1210px) {
+      font-size: 40px;
+    }
   }
 
   &__inner {
@@ -5164,6 +5200,14 @@ $basket-col-width: (
   padding-bottom: 28.43%;
   background-size: cover;
   position: relative;
+  @media screen and (max-width: 1024px) {
+    flex-basis: (100% / 2);
+    padding-bottom: 42%;
+  }
+  @media screen and (max-width: 500px) {
+    flex-basis: 100%;
+    padding-bottom: 85%;
+  }
 
   &__title {
     font-family: $RalewayFont;
@@ -5175,6 +5219,10 @@ $basket-col-width: (
     bottom: 40px;
     right: 40px;
     left: 40px;
+
+    @media screen and (max-width: 1210px) {
+      font-size: 20px;
+    }
   }
 }
 /*<<< order-consultation */
