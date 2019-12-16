@@ -32,7 +32,10 @@ const domReady = () => {
     bind(el, binding, vnode) {
       handleOutsideClick = e => {
         e.stopPropagation();
-        const { handler, exclude } = binding.value;
+        const {
+          handler,
+          exclude
+        } = binding.value;
         let clickedOnExcludedEl = false;
         if (typeof exclude !== "undefined") {
           exclude.forEach(refName => {
@@ -57,7 +60,7 @@ const domReady = () => {
     }
   });
 
-  $(document).on("click", "#smallCartObject .qty-widget__btn", function() {
+  $(document).on("click", "#smallCartObject .qty-widget__btn", function () {
     const el = this;
     let field = el.closest(".qty-widget").querySelector(".qty-widget__count");
     const currentCount = parseInt(field.value);
@@ -225,7 +228,7 @@ const domReady = () => {
         }
       },
       methods: {
-        hideProductOptions: function(elementTarget) {
+        hideProductOptions: function (elementTarget) {
           this.$children.forEach(el => {
             if (
               typeof el.toggled !== "undefined" &&
@@ -243,8 +246,7 @@ const domReady = () => {
         getReviews(productID) {
           axios
             .post(
-              "/local/templates/mebel/components/bitrix/catalog.element/detail/reviews_ajax.php",
-              {
+              "/local/templates/mebel/components/bitrix/catalog.element/detail/reviews_ajax.php", {
                 PRODUCT_ID: productID,
                 NUM_PAGE: this.reviewsNumPage
               }
@@ -299,7 +301,7 @@ const domReady = () => {
             });
         }
       },
-      mounted: function() {
+      mounted: function () {
         document.querySelectorAll(".card-tabs__tab-name").forEach(el => {
           el.addEventListener("click", () => {
             document.querySelectorAll(".card-tabs__tab-name").forEach(el => {
@@ -375,6 +377,10 @@ const domReady = () => {
               }
             });
         });
+
+        $(".card-block__3d").fancybox({
+          baseClass: "frame-card-block__3d"
+        });
       }
     });
   }
@@ -391,13 +397,13 @@ const domReady = () => {
 
         (() => {
           fetch("/ajax/form.php", {
-            method: "POST",
-            body: JSON.stringify({
-              form_id: popupFormID,
-              custom_hidden: custom_hidden
+              method: "POST",
+              body: JSON.stringify({
+                form_id: popupFormID,
+                custom_hidden: custom_hidden
+              })
+              //mode: 'cors', // no-cors, cors, *same-origin
             })
-            //mode: 'cors', // no-cors, cors, *same-origin
-          })
             .then(response => response.text())
             .then(strData => {
               const pattern = /<script[\s\S]*?>([\s\S]*?)<\/script>/gi;
