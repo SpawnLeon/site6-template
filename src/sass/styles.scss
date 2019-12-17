@@ -5246,8 +5246,7 @@ $basket-col-width: (cost: 10%,
   position: absolute;
   width: 68px;
   height: 76px;
-  background-image: url(../images/card-block-3d.svg);
-  transition: all 0.3s;
+  background-image: url(../images/card-block-3d-hover.svg);
   background-size: contain;
 
   @media screen and (max-width: 767px) {
@@ -5258,7 +5257,7 @@ $basket-col-width: (cost: 10%,
   &:active,
   &:focus,
   &:hover {
-    background-image: url(../images/card-block-3d-hover.svg);
+    background-image: url(../images/card-block-3d.svg);
   }
 
   &--mobile {
