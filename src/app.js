@@ -9,8 +9,8 @@ import "../node_modules/tooltipster/dist/css/plugins/tooltipster/sideTip/themes/
 import "./sass/app.scss";
 
 //new year style
-import "./assets/new-year/new-year.scss";
-import "./assets/new-year/new-year.js";
+// import "./assets/new-year/new-year.scss";
+// import "./assets/new-year/new-year.js";
 
 import "jquery";
 import "tooltipster";

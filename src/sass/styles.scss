@@ -5258,21 +5258,7 @@ $basket-col-width: (cost: 10%,
   &:focus,
   &:hover {
     background-image: url(../images/card-block-3d.svg);
-  }
-
-  &--mobile {
-    display: none;
-  }
-}
-
-.bx-touch {
-  .card-block__3d {
-    display: none;
-  }
-
-  .card-block__3d--mobile {
-    display: block;
-  }
+  }  
 }
 
 .frame-card-block__3d iframe {
