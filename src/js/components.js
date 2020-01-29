@@ -1,9 +1,9 @@
-"use strict";
+'use strict';
 
-import Vue from "vue";
+import Vue from 'vue';
 
-Vue.component("v-select", {
-  props: ["options", "value", "select", "hardness"],
+Vue.component('v-select', {
+  props: ['options', 'value', 'select', 'hardness'],
   template: `
 <div class="card-option-item-wrapper" :disabled="isDisabled" :class="">
     <div 
@@ -37,9 +37,9 @@ Vue.component("v-select", {
                         @mousedown="handleItemClick(item)"
                         @mouseover="pointer = index">
                     <div class="card-option-item__image" v-if="item && item.PREVIEW_IMAGE">
-                        <img :src="item.PREVIEW_IMAGE" alt="" class="tooltip-color" :data-tooltip-content="'#detail-colors-list-item-' + item.ORIGINAL_ID">
+                        <img :src="item.PREVIEW_IMAGE" alt="" class="tooltip-color" :data-tooltip-content="'#detail-colors-list-item-' + select.VAR_NAME + item.ORIGINAL_ID">
                         <div class="tooltip_templates card-option-item__tooltip" hidden>
-                            <div :id="'detail-colors-list-item-' + item.ORIGINAL_ID" style="min-width: 600px; min-height: 610px;">
+                            <div :id="'detail-colors-list-item-' + select.VAR_NAME + item.ORIGINAL_ID" style="min-width: 600px; min-height: 610px;">
                                 <img v-lazy="item.FULL_IMAGE" class="img-fluid">
                             </div> 
                         </div>
@@ -79,24 +79,24 @@ Vue.component("v-select", {
       selectedItem: {},
       selectedItemCount: 0,
       isDisabled: false,
-      maxItemCount: null
+      maxItemCount: null,
     };
   },
   methods: {
     handleItemClick: function(item) {
-      let boxComponent = this.$parent.$children.filter(el => {
-        if (typeof el.select !== "undefined") {
-          return el.select.VAR_NAME === "PROP_BED_BOX";
+      let boxComponent = this.$parent.$children.filter((el) => {
+        if (typeof el.select !== 'undefined') {
+          return el.select.VAR_NAME === 'PROP_BED_BOX';
         }
       });
-      let bedComponent = this.$parent.$children.filter(el => {
-        if (typeof el.select !== "undefined") {
-          return el.select.VAR_NAME === "ID";
+      let bedComponent = this.$parent.$children.filter((el) => {
+        if (typeof el.select !== 'undefined') {
+          return el.select.VAR_NAME === 'ID';
         }
       });
-      let gradeComponent = this.$parent.$children.filter(el => {
-        if (typeof el.select !== "undefined") {
-          return el.select.VAR_NAME === "PROP_BED_GRADE";
+      let gradeComponent = this.$parent.$children.filter((el) => {
+        if (typeof el.select !== 'undefined') {
+          return el.select.VAR_NAME === 'PROP_BED_GRADE';
         }
       });
 
@@ -106,10 +106,10 @@ Vue.component("v-select", {
         this.isItemOpen = !this.isItemOpen;
       }
 
-      if (typeof boxComponent[0] !== "undefined") {
-        if (typeof item.TYPE !== "undefined") {
+      if (typeof boxComponent[0] !== 'undefined') {
+        if (typeof item.TYPE !== 'undefined') {
           //if selected grade  lift then disable boxes
-          if (item.TYPE === "1302") {
+          if (item.TYPE === '1302') {
             boxComponent[0].selectedItem = boxComponent[0].select.ITEMS.box_924;
             boxComponent[0].isDisabled = true;
           } else {
@@ -135,8 +135,8 @@ Vue.component("v-select", {
     setParams: function() {
       const item = this.selectedItem;
       switch (this.select.VAR_NAME) {
-        case "PROP_BED_BOX":
-          if (this.selectedItem.TYPE === "924") {
+        case 'PROP_BED_BOX':
+          if (this.selectedItem.TYPE === '924') {
             this.selectedItemCount = 0;
           } else {
             if (this.selectedItemCount < 1) {
@@ -146,21 +146,21 @@ Vue.component("v-select", {
           this.$set(
             this.$parent.params,
             this.select.VAR_NAME,
-            item.ITEMS[this.selectedItemCount].ID
+            item.ITEMS[this.selectedItemCount].ID,
           );
           break;
-        case "PROP_BED_GRADE":
+        case 'PROP_BED_GRADE':
           const currentBedSizeID = this.$parent.params.ID;
           const currentBedInfo = this.$parent.optionSelects
-            .filter(el => el["VAR_NAME"] === "ID")
+            .filter((el) => el['VAR_NAME'] === 'ID')
             .pop()
-            .ITEMS.filter(el => el.ID === currentBedSizeID)
+            .ITEMS.filter((el) => el.ID === currentBedSizeID)
             .pop();
           const bedXmlID = currentBedInfo.XML_ID;
           this.$set(
             this.$parent.params,
             this.select.VAR_NAME,
-            item.ITEMS[bedXmlID]
+            item.ITEMS[bedXmlID],
           );
           break;
         default:
@@ -171,11 +171,11 @@ Vue.component("v-select", {
       let newCount = this.selectedItemCount;
 
       switch (action) {
-        case "minus":
+        case 'minus':
           newCount =
             this.selectedItemCount - 1 > 0 ? (this.selectedItemCount -= 1) : 1;
           break;
-        case "plus":
+        case 'plus':
           newCount =
             this.selectedItemCount + 1 > this.maxItemCount
               ? this.maxItemCount
@@ -185,26 +185,26 @@ Vue.component("v-select", {
       this.selectedItemCount = newCount;
     },
     setMaxBoxesCount: function() {
-      let boxComponent = this.$parent.$children.filter(el => {
-        if (typeof el.select !== "undefined") {
-          return el.select.VAR_NAME === "PROP_BED_BOX";
+      let boxComponent = this.$parent.$children.filter((el) => {
+        if (typeof el.select !== 'undefined') {
+          return el.select.VAR_NAME === 'PROP_BED_BOX';
         }
       });
-      let bedComponent = this.$parent.$children.filter(el => {
-        if (typeof el.select !== "undefined") {
-          return el.select.VAR_NAME === "ID";
+      let bedComponent = this.$parent.$children.filter((el) => {
+        if (typeof el.select !== 'undefined') {
+          return el.select.VAR_NAME === 'ID';
         }
       });
-      let gradeComponent = this.$parent.$children.filter(el => {
-        if (typeof el.select !== "undefined") {
-          return el.select.VAR_NAME === "PROP_BED_GRADE";
+      let gradeComponent = this.$parent.$children.filter((el) => {
+        if (typeof el.select !== 'undefined') {
+          return el.select.VAR_NAME === 'PROP_BED_GRADE';
         }
       });
       if (
-        typeof boxComponent[0] !== "undefined" &&
-        typeof bedComponent[0] !== "undefined"
+        typeof boxComponent[0] !== 'undefined' &&
+        typeof bedComponent[0] !== 'undefined'
       ) {
-        const sizesHaveOnlyTwoBoxes = ["Ho18IsCj", "i6HDSbqj", "xoBplZnY"];
+        const sizesHaveOnlyTwoBoxes = ['Ho18IsCj', 'i6HDSbqj', 'xoBplZnY'];
         if (
           sizesHaveOnlyTwoBoxes.includes(bedComponent[0].selectedItem.XML_ID)
         ) {
@@ -212,11 +212,11 @@ Vue.component("v-select", {
           boxComponent[0].selectedItemCount = 2;
         } else {
           boxComponent[0].maxItemCount = Object.keys(
-            boxComponent[0].selectedItem.ITEMS
+            boxComponent[0].selectedItem.ITEMS,
           ).length;
         }
       }
-    }
+    },
   },
   mounted() {},
   created() {
@@ -231,21 +231,21 @@ Vue.component("v-select", {
   watch: {
     selectedItemCount: function() {
       this.setParams();
-    }
+    },
   },
   filters: {
-    formatPrice: value => {
-      if (String(value).includes("%")) {
+    formatPrice: (value) => {
+      if (String(value).includes('%')) {
         return value;
       }
-      let val = (value / 1).toFixed(0).replace(".", ",");
-      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " ₽";
-    }
-  }
+      let val = (value / 1).toFixed(0).replace('.', ',');
+      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽';
+    },
+  },
 });
 
-Vue.component("v-checkbox-product-option", {
-  props: ["option"],
+Vue.component('v-checkbox-product-option', {
+  props: ['option'],
   template: `
    <div class="mattress-add-options__item">
       <label class="custom-checkbox">
@@ -265,7 +265,7 @@ Vue.component("v-checkbox-product-option", {
   data() {
     return {
       checked: false,
-      selectedItem: {}
+      selectedItem: {},
     };
   },
   methods: {
@@ -275,9 +275,9 @@ Vue.component("v-checkbox-product-option", {
     setParams: function() {
       const currentBedSizeID = this.$parent.params.ID;
       const currentBedInfo = this.$parent.optionSelects
-        .filter(el => el["VAR_NAME"] === "ID")
+        .filter((el) => el['VAR_NAME'] === 'ID')
         .pop()
-        .ITEMS.filter(el => el.ID === currentBedSizeID)
+        .ITEMS.filter((el) => el.ID === currentBedSizeID)
         .pop();
       const bedXmlID = currentBedInfo.XML_ID;
       let needValue = null;
@@ -288,10 +288,10 @@ Vue.component("v-checkbox-product-option", {
         }
         this.$set(this.$parent.params, this.option.VAR_NAME, needValue);
       }
-    }
+    },
   },
   mounted() {
     this.setParams();
   },
-  watch: {}
+  watch: {},
 });
