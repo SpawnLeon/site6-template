@@ -5290,10 +5290,12 @@ $basket-col-width: (
     background-image: url(../images/card-block-3d-hover.svg);
   }
 }
-
+.card-block__3d + .card-block__video {
+  top: 86px;
+}
 .card-block__video {
   background-image: url(../images/card-block-video.svg);
-  top: 86px;
+ 
 
   &:active,
   &:focus,
