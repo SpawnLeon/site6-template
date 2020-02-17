@@ -27,7 +27,7 @@
   display: none !important;
 }
 
-[disabled*="disabled"] {
+[disabled*='disabled'] {
   opacity: 0.3;
   cursor: not-allowed;
 
@@ -53,10 +53,10 @@ body {
   font-size: 1rem;
   line-height: 1.2222;
   background-color: #fff;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-feature-settings: "pnum"on, "lnum"on, "liga"off;
+  font-feature-settings: 'pnum' on, 'lnum' on, 'liga' off;
   overflow-x: hidden;
   max-width: 100%;
   width: 100%;
@@ -154,7 +154,7 @@ h3,
 .clearfix::after {
   display: block;
   clear: both;
-  content: "";
+  content: '';
 }
 
 .content__section {
@@ -171,7 +171,9 @@ ul {
   text-align: center;
 }
 
-.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+.swiper-container-horizontal
+  > .swiper-pagination-bullets
+  .swiper-pagination-bullet {
   margin: 0 7px;
   width: 14px;
   height: 14px;
@@ -182,7 +184,9 @@ ul {
   cursor: pointer;
 }
 
-.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet-active {
+.swiper-container-horizontal
+  > .swiper-pagination-bullets
+  .swiper-pagination-bullet-active {
   background-color: #222222;
 }
 
@@ -288,7 +292,7 @@ ul {
   text-decoration: none;
 
   &::before {
-    content: "";
+    content: '';
     width: 11px;
     height: 16px;
     background-image: url(../images/location.svg);
@@ -318,8 +322,8 @@ ul {
   padding: 15px 0;
   position: relative;
 
-  &--open>.main-menu__list--child,
-  &:hover>.main-menu__list--child {
+  &--open > .main-menu__list--child,
+  &:hover > .main-menu__list--child {
     display: block;
   }
 }
@@ -566,7 +570,7 @@ ul {
   position: relative;
 
   &::before {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     left: 14px;
@@ -642,7 +646,7 @@ ul {
 }
 
 .menu-catalog-item__link::before {
-  content: "";
+  content: '';
   width: 100%;
   height: 100%;
   position: absolute;
@@ -664,25 +668,42 @@ ul {
   transform: translateX(-50%) translateY(50%) scale(3);
 }
 
-$catalog-menu-colors: (1: (#5ca3fd,
-    #2c89ff),
-  2: (#ffd716,
-    #e2bb00),
-  3: (#f6b600,
-    #e1a700),
-  4: (#f59502,
-    #e18c0a),
-  5: (#e94222,
-    #cf3a1d),
-  6: (#f65600,
-    #d74b00),
-  7: (#f07106,
-    #da6400),
-  8: (#ffa800,
-    #e59700));
+$catalog-menu-colors: (
+  1: (
+    #5ca3fd,
+    #2c89ff,
+  ),
+  2: (
+    #ffd716,
+    #e2bb00,
+  ),
+  3: (
+    #f6b600,
+    #e1a700,
+  ),
+  4: (
+    #f59502,
+    #e18c0a,
+  ),
+  5: (
+    #e94222,
+    #cf3a1d,
+  ),
+  6: (
+    #f65600,
+    #d74b00,
+  ),
+  7: (
+    #f07106,
+    #da6400,
+  ),
+  8: (
+    #ffa800,
+    #e59700,
+  ),
+);
 
-@each $n,
-$color in $catalog-menu-colors {
+@each $n, $color in $catalog-menu-colors {
   .menu-catalog-item:nth-child(#{$n}) {
     & .menu-catalog-item__link {
       background-color: nth($color, 1);
@@ -734,11 +755,11 @@ $color in $catalog-menu-colors {
   margin: 0 0 20px;
   flex: 1 1 100%;
 
-  grid-template-areas: "cif cif cih--2 cih--3""cif cif cih--4 cih--5";
+  grid-template-areas: 'cif cif cih--2 cih--3' 'cif cif cih--4 cih--5';
 }
 
 .collections__block:nth-child(even) {
-  grid-template-areas: "cih--1 cih--2 cif cif""cih--3 cih--4 cif cif";
+  grid-template-areas: 'cih--1 cih--2 cif cif' 'cih--3 cih--4 cif cif';
 }
 
 .collection-item {
@@ -813,7 +834,7 @@ $color in $catalog-menu-colors {
 }
 
 .product-of-week::before {
-  content: "";
+  content: '';
   width: 100%;
   height: 100%;
   position: absolute;
@@ -874,7 +895,7 @@ $color in $catalog-menu-colors {
   text-align: left;
 
   &::before {
-    content: "";
+    content: '';
     width: 35px;
     height: 35px;
     background-image: url(../images/week-saving.svg);
@@ -1012,7 +1033,7 @@ $color in $catalog-menu-colors {
 }
 
 .promo-text__icon::after {
-  content: "";
+  content: '';
   width: 70px;
   height: 70px;
   background-image: url(../images/logo-mini.svg);
@@ -1037,7 +1058,7 @@ $color in $catalog-menu-colors {
 }
 
 .advantages__item:not(:last-child)::after {
-  content: "";
+  content: '';
   width: 1px;
   height: 144px;
   position: absolute;
@@ -1115,7 +1136,7 @@ $color in $catalog-menu-colors {
     border-radius: 0 80px 0 0;
 
     &::before {
-      content: "";
+      content: '';
       display: block;
       position: absolute;
       top: 0;
@@ -1323,7 +1344,7 @@ $color in $catalog-menu-colors {
 }
 
 .phones__phone--has-icon::before {
-  content: "";
+  content: '';
   width: 19px;
   height: 19px;
   background-image: url(../images/phone.svg);
@@ -1337,7 +1358,7 @@ $color in $catalog-menu-colors {
 }
 
 .email--has-icon::before {
-  content: "";
+  content: '';
   width: 19px;
   height: 14px;
   background-image: url(../images/mail.svg);
@@ -1385,7 +1406,7 @@ $color in $catalog-menu-colors {
 }
 
 .price-list-button::before {
-  content: "";
+  content: '';
   width: 15px;
   height: 15px;
   background-image: url(../images/download-price-icon.svg);
@@ -1576,7 +1597,6 @@ $color in $catalog-menu-colors {
 }
 
 .catalog-left-menu__link {
-
   &--active,
   &:hover,
   &:focus,
@@ -1648,7 +1668,7 @@ $color in $catalog-menu-colors {
   display: none;
 }
 
-.catalog-left-menu__item--active>.catalog-left-menu {
+.catalog-left-menu__item--active > .catalog-left-menu {
   display: block;
 }
 
@@ -1682,7 +1702,7 @@ $color in $catalog-menu-colors {
   position: relative;
 
   &::after {
-    content: "";
+    content: '';
     width: 34px;
     height: 34px;
     background-image: url(../images/our-work-arrow.svg);
@@ -1714,7 +1734,7 @@ $color in $catalog-menu-colors {
   font-size: 14px;
 }
 
-.delivery-block__text>li {
+.delivery-block__text > li {
   margin-bottom: 5px;
 }
 
@@ -1889,15 +1909,15 @@ $color in $catalog-menu-colors {
   align-items: center;
   margin-right: 10px;
 
-  &>svg path {
+  & > svg path {
     fill: #414141;
   }
 
-  &--active>svg path {
+  &--active > svg path {
     fill: #f53a41;
   }
 
-  &--asc>svg {
+  &--asc > svg {
     transform: rotate(180deg);
   }
 }
@@ -1986,7 +2006,7 @@ $color in $catalog-menu-colors {
 /*<<<stickers*/
 /*catalog hardness>>>*/
 .catalog-list-item__hardness {
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 14px;
   width: 100%;
   max-width: 200px;
@@ -2086,15 +2106,17 @@ $color in $catalog-menu-colors {
 }
 
 .catalog-title-image::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(270deg,
-      rgba(0, 0, 0, 0.3) 27%,
-      rgba(0, 0, 0, 0) 76%);
+  background: linear-gradient(
+    270deg,
+    rgba(0, 0, 0, 0.3) 27%,
+    rgba(0, 0, 0, 0) 76%
+  );
 }
 
 .catalog-title-image__title {
@@ -2120,6 +2142,7 @@ $color in $catalog-menu-colors {
   border-right: 1px solid #e2e2e2;
   padding-right: 40px;
   padding-bottom: 40px;
+  position: relative;
 }
 
 .card-block--2 {
@@ -2415,7 +2438,7 @@ $color in $catalog-menu-colors {
 }
 
 .card-option__inner::after {
-  content: "";
+  content: '';
   width: 13px;
   height: 7px;
   background-image: url(../images/card-option-arrow.svg);
@@ -2437,7 +2460,7 @@ $color in $catalog-menu-colors {
   position: relative;
 
   &::before {
-    content: "";
+    content: '';
     height: 1px;
     position: absolute;
     left: -10px;
@@ -2495,7 +2518,7 @@ $color in $catalog-menu-colors {
 }
 
 .catalog-card__add-to-cart::before {
-  content: "";
+  content: '';
   width: 23px;
   height: 20px;
   background-image: url(../images/i-add-to-cart.svg);
@@ -2884,7 +2907,9 @@ $color in $catalog-menu-colors {
   display: flex;
 }
 
-.swiper-container-horizontal.card-additional-products__container>.swiper-pagination-bullets .swiper-pagination-bullet {
+.swiper-container-horizontal.card-additional-products__container
+  > .swiper-pagination-bullets
+  .swiper-pagination-bullet {
   background-color: #e2e2e2;
   height: 4px;
   width: 100%;
@@ -2893,7 +2918,9 @@ $color in $catalog-menu-colors {
   border-radius: 0;
 }
 
-.swiper-container-horizontal.card-additional-products__container>.swiper-pagination-bullets .swiper-pagination-bullet.swiper-pagination-bullet-active {
+.swiper-container-horizontal.card-additional-products__container
+  > .swiper-pagination-bullets
+  .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: #ffa800;
 }
 
@@ -2963,7 +2990,7 @@ $color in $catalog-menu-colors {
 
 /*<<<catalog card*/
 .content__title {
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 300;
   font-size: 54px;
 }
@@ -3224,7 +3251,7 @@ $color in $catalog-menu-colors {
   min-height: 58px;
 
   &:before {
-    content: "";
+    content: '';
     left: 0;
     top: 0;
     position: absolute;
@@ -3292,7 +3319,7 @@ $color in $catalog-menu-colors {
   position: relative;
 
   &::before {
-    content: "";
+    content: '';
     background-position: center;
     background-repeat: no-repeat;
     display: block;
@@ -3379,7 +3406,7 @@ $color in $catalog-menu-colors {
   cursor: pointer;
 
   &::after {
-    content: "";
+    content: '';
     width: 37px;
     height: 37px;
     display: flex;
@@ -3572,7 +3599,7 @@ $color in $catalog-menu-colors {
 }
 
 .shops__title {
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 300;
   font-size: 54px;
   margin: 1.6666rem 0 0 0;
@@ -3729,10 +3756,12 @@ $color in $catalog-menu-colors {
   overflow: hidden;
 
   &::before {
-    content: "";
-    background: linear-gradient(180deg,
-        rgba(34, 34, 34, 0) 48%,
-        rgba(34, 34, 34, 0.8) 95%);
+    content: '';
+    background: linear-gradient(
+      180deg,
+      rgba(34, 34, 34, 0) 48%,
+      rgba(34, 34, 34, 0.8) 95%
+    );
     top: 0;
     right: 0;
     bottom: 0;
@@ -3965,10 +3994,12 @@ $color in $catalog-menu-colors {
   font-size: 16px;
 }
 
-$basket-col-width: (cost: 10%,
+$basket-col-width: (
+  cost: 10%,
   qty: 10%,
   discount: 10%,
-  total: 10%);
+  total: 10%,
+);
 
 .basket-list__col {
   padding: 0 15px;
@@ -3977,8 +4008,7 @@ $basket-col-width: (cost: 10%,
   text-align: center;
   position: relative;
 
-  @each $name,
-  $width in $basket-col-width {
+  @each $name, $width in $basket-col-width {
     &--#{$name} {
       flex-basis: $width;
     }
@@ -4054,7 +4084,7 @@ $basket-col-width: (cost: 10%,
 }
 
 .basket-form__title {
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 300;
   font-size: 54px;
 }
@@ -4501,7 +4531,7 @@ $basket-col-width: (cost: 10%,
     position: relative;
 
     &:after {
-      content: "";
+      content: '';
       width: 16px;
       height: 16px;
       background-image: url(../images/search.svg);
@@ -4511,7 +4541,7 @@ $basket-col-width: (cost: 10%,
       background-size: contain;
     }
 
-    .ys-loc-autocomplete>div {
+    .ys-loc-autocomplete > div {
       cursor: pointer;
       padding: 10px 20px 10px 0;
       font-size: 16px;
@@ -4721,7 +4751,7 @@ $basket-col-width: (cost: 10%,
   z-index: 90;
 
   &::before {
-    content: "";
+    content: '';
     width: 18px;
     height: 18px;
     display: block;
@@ -4939,7 +4969,7 @@ $basket-col-width: (cost: 10%,
   }
 
   &::before {
-    content: "";
+    content: '';
     width: 311px;
     background-image: url(../images/boxes_info.jpg);
     background-size: cover;
@@ -5166,12 +5196,12 @@ $basket-col-width: (cost: 10%,
     }
   }
 
-  &+.promo-block {
+  & + .promo-block {
     margin-top: 0;
   }
 
   @media screen and (max-width: 1210px) {
-    &>* {
+    & > * {
       margin: 15px 15px;
       font-size: 20px;
     }
@@ -5241,12 +5271,12 @@ $basket-col-width: (cost: 10%,
 }
 
 /*<<< order-consultation */
-
+.card-block__video,
 .card-block__3d {
   position: absolute;
   width: 68px;
   height: 76px;
-  background-image: url(../images/card-block-3d-hover.svg);
+  background-image: url(../images/card-block-3d.svg);
   background-size: contain;
 
   @media screen and (max-width: 767px) {
@@ -5257,8 +5287,19 @@ $basket-col-width: (cost: 10%,
   &:active,
   &:focus,
   &:hover {
-    background-image: url(../images/card-block-3d.svg);
-  }  
+    background-image: url(../images/card-block-3d-hover.svg);
+  }
+}
+
+.card-block__video {
+  background-image: url(../images/card-block-video.svg);
+  top: 86px;
+
+  &:active,
+  &:focus,
+  &:hover {
+    background-image: url(../images/card-block-video-hover.svg);
+  }
 }
 
 .frame-card-block__3d iframe {
