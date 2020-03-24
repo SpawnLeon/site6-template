@@ -1994,6 +1994,29 @@ $catalog-menu-colors: (
   position: relative;
 }
 
+.sticker--new-2020 {
+  background: linear-gradient(180deg, #6caaf9 0%, #448ae4 100%);
+  border-radius: 8px;
+  padding: 3px 2px;
+  font-size: 7px;
+  line-height: 1;
+  letter-spacing: .025em;
+  text-align: center;
+  color: #fff;
+  flex-direction: column;
+  width: 41px;
+  height: 29px;
+  align-items: center;
+  justify-content: center;
+  span {
+    font-size: 14px;
+    line-height: 1;
+    color: #fff;
+    display: block;
+    letter-spacing: -.025em;
+  }
+}
+
 .catalog-list-item__stickers {
   display: flex;
   justify-content: space-between;
@@ -5295,7 +5318,6 @@ $basket-col-width: (
 }
 .card-block__video {
   background-image: url(../images/card-block-video.svg);
- 
 
   &:active,
   &:focus,

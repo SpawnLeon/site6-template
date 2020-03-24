@@ -16,13 +16,13 @@ module.exports = (env, options) => {
     devtool: webpackMode === 'production' ? 'source-map' : false,
     output: {
       filename: '[name].js',
-      //path: path.resolve(__dirname, './dist')
-      path: path.resolve('/mnt/share/murom-mebel.bsdev/www/local/templates/mebel/', './')
+      path: path.resolve(__dirname, './dist')
+      //path: path.resolve('/mnt/share/murom-mebel.bsdev/www/local/templates/mebel/', './')
     },
     devServer: {
       overlay: true,
-      //contentBase: path.join(__dirname, 'dist'),
-      contentBase: path.join('/mnt/share/murom-mebel.bsdev/www/local/templates/mebel/', './'),
+      contentBase: path.join(__dirname, 'dist'),
+      //contentBase: path.join('/mnt/share/murom-mebel.bsdev/www/local/templates/mebel/', './'),
       compress: true,
       port: 9001,
       headers: {
